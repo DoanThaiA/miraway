@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miraway Group – Giải pháp tiên phong ứng dụng AI &amp; chuyển đổi số toàn diện</title>
+<meta name="description" content="Miraway Group – hãng công nghệ hàng đầu Việt Nam với 19+ năm kinh nghiệm, 1.000+ khách hàng, 500+ nhân sự công nghệ. Giải pháp AI, Blockchain, dữ liệu và chuyển đổi số toàn diện.">
+<meta property="og:title" content="Miraway Group – Sáng tạo công nghệ, Kiến tạo đất nước">
+<meta property="og:description" content="Giải pháp tiên phong – Ứng dụng AI và chuyển đổi số toàn diện.">
+<meta property="og:image" content="assets/logo.png">
+<meta name="theme-color" content="#0052B8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0052B8; --blue-2:#2F86D1; --sky:#5CB8FF; --purple:#6E3AA8; --coral:#E8604C;
+  --navy:#061A3D; --navy-2:#0B2A5C; --ink:#0F1E36; --muted:#55657E; --line:#E3EAF4;
+  --soft:#F3F7FC; --white:#fff;
+  --grad:linear-gradient(120deg,var(--blue) 0%,var(--purple) 60%,var(--coral) 100%);
+  --grad-cool:linear-gradient(135deg,#0052B8,#2F86D1 55%,#5CB8FF);
+  --radius:20px; --shadow:0 18px 50px -20px rgba(6,26,61,.25); --shadow-sm:0 6px 20px -8px rgba(6,26,61,.18);
+  --container:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{width:min(100% - 40px,var(--container));margin-inline:auto}
+.icon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{position:relative}
+.section{padding:88px 0}
+.bg-soft{background:var(--soft)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.eyebrow::before{content:"";width:28px;height:2px;border-radius:2px;background:var(--grad)}
+.on-dark .eyebrow{color:var(--sky)}
+.section-head{max-width:760px;margin-bottom:48px}
+.section-head.center{text-align:center;margin-inline:auto}
+.section-head.center .eyebrow{justify-content:center}
+h2.title{font-size:clamp(30px,4vw,46px);line-height:1.18;font-weight:800;letter-spacing:-.02em;margin:14px 0 16px;text-wrap:balance}
+h1,h3,h4,.lead{text-wrap:pretty}
+.lead{font-size:18px;color:var(--muted)}
+.on-dark{color:#E6EEFA}
+.on-dark .lead{color:#A9BBD6}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:0}
+.btn .icon{width:18px;height:18px;transition:transform .25s}
+.btn:hover .icon{transform:translateX(4px)}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 30px -10px rgba(110,58,168,.55)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(110,58,168,.65)}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--blue);color:var(--blue)}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{transform:translateY(-2px)}
+.btn-outline-light{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+.btn-outline-light:hover{background:rgba(255,255,255,.1)}
+
+/* Header */
+.header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
+.header.scrolled{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding:10px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{padding:10px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#33445E;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);background:rgba(0,82,184,.07)}
+.nav-cta{padding:11px 20px;font-size:14px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:0;background:#fff;box-shadow:var(--shadow-sm);cursor:pointer;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav-open .burger span{background:transparent}
+.nav-open .burger span::before{top:0;transform:rotate(45deg)}
+.nav-open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* Hero */
+.hero{padding:132px 0 80px;min-height:min(100vh,860px);display:flex;align-items:center;background:
+  radial-gradient(900px 500px at 85% 10%,rgba(92,184,255,.28),transparent 60%),
+  radial-gradient(700px 500px at 10% 90%,rgba(110,58,168,.14),transparent 60%),
+  radial-gradient(500px 400px at 60% 100%,rgba(232,96,76,.10),transparent 60%),
+  linear-gradient(180deg,#EEF5FF 0%,#fff 100%);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:#fff;box-shadow:var(--shadow-sm);font-size:14px;font-weight:600;color:#33445E}
+.chip b{background:var(--grad);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;letter-spacing:.06em}
+.hero h1{font-size:clamp(34px,4.3vw,56px);line-height:1.12;font-weight:800;letter-spacing:-.03em;margin:22px 0 20px;text-wrap:balance}
+.hero p.lead{max-width:540px;font-size:18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 36px}
+.hero-mini{display:flex;flex-wrap:wrap;gap:14px}
+.hero-mini div{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:16px;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--line)}
+.hero-mini strong{font-size:22px;font-weight:800;line-height:1}
+.hero-mini span{font-size:13px;color:var(--muted);line-height:1.3}
+.hero-mini i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;background:var(--grad-cool)}
+.hero-mini i .icon{width:20px;height:20px}
+.hero-visual{position:relative;justify-self:center;max-width:470px;width:100%}
+.hero-visual img{width:100%;filter:drop-shadow(0 30px 50px rgba(6,26,61,.22));animation:float 7s ease-in-out infinite}
+.asterisk{position:absolute;pointer-events:none;opacity:.9}
+.hero .asterisk{width:420px;right:-140px;bottom:-160px;opacity:.12;animation:spin 60s linear infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Stats */
+.stats{background:var(--navy);color:#fff;padding:0;overflow:hidden}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.stat{padding:56px 28px;text-align:center;position:relative}
+.stat+.stat::before{content:"";position:absolute;left:0;top:30%;height:40%;width:1px;background:rgba(255,255,255,.12)}
+.stat .num{font-size:clamp(40px,5vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#fff 20%,#9FD3FF 60%,#C7A6F2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{margin-top:12px;color:#A9BBD6;font-size:15px}
+.stats-glow{position:absolute;inset:0;background:radial-gradient(600px 200px at 20% 0%,rgba(47,134,209,.35),transparent 70%),radial-gradient(600px 200px at 85% 100%,rgba(110,58,168,.35),transparent 70%)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-media{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px}
+.ph{border-radius:18px;overflow:hidden;background:#E9EFF7;box-shadow:var(--shadow-sm)}
+.ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.03);transition:transform .6s}
+.ph:hover img{transform:scale(1.07)}
+.ph-main{grid-column:span 3;aspect-ratio:642/372;border-radius:22px}
+.ph-sm{aspect-ratio:4/3}
+
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:80px}
+.mv-card{border-radius:var(--radius);padding:40px;position:relative;overflow:hidden;color:#fff}
+.mv-card.mission{background:linear-gradient(140deg,#0052B8,#0B2A5C)}
+.mv-card.vision{background:linear-gradient(140deg,#6E3AA8,#3A1E6B)}
+.mv-card .ic{width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.14);display:grid;place-items:center;margin-bottom:22px}
+.mv-card .ic .icon{width:28px;height:28px}
+.mv-card small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:700}
+.mv-card h3{font-size:26px;font-weight:800;margin:6px 0 12px;letter-spacing:-.01em}
+.mv-card p{opacity:.88}
+.mv-card .asterisk{width:240px;right:-70px;top:-70px;opacity:.14}
+.values{margin-top:24px;border-radius:var(--radius);background:var(--soft);padding:32px}
+.values h3{font-size:20px;font-weight:800;line-height:1.3;margin-bottom:20px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.values h3 small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.values ul{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.values li{background:#fff;border-radius:16px;padding:20px 18px;box-shadow:var(--shadow-sm);transition:transform .25s}
+.values li:hover{transform:translateY(-4px)}
+.values li b{display:block;font-size:17px;font-weight:800;margin:2px 0 4px}
+.values li span{font-size:13.5px;color:var(--muted);line-height:1.45;display:block}
+.values li em{font-style:normal;font-size:12px;font-weight:800;color:var(--coral);letter-spacing:.08em}
+
+/* Solutions */
+.solutions{background:var(--soft)}
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sol-card{background:#fff;border-radius:var(--radius);padding:34px 30px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s;box-shadow:0 1px 0 var(--line)}
+.sol-card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s}
+.sol-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.sol-card:hover::after{opacity:1}
+.sol-ic{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#fff;margin-bottom:22px}
+.sol-ic .icon{width:28px;height:28px}
+.c1{background:linear-gradient(135deg,#0052B8,#2F86D1)}
+.c2{background:linear-gradient(135deg,#6E3AA8,#9B6BD6)}
+.c3{background:linear-gradient(135deg,#0B8A5F,#3CC48F)}
+.c4{background:linear-gradient(135deg,#E8604C,#F2A93B)}
+.c5{background:linear-gradient(135deg,#1D6FB8,#6E3AA8)}
+.c6{background:linear-gradient(135deg,#0B8A5F,#2F86D1)}
+.sol-card h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.sol-card p{color:var(--muted);font-size:15.5px}
+.sol-num{position:absolute;right:26px;top:22px;font-size:46px;font-weight:800;color:#EDF2F9;line-height:1}
+.industries{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:center}
+.industries span.label{font-weight:700;margin-right:8px;color:var(--ink)}
+.pill{padding:10px 18px;border-radius:999px;background:#fff;font-size:14.5px;font-weight:600;color:#33445E;box-shadow:inset 0 0 0 1px var(--line);transition:.25s}
+.pill:hover{color:var(--blue);box-shadow:inset 0 0 0 1.5px var(--blue)}
+
+/* Value / bento */
+.bento{display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-items:stretch}
+.value-list{display:grid;gap:12px}
+.value-row{display:flex;gap:18px;align-items:center;padding:18px 22px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);transition:.3s}
+.value-row:hover{box-shadow:var(--shadow);transform:translateX(4px)}
+.value-row .sol-ic{width:48px;height:48px;border-radius:14px;margin:0;flex-shrink:0}
+.value-row .sol-ic .icon{width:22px;height:22px}
+.value-row h4{font-size:17px;font-weight:700;line-height:1.35;margin-bottom:2px}
+.value-row p{color:var(--muted);font-size:14.5px;line-height:1.5}
+.bento-hero{border-radius:24px;padding:44px;color:#fff;background:linear-gradient(160deg,#0B2A5C 0%,#0052B8 55%,#6E3AA8 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.bento-hero .asterisk{width:360px;right:-120px;bottom:-120px;opacity:.18;animation:spin 80s linear infinite}
+.bento-hero small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:700}
+.bento-hero h3{font-size:clamp(28px,3vw,38px);line-height:1.15;font-weight:800;margin:12px 0 18px;letter-spacing:-.02em}
+.bento-hero h3 span{color:#9FD3FF}
+.bento-hero p{opacity:.88;max-width:420px;position:relative}
+
+/* Tech core */
+.tech{background:var(--navy);overflow:hidden}
+.tech::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 15% 0%,rgba(47,134,209,.25),transparent 70%),radial-gradient(700px 400px at 90% 100%,rgba(110,58,168,.3),transparent 70%);pointer-events:none}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative}
+.tech-card{border-radius:22px;padding:34px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);transition:.35s}
+.tech-card:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px rgba(92,184,255,.45),0 20px 50px -20px rgba(47,134,209,.5)}
+.tech-card .sol-ic{margin-bottom:24px}
+.tech-card h3{font-size:22px;font-weight:700;color:#fff;margin-bottom:18px}
+.tech-card li{display:flex;gap:12px;padding:11px 0;border-top:1px solid rgba(255,255,255,.08);color:#C3D2E8;font-size:15px}
+.tech-card li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sky);margin-top:9px;flex-shrink:0;box-shadow:0 0 0 4px rgba(92,184,255,.15)}
+.tech-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px;position:relative}
+.tech-tags span{padding:11px 20px;border-radius:999px;font-weight:700;font-size:14.5px;color:#fff;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.tech-tags span::before{content:"✦";margin-right:10px;color:var(--coral)}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.steps::before{content:"";position:absolute;top:36px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,#C8D6E2 0 8px,transparent 8px 16px)}
+.step{text-align:center;position:relative;padding:0 8px}
+.step-num{width:72px;height:72px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:800;color:#fff;background:var(--grad);box-shadow:0 0 0 8px #fff,0 14px 30px -10px rgba(110,58,168,.6);position:relative}
+.step h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+.capab-box{margin-top:60px;border-radius:22px;padding:28px 32px;background:var(--soft);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.capab-box h3{font-size:18px;font-weight:800;display:flex;align-items:center;gap:12px;white-space:nowrap}
+.capab-box h3 i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.capab-box h3 i .icon{width:20px;height:20px}
+.tech-tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.tech-tiles div{background:#fff;border-radius:14px;padding:14px 12px;font-weight:600;font-size:14px;line-height:1.35;text-align:center;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px}
+.tech-tiles div::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--grad);flex-shrink:0}
+
+/* Timeline */
+.history{background:linear-gradient(180deg,#fff,#F3F7FC)}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.timeline::before{content:"";position:absolute;left:10%;right:10%;top:11px;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--coral));border-radius:3px}
+.tl-item{display:flex;flex-direction:column;align-items:center;gap:22px}
+.tl-dot{order:-1;width:25px;height:25px;border-radius:50%;background:#fff;border:6px solid var(--blue);z-index:1;box-shadow:0 0 0 6px rgba(0,82,184,.12);flex-shrink:0}
+.tl-item:nth-child(2) .tl-dot{border-color:#3E5FB0}.tl-item:nth-child(3) .tl-dot{border-color:var(--purple)}.tl-item:nth-child(4) .tl-dot{border-color:#A9507A}.tl-item:nth-child(5) .tl-dot{border-color:var(--coral)}
+.tl-card{background:#fff;border-radius:20px;padding:24px 22px;box-shadow:var(--shadow-sm);transition:.3s;height:100%;width:100%}
+.tl-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.tl-year{font-size:14px;font-weight:800;display:inline-block;padding:5px 12px;border-radius:999px;color:#fff;background:var(--grad);margin-bottom:12px;white-space:nowrap}
+.tl-card h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.tl-card p{color:var(--muted);font-size:14.5px;line-height:1.55}
+
+/* Global */
+.global-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;margin-top:72px}
+.hero-grid>*,.about-grid>*,.global-grid>*,.awards-grid>*{min-width:0}
+.sub-title{font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.2;letter-spacing:-.02em;margin-bottom:14px}
+.global-map{border-radius:28px;background:radial-gradient(circle at 75% 35%,#E3EFFF,#F5F9FE 70%);padding:28px 20px}
+.global-map img{width:100%;height:auto}
+.countries{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.countries span{padding:9px 16px;border-radius:999px;background:var(--soft);font-weight:600;font-size:14px;color:#24406E}
+
+/* Awards */
+.awards{background:var(--soft)}
+.awards-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+.award-photo{border-radius:28px;background:#fff;padding:12px;box-shadow:var(--shadow)}
+.award-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.award{background:#fff;border-radius:18px;padding:22px;display:flex;gap:16px;align-items:flex-start;transition:.3s;box-shadow:0 1px 0 var(--line)}
+.award:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.award i{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#F2A93B,#E8604C);flex-shrink:0}
+.award i .icon{width:22px;height:22px}
+.award b{display:block;color:var(--coral);font-weight:800;font-size:15px}
+.award span{font-weight:600;font-size:15px;line-height:1.45;display:block}
+
+/* Clients */
+.client-board{display:grid;grid-template-columns:370fr 370fr 401fr;gap:28px;align-items:start;background:#F2F2F2;border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.cl-col{display:flex;flex-direction:column;gap:22px;min-width:0}
+.cl-block figcaption{font-weight:700;font-size:15px;line-height:1.35;margin-bottom:10px;color:var(--ink)}
+.cl-block img{width:100%;height:auto;border-radius:6px;background:#fff}
+.client-tabs{display:none}
+
+/* Why */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why{border-radius:22px;padding:32px 28px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);transition:.35s;position:relative;overflow:hidden}
+.why::before{content:"";position:absolute;inset:auto 0 0 0;height:0;background:var(--grad);transition:height .4s;z-index:0}
+.why:hover::before{height:100%}
+.why>*{position:relative;z-index:1;transition:color .35s}
+.why:hover,.why:hover p{color:#fff}
+.why:hover .sol-ic{background:rgba(255,255,255,.18)}
+.why h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.why p{color:var(--muted);font-size:15px}
+
+/* Contact */
+#lien-he{padding:64px 0}
+.contact-card{display:grid;grid-template-columns:.72fr 1.6fr;max-width:1040px;margin-inline:auto;border-radius:24px;overflow:hidden;background:#fff;box-shadow:var(--shadow),inset 0 0 0 1px var(--line)}
+.contact-aside{position:relative;overflow:hidden;padding:32px 28px;color:#fff;background:linear-gradient(155deg,#0B2A5C 0%,#0052B8 55%,#6E3AA8 100%);display:flex;flex-direction:column}
+.contact-aside .asterisk{width:260px;right:-90px;bottom:-90px;opacity:.18;animation:spin 80s linear infinite}
+.contact-aside small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:700}
+.contact-aside h2{font-size:clamp(24px,2.4vw,30px);line-height:1.2;font-weight:800;letter-spacing:-.02em;margin:8px 0 10px}
+.contact-aside p{opacity:.9;position:relative;font-size:15px}
+.contact-note{margin-top:auto;padding-top:24px;display:flex;gap:8px;align-items:flex-start;font-size:13px !important}
+.contact-note .icon{width:18px;height:18px;color:#9FD3FF;margin-top:1px}
+.contact-body{padding:26px 30px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:13.5px;font-weight:600;color:#26354D}
+.req{color:var(--coral);font-weight:700}
+.field input,.field select,.field textarea{font:inherit;font-size:14.5px;color:var(--ink);background:#F7F9FC;border:1.5px solid #DCE4EF;border-radius:10px;padding:9px 13px;width:100%;transition:border-color .2s,box-shadow .2s,background .2s;outline:none}
+.field textarea{resize:vertical;min-height:84px;line-height:1.5}
+.field select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2355657E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:#C3D0E2}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(0,82,184,.12)}
+.field [aria-invalid="true"],.field [aria-invalid="true"]:focus{border-color:#D9533F;background:#FFF8F7}
+.field [aria-invalid="true"]:focus{box-shadow:0 0 0 4px rgba(217,83,63,.14)}
+.err{font-size:12.5px;color:#C23D2A;line-height:1.35}
+.err:empty{display:none}
+.msg-wrap{position:relative}
+.count{position:absolute;right:12px;bottom:8px;font-size:12px;color:var(--muted);pointer-events:none}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#33445E;cursor:pointer;line-height:1.45}
+.consent input{width:17px;height:17px;flex-shrink:0;margin-top:2px;accent-color:var(--blue);cursor:pointer}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.form-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.form-foot .btn{padding:12px 22px;white-space:nowrap}
+#cf-consent-err{margin-top:6px}
+.btn[disabled]{opacity:.75;cursor:progress;transform:none}
+.btn.loading .icon{display:none}
+.btn.loading::after{content:"";width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;animation:spin .8s linear infinite}
+.form-status{margin-top:12px;padding:10px 14px;border-radius:10px;font-size:14px;background:#FDEDEA;color:#9E2F1E}
+.contact-success{text-align:center;padding:24px 10px;outline:none}
+.ok-ic{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#0B8A5F,#3CC48F);box-shadow:0 14px 30px -10px rgba(11,138,95,.55)}
+.ok-ic .icon{width:34px;height:34px;stroke-width:2.6}
+.contact-success h3{font-size:24px;font-weight:800;margin-bottom:8px}
+.contact-success p{color:var(--muted);max-width:420px;margin:0 auto 24px}
+
+/* Footer */
+.footer{background:var(--navy);color:#A9BBD6;padding:64px 0 28px;font-size:15px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr .8fr;gap:36px;align-items:start}
+.footer-logo{background:#fff;border-radius:14px;padding:12px 16px;display:inline-block;margin-bottom:18px}
+.footer-logo img{height:30px}
+.footer-thanks{color:#fff;font-size:22px;font-weight:800}
+.footer a:hover{color:#fff}
+.footer .addr{display:flex;gap:12px;align-items:flex-start;line-height:1.55}
+.footer .addr b{display:block;color:#fff;font-weight:700;margin-bottom:4px}
+.footer .addr .icon{width:22px;height:22px;color:var(--sky);margin-top:1px}
+.footer-quote{font-style:italic;color:#9FD3FF;font-weight:600;font-size:16px;margin-top:4px}
+.footer-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}
+
+/* Back to top */
+.to-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);transition:.3s;z-index:40;border:0;cursor:pointer}
+.to-top.show{opacity:1;transform:none}
+.to-top .icon{transform:rotate(-90deg)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* Responsive */
+@media (max-width:1100px){
+  .values{grid-template-columns:1fr}
+  .values ul{grid-template-columns:repeat(3,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .capab-box{grid-template-columns:1fr}
+  .tech-tiles{grid-template-columns:repeat(3,1fr)}
+  .timeline{grid-template-columns:repeat(3,1fr);row-gap:28px}
+  .timeline::before{display:none}
+}
+@media (max-width:960px){
+  .nav-links{position:fixed;top:72px;left:16px;right:16px;flex-direction:column;align-items:stretch;background:#fff;border-radius:20px;padding:14px;box-shadow:var(--shadow);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s}
+  .nav-open .nav-links{transform:none;opacity:1;pointer-events:auto}
+  .nav-links a{padding:14px 16px}
+  .burger{display:flex}
+  .nav-cta{display:none}
+  .hero{padding-top:130px}
+  .hero-grid,.about-grid,.global-grid,.awards-grid,.bento,.contact-card{grid-template-columns:1fr}
+  .contact-aside{padding:36px 32px}
+  .contact-note{padding-top:20px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .global-grid{margin-top:56px}
+  .hero{min-height:0}
+  .about-media{margin-inline:auto}
+  .bento-hero{min-height:0}
+  .hero-visual{max-width:420px}
+  .sol-grid,.tech-grid{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3)::before{display:none}
+  .mv-grid{grid-template-columns:1fr;margin-top:80px}
+  .steps{grid-template-columns:1fr 1fr;row-gap:44px}
+  .steps::before{display:none}
+}
+@media (max-width:760px){
+  .timeline{grid-template-columns:1fr;gap:16px;padding-left:4px}
+  .timeline::before{display:block;left:15px;right:auto;top:8px;bottom:8px;width:3px;height:auto;background:linear-gradient(180deg,var(--blue),var(--purple),var(--coral))}
+  .tl-item{flex-direction:row;align-items:flex-start;gap:16px}
+  .tl-dot{margin-top:22px}
+}
+@media (max-width:760px){
+  .client-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px 14px;padding:4px 20px;scroll-snap-type:x proximity}
+  .client-tabs::-webkit-scrollbar{display:none}
+  .client-tabs button{flex:none;scroll-snap-align:start;font:inherit;font-size:14px;font-weight:600;color:#33445E;background:#fff;border:0;border-radius:999px;padding:9px 16px;box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;transition:.2s}
+  .client-tabs button[aria-selected="true"]{color:#fff;background:var(--grad);box-shadow:0 8px 18px -10px rgba(110,58,168,.7)}
+  .client-board{display:block;padding:14px;border-radius:18px}
+  .cl-col{display:contents}
+  .cl-block{display:none}
+  .cl-block.active{display:block}
+  .cl-block figcaption{font-size:14px;margin-bottom:8px}
+}
+@media (max-width:640px){
+  .section{padding:64px 0}
+  .section-head{margin-bottom:32px}
+  #lien-he{padding:40px 0}
+  .form-grid{grid-template-columns:1fr;gap:8px}
+  .field textarea{min-height:72px}
+  .field input,.field select,.field textarea{padding:8px 12px}
+  .contact-body{padding:20px 16px}
+  .contact-aside{padding:22px 20px}
+  .contact-aside h2{margin:4px 0 6px}
+  .contact-note,.contact-aside .asterisk,.contact-aside small,.contact-aside p{display:none}
+  .contact-aside{padding:16px 20px}
+  .contact-aside h2{margin:0;font-size:22px}
+  .contact-card{border-radius:20px}
+  .form-foot{flex-direction:column;align-items:stretch;gap:12px}
+  .form-foot .btn{width:100%;justify-content:center}
+  .field input,.field select,.field textarea{font-size:16px}
+  .sol-grid,.tech-grid,.why-grid,.award-list,.steps{grid-template-columns:1fr}
+  .values ul{grid-template-columns:1fr 1fr}
+  .values li:last-child{grid-column:span 2}
+  .tech-tiles{grid-template-columns:1fr 1fr}
+  .bento-hero{padding:32px 26px}
+  .value-row{padding:16px}
+  .capab-box{padding:24px 20px}
+  .about-media{gap:8px}
+  .ph-sm{border-radius:12px}
+  .stat{padding:40px 16px}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-mini div{flex:1 1 140px}
+  .mv-card,.values{padding:30px 24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+    <symbol id="i-token" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="M15.4 9.6a6 6 0 1 1-5.8 5.8"/><path d="M9 6.5v5M7 9h4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20.5 14v.01M14 20.5h.01M17 20.5h3.5V17"/></symbol>
+    <symbol id="i-health" viewBox="0 0 24 24"><path d="M20.8 8.6a5 5 0 0 0-8.8-3.2A5 5 0 0 0 3.2 8.6c0 5.4 8.8 11.4 8.8 11.4s8.8-6 8.8-11.4z"/><path d="M3.8 12h3.7l2-3 3 6 2-3h5.7"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M3 10.5h18M16 15h2"/><path d="M7 6V4.5h10V6"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 21c0-9 6-15 16-16-1 10-7 16-16 16z"/><path d="M5 21l8.5-8.5"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.5l8 4.5v9.5L12 21l-8-4.5V7z"/><path d="M12 11.5L20 7M12 11.5V21M12 11.5L4 7"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/><path d="M10 10h4v4h-4z"/></symbol>
+    <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 16.5c.6-1.6 2-2.5 3.5-2.5s2.9.9 3.5 2.5M15 10h3M15 13.5h3"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 3.5v17h17"/><path d="M7.5 15l4-4 3 3 5.5-6.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2"/><path d="M14 4c3-1 6-1 6-1s0 3-1 6l-7 7-5-5z"/><circle cx="15" cy="9" r="1.5"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3l-5.5 2.9 1-6.2L3 9.6l6.2-.9z"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5"/></symbol>
+    <!-- Brand asterisk (from the Miraway logo) -->
+    <symbol id="asterisk" viewBox="-100 -100 200 200">
+      <g fill="none" stroke-width="11">
+        <rect x="-13" y="-92" width="26" height="62" rx="13" stroke="#6E3AA8"/>
+        <rect x="-13" y="-92" width="26" height="62" rx="13" stroke="#2F86D1" transform="rotate(60)"/>
+        <rect x="-13" y="-92" width="26" height="62" rx="13" stroke="#E8604C" transform="rotate(120)"/>
+        <rect x="-13" y="-92" width="26" height="62" rx="13" stroke="#6E3AA8" transform="rotate(180)"/>
+        <rect x="-13" y="-92" width="26" height="62" rx="13" stroke="#2F86D1" transform="rotate(240)"/>
+        <rect x="-13" y="-92" width="26" height="62" rx="13" stroke="#E8604C" transform="rotate(300)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container nav">
+    <a href="#top" class="logo" aria-label="Miraway Group – Trang chủ"><img src="assets/logo.png" alt="Miraway – Creative Technology" width="150" height="38"></a>
+    <nav class="nav-links" id="navLinks" aria-label="Điều hướng chính">
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#giai-phap">Giải pháp</a>
+      <a href="#cong-nghe">Công nghệ</a>
+      <a href="#nang-luc">Năng lực</a>
+      <a href="#hanh-trinh">Hành trình</a>
+      <a href="#khach-hang">Khách hàng</a>
+    </nav>
+    <a href="#lien-he" class="btn btn-primary nav-cta">Liên hệ tư vấn</a>
+    <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+  <div class="container hero-grid">
+    <div>
+      <span class="chip reveal"><b>MIRAWAY GROUP</b> Creative Technology</span>
+      <h1 class="reveal d1">Giải pháp tiên phong <span class="grad-text">ứng dụng AI</span> &amp; chuyển đổi số toàn diện</h1>
+      <p class="lead reveal d2">Đối tác lựa chọn trên hành trình trở thành tổ chức dẫn dắt bởi AI &amp; dữ liệu.</p>
+      <div class="hero-actions reveal d3">
+        <a href="#giai-phap" class="btn btn-primary">Khám phá giải pháp <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a href="#lien-he" class="btn btn-ghost">Liên hệ tư vấn</a>
+      </div>
+      <div class="hero-mini reveal d4">
+        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>5</strong><br><span>Đơn vị thành viên</span></p></div>
+        <div><i><svg class="icon"><use href="#i-cpu"/></svg></i><p><strong>3</strong><br><span>Trung tâm R&amp;D</span></p></div>
+        <div><i><svg class="icon"><use href="#i-globe"/></svg></i><p><strong>10+</strong><br><span>Quốc gia triển khai</span></p></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <img src="assets/hero-collage.png" alt="Hoạt động của đội ngũ Miraway Group: sự kiện, lễ vinh danh và phát triển sản phẩm" width="555" height="594" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats" aria-label="Những con số nổi bật">
+  <div class="stats-glow"></div>
+  <div class="container stats-inner">
+    <div class="stat reveal"><div class="num" data-count="19" data-suffix="+">19+</div><p>Năm kinh nghiệm</p></div>
+    <div class="stat reveal d1"><div class="num" data-count="1000" data-suffix="+">1.000+</div><p>Khách hàng trong và ngoài nước</p></div>
+    <div class="stat reveal d2"><div class="num" data-count="500" data-suffix="+">500+</div><p>Nhân sự công nghệ</p></div>
+    <div class="stat reveal d3"><div class="num" data-count="90" data-prefix="&gt;" data-suffix="%">&gt;90%</div><p>Khách hàng trung thành</p></div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="gioi-thieu">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <figure class="ph ph-main"><img src="assets/team-office.jpg" alt="Đội ngũ Miraway Group tại văn phòng" width="642" height="372" loading="lazy" decoding="async"></figure>
+        <figure class="ph ph-sm"><img src="assets/team-workshop.jpg" alt="Buổi đào tạo, hội thảo tại Miraway" width="528" height="310" loading="lazy" decoding="async"></figure>
+        <figure class="ph ph-sm"><img src="assets/team-meeting.jpg" alt="Làm việc cùng khách hàng" width="528" height="304" loading="lazy" decoding="async"></figure>
+        <figure class="ph ph-sm"><img src="assets/team-building.jpg" alt="Team building Miraway" width="328" height="186" loading="lazy" decoding="async"></figure>
+      </div>
+      <div>
+        <span class="eyebrow reveal">Về Miraway Group</span>
+        <h2 class="title reveal d1">Hãng công nghệ hàng đầu cung cấp <span class="grad-text">giải pháp chuyển đổi số</span></h2>
+        <p class="lead reveal d2">Với mạng lưới đối tác toàn cầu và các dự án triển khai thành công trong và ngoài nước, Miraway tự chủ năng lực tư vấn, cung cấp và triển khai giải pháp CNTT tại Việt Nam và các nước trong khu vực.</p>
+        <a href="#hanh-trinh" class="btn btn-ghost reveal d3" style="margin-top:28px">Xem lịch sử phát triển <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="mv-grid">
+      <article class="mv-card mission reveal">
+        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+        <div class="ic"><svg class="icon"><use href="#i-target"/></svg></div>
+        <small>Sứ mệnh</small>
+        <h3>Sáng tạo công nghệ – Kiến tạo đất nước</h3>
+        <p>Tiên phong thúc đẩy chuyển đổi số trong nước và khu vực, mang lại giá trị thực tiễn cho cộng đồng bằng các giải pháp, sản phẩm công nghệ hữu ích và thông minh.</p>
+      </article>
+      <article class="mv-card vision reveal d1">
+        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+        <div class="ic"><svg class="icon"><use href="#i-eye"/></svg></div>
+        <small>Tầm nhìn</small>
+        <h3>Vươn tầm phát triển</h3>
+        <p>Trở thành công ty công nghệ tiên phong hàng đầu Việt Nam và khu vực, kiến tạo vị thế số bằng những giải pháp đột phá nâng tầm quốc gia.</p>
+      </article>
+    </div>
+    <div class="values reveal">
+      <h3>Năm giá trị cốt lõi</h3>
+      <ul>
+        <li><em>01</em><b>Khát vọng</b><span>Vì lợi ích cộng đồng và quốc gia</span></li>
+        <li><em>02</em><b>Sáng tạo</b><span>Luôn đổi mới công nghệ</span></li>
+        <li><em>03</em><b>Tận tâm</b><span>Đặt khách hàng lên hàng đầu</span></li>
+        <li><em>04</em><b>Chuyên nghiệp</b><span>Nghiêm túc, có trách nhiệm</span></li>
+        <li><em>05</em><b>Bứt phá</b><span>Sẵn sàng vượt giới hạn</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Solutions ecosystem -->
+<section class="section solutions" id="giai-phap">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal">Hệ sinh thái <span class="grad-text">giải pháp</span></h2>
+    </div>
+    <div class="sol-grid">
+      <article class="sol-card reveal"><span class="sol-num">01</span><div class="sol-ic c1"><svg class="icon"><use href="#i-token"/></svg></div><h3>Token hóa tài sản (RWA)</h3><p>Token hóa bất động sản, trái phiếu, hàng hóa; thanh khoản 24/7, sở hữu phân đoạn.</p></article>
+      <article class="sol-card reveal d1"><span class="sol-num">02</span><div class="sol-ic c2"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Giải pháp bảo hiểm số</h3><p>Sự kết hợp đột phá giữa công nghệ và dịch vụ tài chính – bảo hiểm, giúp tối ưu hóa quy trình quản lý, tự động hóa giao dịch và nâng cao trải nghiệm người dùng.</p></article>
+      <article class="sol-card reveal d2"><span class="sol-num">03</span><div class="sol-ic c3"><svg class="icon"><use href="#i-qr"/></svg></div><h3>Truy xuất nguồn gốc</h3><p>Theo dõi từ sản xuất đến người tiêu dùng: nông sản, dược phẩm, hàng xuất khẩu.</p></article>
+      <article class="sol-card reveal"><span class="sol-num">04</span><div class="sol-ic c4"><svg class="icon"><use href="#i-health"/></svg></div><h3>Ứng dụng AI trong y tế</h3><p>Kết hợp AI và Robotics, tạo ra các sản phẩm công nghệ đột phá để bảo vệ sức khoẻ con người.</p></article>
+      <article class="sol-card reveal d1"><span class="sol-num">05</span><div class="sol-ic c5"><svg class="icon"><use href="#i-wallet"/></svg></div><h3>Fintech &amp; tài sản số</h3><p>Hạ tầng giao dịch tuân thủ: stablecoin, cho vay, chứng khoán token hóa.</p></article>
+      <article class="sol-card reveal d2"><span class="sol-num">06</span><div class="sol-ic c6"><svg class="icon"><use href="#i-leaf"/></svg></div><h3>ESG &amp; tín chỉ carbon</h3><p>Phát hành tín chỉ carbon, báo cáo ESG minh bạch trên chuỗi, sẵn sàng Net Zero 2050.</p></article>
+    </div>
+    <div class="industries reveal">
+      <span class="label">Ngành ứng dụng:</span>
+      <span class="pill">Tài chính – Ngân hàng</span>
+      <span class="pill">Fintech &amp; Bảo hiểm số</span>
+      <span class="pill">Nông nghiệp – Y tế số</span>
+      <span class="pill">Tài sản số</span>
+      <span class="pill">Năng lượng &amp; ESG</span>
+      <span class="pill">Chính phủ &amp; khu vực công</span>
+    </div>
+  </div>
+</section>
+
+<!-- Value delivered -->
+<section class="section" id="gia-tri">
+  <div class="container">
+    <div class="bento">
+      <div class="bento-hero reveal">
+        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+        <div>
+          <small>Giá trị đem lại</small>
+          <h3>Your Trusted Partner In <span>Everything AI + Data</span></h3>
+          <p>Quản lý và khai thác giá trị dữ liệu trên các nền tảng công nghệ AI, Blockchain và công nghệ tự động hoá.</p>
+        </div>
+      </div>
+      <div class="value-list">
+        <div class="value-row reveal d1"><div class="sol-ic c1"><svg class="icon"><use href="#i-compass"/></svg></div><div><h4>Chiến lược ứng dụng AI + Dữ liệu lớn</h4><p>Định hướng chiến lược trước khi đầu tư, để chuyển đổi đi đúng hướng.</p></div></div>
+        <div class="value-row reveal d2"><div class="sol-ic c2"><svg class="icon"><use href="#i-db"/></svg></div><div><h4>Quản lý dữ liệu</h4><p>Xây dựng và vận hành nền tảng, hạ tầng dữ liệu của tổ chức.</p></div></div>
+        <div class="value-row reveal d3"><div class="sol-ic c3"><svg class="icon"><use href="#i-chart"/></svg></div><div><h4>BI &amp; phân tích dữ liệu + AI</h4><p>Biến dữ liệu thành thông tin chi tiết phục vụ ra quyết định.</p></div></div>
+        <div class="value-row reveal d4"><div class="sol-ic c5"><svg class="icon"><use href="#i-users"/></svg></div><div><h4>Nền tảng dữ liệu khách hàng</h4><p>Hợp nhất dữ liệu khách hàng từ mọi điểm chạm online và offline.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core technology -->
+<section class="section tech on-dark" id="cong-nghe">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal" style="color:#fff">Nền tảng <span style="color:#9FD3FF">công nghệ lõi</span></h2>
+      <p class="lead reveal d1">Hạ tầng công nghệ phát triển, thiết kế cho quy mô doanh nghiệp, bảo mật và khả năng liên thông.</p>
+    </div>
+    <div class="tech-grid">
+      <article class="tech-card reveal"><div class="sol-ic c1"><svg class="icon"><use href="#i-cube"/></svg></div><h3>Blockchain Layer-1/2</h3>
+        <ul><li>Private chain 10.000+ TPS</li><li>Smart contract tương thích EVM</li><li>Cầu nối đa chuỗi, liên thông</li><li>Lớp riêng tư Zero-Knowledge Proof</li></ul></article>
+      <article class="tech-card reveal d1"><div class="sol-ic c2"><svg class="icon"><use href="#i-cpu"/></svg></div><h3>AI Inference Engine</h3>
+        <ul><li>Vận hành mô hình AI on-chain/off-chain</li><li>Xử lý tài liệu bằng LLM</li><li>Phát hiện gian lận, chấm điểm bất thường</li><li>Phân tích dự báo, mô hình rủi ro</li></ul></article>
+      <article class="tech-card reveal d2"><div class="sol-ic c4"><svg class="icon"><use href="#i-id"/></svg></div><h3>Định danh số (DID)</h3>
+        <ul><li>Chuẩn W3C DID &amp; Verifiable Credentials</li><li>Danh tính tự chủ (SSI)</li><li>eKYC/AML tích hợp sẵn</li><li>Xác thực sinh trắc học, thiết bị</li></ul></article>
+    </div>
+    <div class="tech-tags reveal">
+      <span>Multi-chain</span><span>EVM Compatible</span><span>Hyperledger Fabric</span><span>Zero-Knowledge Proofs</span><span>IPFS Storage</span><span>Oracle Integration</span>
+    </div>
+  </div>
+</section>
+
+<!-- Capability -->
+<section class="section" id="nang-luc">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal">Năng lực <span class="grad-text">triển khai</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">01</div><h3>Tư vấn</h3><p>Khảo sát, tư vấn chiến lược và giải pháp phù hợp với mục tiêu của khách hàng.</p></div>
+      <div class="step reveal d1"><div class="step-num">02</div><h3>Nghiên cứu &amp; phát triển</h3><p>Thiết kế, phát triển giải pháp, phần mềm ứng dụng AI, IoT, Blockchain, Big Data.</p></div>
+      <div class="step reveal d2"><div class="step-num">03</div><h3>Triển khai</h3><p>Cung cấp sản phẩm, triển khai trên toàn quốc, kèm đào tạo cho nhân sự khách hàng.</p></div>
+      <div class="step reveal d3"><div class="step-num">04</div><h3>Bảo hành &amp; bảo trì</h3><p>Hỗ trợ kỹ thuật, bảo hành, bảo trì và nâng cấp liên tục sau triển khai.</p></div>
+    </div>
+    <div class="capab-box reveal">
+      <h3><i class="c2"><svg class="icon"><use href="#i-rocket"/></svg></i>Công nghệ làm chủ</h3>
+      <div class="tech-tiles">
+        <div>Trí tuệ nhân tạo (AI)</div><div>Internet vạn vật (IoT)</div><div>Blockchain</div>
+        <div>Dữ liệu lớn (Big Data)</div><div>Thực tế tăng cường (AR)</div><div>Robot AMR/AGV</div>
+      </div>
+    </div>
+    <div class="global-grid" id="toan-cau">
+      <div>
+        <h3 class="sub-title reveal">Năng lực triển khai <span class="grad-text">toàn cầu</span></h3>
+        <p class="lead reveal d1">Miraway Group có khả năng triển khai, cung cấp dịch vụ CNTT trên toàn quốc, đồng thời đã cung cấp dịch vụ và các giải pháp CNTT cho hơn 10 quốc gia trên toàn cầu.</p>
+        <div class="countries reveal d2">
+          <span>Thái Lan</span><span>Lào</span><span>Myanmar</span><span>Malaysia</span><span>Singapore</span><span>Indonesia</span><span>Timor-Leste</span><span>Peru</span>
+        </div>
+      </div>
+      <div class="global-map reveal d1">
+        <img src="assets/global-map.png" alt="Bản đồ triển khai quốc tế của Miraway Group và văn phòng tại Hà Nội, TP. Hồ Chí Minh" width="3020" height="1867" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- History -->
+<section class="section history" id="hanh-trinh">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow reveal">Lịch sử phát triển</span>
+      <h2 class="title reveal d1">Hành trình <span class="grad-text">hơn 19 năm</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal"><div class="tl-card"><span class="tl-year">2007</span><h3>Ra đời</h3><p>Tiền thân Miraway Technology được thành lập với đội ngũ dày dặn kinh nghiệm, nhiệt huyết và hoài bão do Founder Nguyễn Quang Hiển sáng lập.</p></div><span class="tl-dot"></span></div>
+      <div class="tl-item reveal"><div class="tl-card"><span class="tl-year">2008 – 2014</span><h3>Xây dựng nền móng</h3><p>Mở rộng thị trường, phát triển sản phẩm, dịch vụ và khẳng định thương hiệu trong ngành CNTT Việt Nam.</p></div><span class="tl-dot"></span></div>
+      <div class="tl-item reveal"><div class="tl-card"><span class="tl-year">2016</span><h3>Miraway Group</h3><p>Miraway Group được thành lập, chuyển mình phát triển mở rộng hệ sinh thái gồm chuyển đổi số, giải pháp chuyên sâu về Blockchain, fintech, dịch vụ dữ liệu.</p></div><span class="tl-dot"></span></div>
+      <div class="tl-item reveal"><div class="tl-card"><span class="tl-year">2017 – 2022</span><h3>Hệ sinh thái</h3><p>Liên tục gặt hái thành công với các dự án và giải thưởng uy tín, cùng với sự ra đời của các công ty thuộc hệ sinh thái Miraway Group.</p></div><span class="tl-dot"></span></div>
+      <div class="tl-item reveal"><div class="tl-card"><span class="tl-year">2023 – nay</span><h3>Vươn tầm khu vực</h3><p>Mở rộng hệ sinh thái toàn diện ứng dụng AI &amp; Blockchain trong các lĩnh vực fintech, insurancetech, nông nghiệp, y tế… đưa giải pháp tới Đông Nam Á, Châu Á, Châu Mỹ.</p></div><span class="tl-dot"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Awards -->
+<section class="section awards" id="giai-thuong">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal">Giải thưởng <span class="grad-text">tiêu biểu</span></h2>
+    </div>
+    <div class="awards-grid">
+      <div class="award-photo reveal"><img src="assets/awards.jpg" alt="Các chứng nhận và giải thưởng của Miraway" width="765" height="565" loading="lazy"></div>
+      <div class="award-list">
+        <div class="award reveal"><i><svg class="icon"><use href="#i-award"/></svg></i><div><b>2022</b><span>Top 10 thương hiệu dẫn đầu Việt Nam</span></div></div>
+        <div class="award reveal d1"><i><svg class="icon"><use href="#i-award"/></svg></i><div><b>2021</b><span>Giải pháp tiếp thị và công nghệ số được yêu thích tại Việt Nam</span></div></div>
+        <div class="award reveal d2"><i><svg class="icon"><use href="#i-award"/></svg></i><div><b>2020</b><span>Top 20 thương hiệu nổi tiếng hàng đầu Việt Nam</span></div></div>
+        <div class="award reveal d3"><i><svg class="icon"><use href="#i-award"/></svg></i><div><b>2020</b><span>Top 10 thương hiệu nổi tiếng hàng đầu Việt Nam</span></div></div>
+        <div class="award reveal d4"><i><svg class="icon"><use href="#i-award"/></svg></i><div><b>2018</b><span>Giải pháp tiếp thị truyền thông số hiệu quả</span></div></div>
+        <div class="award reveal d5"><i><svg class="icon"><use href="#i-award"/></svg></i><div><b>2017</b><span>Thương hiệu xuất sắc</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clients -->
+<section class="section" id="khach-hang">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal">Khách hàng <span class="grad-text">tiêu biểu</span></h2>
+    </div>
+    <div class="client-tabs" role="tablist" aria-label="Nhóm khách hàng">
+      <button type="button" role="tab" aria-selected="true" data-cat="finance">Ngân hàng</button>
+      <button type="button" role="tab" aria-selected="false" data-cat="enterprise">Doanh nghiệp lớn</button>
+      <button type="button" role="tab" aria-selected="false" data-cat="gov">Chính phủ</button>
+      <button type="button" role="tab" aria-selected="false" data-cat="telecom">Viễn thông</button>
+      <button type="button" role="tab" aria-selected="false" data-cat="health">Y tế</button>
+      <button type="button" role="tab" aria-selected="false" data-cat="intl">Quốc tế</button>
+      <button type="button" role="tab" aria-selected="false" data-cat="other">Khác</button>
+    </div>
+    <div class="client-board reveal">
+      <div class="cl-col">
+        <figure class="cl-block active" data-cat="finance"><figcaption>Khách hàng khối tài chính ngân hàng</figcaption><img src="assets/clients/finance.jpg" alt="Logo khách hàng tài chính ngân hàng: MSB, Techcombank, VietinBank, VPBank, LienVietPostBank, MB, Vietcombank, Ngân hàng Bản Việt, BIDV, TPBank, Agribank, Sacombank" width="370" height="438" loading="lazy" decoding="async"></figure>
+        <figure class="cl-block" data-cat="gov"><figcaption>Khách hàng khối chính phủ</figcaption><img src="assets/clients/gov.jpg" alt="Logo khách hàng khối chính phủ: HCC Lào Cai, Thanh Hóa, Hà Nam, Cao Bằng, Bắc Ninh, Bắc Giang, Nghệ An, Vụ Bản, Đống Đa, Sơn Tây, Hà Tĩnh, Vietnam Post và các đơn vị khác" width="367" height="543" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="cl-col">
+        <figure class="cl-block" data-cat="enterprise"><figcaption>Khách hàng khối doanh nghiệp lớn</figcaption><img src="assets/clients/enterprise.jpg" alt="Logo khách hàng doanh nghiệp lớn: Amway, WinMart, WIN, Grab, Baemin, Masan, FPT Software, Mazda, VNPAY, Hyundai, Phúc Long, Zara" width="368" height="435" loading="lazy" decoding="async"></figure>
+        <figure class="cl-block" data-cat="telecom"><figcaption>Khách hàng khối doanh nghiệp viễn thông</figcaption><img src="assets/clients/telecom.jpg" alt="Logo khách hàng viễn thông: Viettel, VNPT, Wintel" width="371" height="107" loading="lazy" decoding="async"></figure>
+        <figure class="cl-block" data-cat="health"><figcaption>Khách hàng khối y tế</figcaption><img src="assets/clients/health.jpg" alt="Logo khách hàng khối y tế: Bộ Y tế và các bệnh viện" width="369" height="216" loading="lazy" decoding="async"></figure>
+        <figure class="cl-block" data-cat="intl"><figcaption>Khách hàng thị trường quốc tế</figcaption><img src="assets/clients/intl.jpg" alt="Logo khách hàng quốc tế: Telemor, Bitel, SmartScore" width="371" height="107" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="cl-col">
+        <figure class="cl-block" data-cat="other"><figcaption>Khách hàng tiêu biểu khác</figcaption><img src="assets/clients/other.jpg" alt="Logo các khách hàng tiêu biểu khác của Miraway Group" width="401" height="1015" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why -->
+<section class="section bg-soft" id="vi-sao">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal">Vì sao chọn <span class="grad-text">Miraway Group</span></h2>
+    </div>
+    <div class="why-grid">
+      <article class="why reveal"><div class="sol-ic c1"><svg class="icon"><use href="#i-users"/></svg></div><h3>Đội ngũ nhân sự giỏi</h3><p>Đội ngũ dày dặn kinh nghiệm, nhiệt huyết và hoài bão, là nền tảng cho sự phát triển bền vững trên thị trường CNTT Việt Nam.</p></article>
+      <article class="why reveal d1"><div class="sol-ic c2"><svg class="icon"><use href="#i-globe"/></svg></div><h3>Mạng lưới phủ rộng</h3><p>Mạng lưới đối tác toàn cầu và phủ rộng khắp cả nước, mang giải pháp tới Đông Nam Á, Châu Á và Châu Mỹ.</p></article>
+      <article class="why reveal d2"><div class="sol-ic c4"><svg class="icon"><use href="#i-star"/></svg></div><h3>Chất lượng và dịch vụ</h3><p>Đáp ứng mọi nhu cầu của khách hàng, giúp tổ chức, doanh nghiệp nâng cao hiệu quả hoạt động và thúc đẩy tăng trưởng doanh thu.</p></article>
+      <article class="why reveal d3"><div class="sol-ic c3"><svg class="icon"><use href="#i-rocket"/></svg></div><h3>Giải pháp công nghệ tiên phong</h3><p>Giải pháp thiết kế chuyên sâu theo ngành, luôn cập nhật công nghệ mới nhất và hỗ trợ liên tục sau triển khai.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Contact form -->
+<section class="section" id="lien-he">
+  <div class="container">
+    <div class="contact-card reveal">
+      <aside class="contact-aside">
+        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+        <small>Liên hệ</small>
+        <h2>Liên hệ tư vấn</h2>
+        <p>Để lại thông tin, đội ngũ Miraway Group sẽ liên hệ lại với bạn.</p>
+        <p class="contact-note"><svg class="icon"><use href="#i-shield"/></svg>Thông tin của bạn chỉ được dùng để liên hệ tư vấn.</p>
+      </aside>
+
+      <div class="contact-body">
+        <form class="contact-form" id="contactForm" novalidate data-endpoint="">
+          <div class="form-grid">
+            <div class="field">
+              <label for="cf-name">Họ và tên <span class="req" aria-hidden="true">*</span></label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="cf-name-err">
+              <p class="err" id="cf-name-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-company">Công ty / Tổ chức</label>
+              <input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="150">
+            </div>
+            <div class="field">
+              <label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="150" required aria-describedby="cf-email-err">
+              <p class="err" id="cf-email-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-phone">Số điện thoại <span class="req" aria-hidden="true">*</span></label>
+              <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required aria-describedby="cf-phone-err">
+              <p class="err" id="cf-phone-err" aria-live="polite"></p>
+            </div>
+            <div class="field full">
+              <label for="cf-topic">Giải pháp quan tâm</label>
+              <select id="cf-topic" name="topic">
+                <option value="">— Chọn giải pháp —</option>
+                <option>Token hóa tài sản (RWA)</option>
+                <option>Giải pháp bảo hiểm số</option>
+                <option>Truy xuất nguồn gốc</option>
+                <option>Ứng dụng AI trong y tế</option>
+                <option>Fintech &amp; tài sản số</option>
+                <option>ESG &amp; tín chỉ carbon</option>
+                <option>Chiến lược ứng dụng AI + Dữ liệu lớn</option>
+                <option>Quản lý, phân tích dữ liệu &amp; nền tảng dữ liệu khách hàng</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="cf-message">Nội dung <span class="req" aria-hidden="true">*</span></label>
+              <div class="msg-wrap">
+                <textarea id="cf-message" name="message" rows="3" maxlength="1000" required aria-describedby="cf-message-err cf-count"></textarea>
+                <span class="count" id="cf-count">0/1000</span>
+              </div>
+              <p class="err" id="cf-message-err" aria-live="polite"></p>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="cf-website">Website</label>
+              <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-foot">
+            <label class="consent"><input type="checkbox" id="cf-consent" name="consent" required aria-describedby="cf-consent-err"><span>Tôi đồng ý để Miraway Group sử dụng thông tin trên để liên hệ tư vấn. <span class="req" aria-hidden="true">*</span></span></label>
+            <button type="submit" class="btn btn-primary" id="cf-submit"><span class="btn-label">Gửi thông tin</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+          </div>
+          <p class="err" id="cf-consent-err" aria-live="polite"></p>
+          <div class="form-status" id="cf-status" role="alert" hidden></div>
+        </form>
+
+        <div class="contact-success" id="cf-success" hidden tabindex="-1">
+          <div class="ok-ic"><svg class="icon"><use href="#i-check"/></svg></div>
+          <h3>Gửi thông tin thành công</h3>
+          <p>Cảm ơn bạn đã quan tâm. Miraway Group sẽ liên hệ lại với bạn trong thời gian sớm nhất.</p>
+          <button type="button" class="btn btn-ghost" id="cf-again">Gửi yêu cầu khác</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="footer-logo"><img src="assets/logo.png" alt="Miraway – Creative Technology" width="118" height="30"></a>
+        <h3 class="footer-thanks">Trân trọng cảm ơn</h3>
+        <p class="footer-quote">“Sáng tạo công nghệ – Kiến tạo đất nước”</p>
+      </div>
+      <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng Hà Nội</b>Tòa C18, Ngõ 655 Lạc Long Quân, Tây Hồ, Hà Nội</span></div>
+      <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng TP. Hồ Chí Minh</b>Tòa Terra Royal, 278 Nam Kỳ Khởi Nghĩa, Quận 3</span></div>
+      <div class="addr"><svg class="icon"><use href="#i-web"/></svg><span><b>Website</b><a href="https://mirawaygroup.vn" target="_blank" rel="noopener">mirawaygroup.vn</a></span></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Miraway Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Lên đầu trang"><svg class="icon"><use href="#i-arrow"/></svg></button>
+
+<script>
+(() => {
+  const header = document.getElementById('header');
+  const toTop = document.getElementById('toTop');
+  const burger = document.getElementById('burger');
+  const links = document.querySelectorAll('.nav-links a');
+
+  // Header state + back-to-top
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 20);
+    toTop.classList.toggle('show', y > 700);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Mobile menu
+  burger.addEventListener('click', () => {
+    const open = document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  links.forEach(a => a.addEventListener('click', () => {
+    document.body.classList.remove('nav-open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // Count-up numbers
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt = n => n.toLocaleString('vi-VN');
+  const counters = document.querySelectorAll('[data-count]');
+  const runCount = el => {
+    const target = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    if (reduce) { el.textContent = pre + fmt(target) + suf; return; }
+    const dur = 1600, t0 = performance.now();
+    const tick = t => {
+      const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + fmt(Math.round(target * eased)) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if ('IntersectionObserver' in window) {
+    const cio = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    counters.forEach(el => cio.observe(el));
+  }
+
+  // Active nav link
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const sio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(s => sio.observe(s));
+  }
+
+  // Client category tabs (mobile)
+  const tabs = document.querySelectorAll('.client-tabs [data-cat]');
+  const blocks = document.querySelectorAll('.cl-block');
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+    blocks.forEach(b => b.classList.toggle('active', b.dataset.cat === tab.dataset.cat));
+    const bar = tab.parentElement;
+    bar.scrollTo({ left: tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+  }));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+
+<script>
+/* ===== Contact form =====
+   Để nhận dữ liệu, điền URL nhận form vào thuộc tính data-endpoint của <form id="contactForm">
+   (ví dụ Formspree: https://formspree.io/f/xxxx, Google Apps Script, hoặc API của bạn).
+   Form gửi POST JSON: { name, company, email, phone, topic, message, consent, page, submittedAt } */
+(() => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const $ = id => document.getElementById(id);
+  const fields = {
+    name:    { el: $('cf-name'),    err: $('cf-name-err') },
+    email:   { el: $('cf-email'),   err: $('cf-email-err') },
+    phone:   { el: $('cf-phone'),   err: $('cf-phone-err') },
+    message: { el: $('cf-message'), err: $('cf-message-err') },
+    consent: { el: $('cf-consent'), err: $('cf-consent-err') }
+  };
+  const submitBtn = $('cf-submit'), status = $('cf-status'), success = $('cf-success'), count = $('cf-count');
+  let attempted = false;
+
+  const rules = {
+    name: v => !v.trim() ? 'Vui lòng nhập họ và tên.' : v.trim().length < 2 ? 'Họ và tên quá ngắn.' : '',
+    email: v => !v.trim() ? 'Vui lòng nhập email.' : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? 'Email không hợp lệ.' : '',
+    phone: v => {
+      const p = v.replace(/[\s.\-()]/g, '');
+      if (!p) return 'Vui lòng nhập số điện thoại.';
+      return /^\+?\d{9,15}$/.test(p) ? '' : 'Số điện thoại không hợp lệ.';
+    },
+    message: v => !v.trim() ? 'Vui lòng nhập nội dung cần tư vấn.' : v.trim().length < 10 ? 'Nội dung cần tối thiểu 10 ký tự.' : '',
+    consent: (_, el) => el.checked ? '' : 'Vui lòng đồng ý để chúng tôi liên hệ lại.'
+  };
+
+  const check = key => {
+    const { el, err } = fields[key];
+    const msg = rules[key](el.value, el);
+    err.textContent = msg;
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  };
+
+  Object.keys(fields).forEach(key => {
+    const el = fields[key].el;
+    el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', () => { if (attempted || el.getAttribute('aria-invalid') === 'true') check(key); });
+    if (el.type !== 'checkbox') el.addEventListener('blur', () => { if (el.value.trim()) check(key); });
+  });
+
+  const updateCount = () => { count.textContent = `${fields.message.el.value.length}/1000`; };
+  fields.message.el.addEventListener('input', updateCount);
+
+  const setLoading = on => {
+    submitBtn.disabled = on;
+    submitBtn.classList.toggle('loading', on);
+    submitBtn.querySelector('.btn-label').textContent = on ? 'Đang gửi…' : 'Gửi thông tin';
+  };
+  const showError = msg => { status.textContent = msg; status.hidden = false; };
+  const showSuccess = () => { form.hidden = true; success.hidden = false; success.focus(); };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    attempted = true;
+    status.hidden = true;
+    const results = Object.keys(fields).map(k => [k, check(k)]);
+    const firstBad = results.find(([, ok]) => !ok);
+    if (firstBad) { fields[firstBad[0]].el.focus(); return; }
+
+    // Spam bot filled the hidden field: pretend success, send nothing
+    if ($('cf-website').value) { showSuccess(); return; }
+
+    const endpoint = (form.dataset.endpoint || '').trim();
+    if (!endpoint) {
+      console.warn('[Contact form] Chưa cấu hình data-endpoint cho #contactForm — dữ liệu chưa được gửi đi.');
+      showError('Hệ thống nhận thông tin đang được cập nhật. Vui lòng liên hệ Miraway Group qua website mirawaygroup.vn.');
+      return;
+    }
+
+    const fd = new FormData(form);
+    const payload = {
+      name: fd.get('name').trim(),
+      company: (fd.get('company') || '').trim(),
+      email: fd.get('email').trim(),
+      phone: fd.get('phone').trim(),
+      topic: fd.get('topic') || '',
+      message: fd.get('message').trim(),
+      consent: true,
+      page: location.href,
+      submittedAt: new Date().toISOString()
+    };
+
+    setLoading(true);
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      showSuccess();
+    } catch (err) {
+      console.error('[Contact form]', err);
+      showError('Gửi thông tin chưa thành công. Vui lòng kiểm tra kết nối mạng và thử lại.');
+    } finally {
+      clearTimeout(timer);
+      setLoading(false);
+    }
+  });
+
+  $('cf-again').addEventListener('click', () => {
+    form.reset();
+    attempted = false;
+    Object.values(fields).forEach(({ el, err }) => { err.textContent = ''; el.removeAttribute('aria-invalid'); });
+    updateCount();
+    success.hidden = true;
+    form.hidden = false;
+    fields.name.el.focus();
+  });
+})();
+</script>
+</body>
+</html>
