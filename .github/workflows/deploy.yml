@@ -1,0 +1,83 @@
+name: Deploy to server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Kiểm tra file bắt buộc
+        run: |
+          test -f index.html || { echo "Thiếu index.html"; exit 1; }
+          test -d assets || { echo "Thiếu thư mục assets"; exit 1; }
+
+      - name: Kiểm tra ảnh được tham chiếu trong index.html có tồn tại
+        run: |
+          missing=0
+          for f in $(grep -oE '(src|href)="assets/[^"]+"' index.html | sed -E 's/^(src|href)="//; s/"$//' | sort -u); do
+            if [ ! -f "$f" ]; then echo "Không tìm thấy: $f"; missing=1; fi
+          done
+          exit $missing
+
+  deploy:
+    name: Deploy
+    needs: check
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      RELEASE: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Chuẩn bị SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -p "${{ secrets.SSH_PORT || 22 }}" -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          cat > ~/.ssh/config <<EOF
+          Host deploy
+            HostName ${{ secrets.SSH_HOST }}
+            User ${{ secrets.SSH_USER }}
+            Port ${{ secrets.SSH_PORT || 22 }}
+            IdentityFile ~/.ssh/id_deploy
+            StrictHostKeyChecking yes
+          EOF
+
+      - name: Upload bản mới
+        run: |
+          ssh deploy "mkdir -p '$DEPLOY_PATH/releases/$RELEASE'"
+          rsync -az --delete \
+            --exclude '.git' --exclude '.github' --exclude '.claude' --exclude 'deploy' --exclude 'README.md' \
+            ./ "deploy:$DEPLOY_PATH/releases/$RELEASE/"
+
+      - name: Chuyển sang bản mới và dọn bản cũ
+        run: |
+          ssh deploy "set -e
+            cd '$DEPLOY_PATH'
+            ln -sfn 'releases/$RELEASE' current.tmp
+            mv -Tf current.tmp current
+            cd releases && ls -1t | tail -n +6 | xargs -r rm -rf
+            sudo -n systemctl reload nginx 2>/dev/null || true"
+
+      - name: Kiểm tra website đang chạy
+        if: ${{ vars.SITE_URL != '' }}
+        run: |
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "${{ vars.SITE_URL }}")
+            echo "HTTP $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 3
+          done
+          exit 1
