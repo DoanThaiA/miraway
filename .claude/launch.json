@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "miraway",
-      "runtimeExecutable": "powershell",
-      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\DELL\\AppData\\Local\\Temp\\claude\\215b74e93a2d5a94\\d4798d96-57e3-4302-9e87-29f775e7ab97\\scratchpad\\serve.ps1"],
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5173"],
       "port": 5173
     }
   ]

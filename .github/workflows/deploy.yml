@@ -62,6 +62,22 @@ jobs:
             --exclude '.git' --exclude '.github' --exclude '.claude' --exclude 'deploy' --exclude 'README.md' \
             ./ "deploy:$DEPLOY_PATH/releases/$RELEASE/"
 
+      - name: Cập nhật cấu hình gửi mail (Resend)
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MAIL_TO: ${{ vars.MAIL_TO || 'hien@miratech.vn' }}
+          MAIL_FROM: ${{ vars.MAIL_FROM }}
+        run: |
+          if [ -z "$RESEND_API_KEY" ]; then
+            echo "::warning::Chưa có secret RESEND_API_KEY — giữ nguyên file .env trên server."
+            exit 0
+          fi
+          {
+            echo "RESEND_API_KEY=$RESEND_API_KEY"
+            echo "MAIL_TO=$MAIL_TO"
+            if [ -n "$MAIL_FROM" ]; then echo "MAIL_FROM=$MAIL_FROM"; fi
+          } | ssh deploy "mkdir -p '$DEPLOY_PATH/shared' && umask 077 && cat > '$DEPLOY_PATH/shared/.env'"
+
       - name: Chuyển sang bản mới và dọn bản cũ
         run: |
           ssh deploy "set -e
@@ -69,6 +85,7 @@ jobs:
             ln -sfn 'releases/$RELEASE' current.tmp
             mv -Tf current.tmp current
             cd releases && ls -1t | tail -n +6 | xargs -r rm -rf
+            sudo -n systemctl restart miraway-contact 2>/dev/null || echo 'Chưa cài service miraway-contact (chạy deploy/setup-contact-api.sh)'
             sudo -n systemctl reload nginx 2>/dev/null || true"
 
       - name: Kiểm tra website đang chạy

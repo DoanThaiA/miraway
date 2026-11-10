@@ -64,6 +64,11 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .header.scrolled{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding:10px 0}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo img{height:38px;width:auto}
+.logo .logo-light{display:none}
+.header:not(.scrolled) .logo .logo-light{display:block}
+.header:not(.scrolled) .logo .logo-dark{display:none}
+.header:not(.scrolled) .nav-links a{color:#DCE7F7}
+.header:not(.scrolled) .nav-links a:hover,.header:not(.scrolled) .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
 .nav-links{display:flex;gap:4px;align-items:center}
 .nav-links a{padding:10px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#33445E;transition:color .2s,background .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--blue);background:rgba(0,82,184,.07)}
@@ -77,27 +82,34 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .nav-open .burger span::after{top:0;transform:rotate(-45deg)}
 
 /* Hero */
-.hero{padding:132px 0 80px;min-height:min(100vh,860px);display:flex;align-items:center;background:
-  radial-gradient(900px 500px at 85% 10%,rgba(92,184,255,.28),transparent 60%),
-  radial-gradient(700px 500px at 10% 90%,rgba(110,58,168,.14),transparent 60%),
-  radial-gradient(500px 400px at 60% 100%,rgba(232,96,76,.10),transparent 60%),
-  linear-gradient(180deg,#EEF5FF 0%,#fff 100%);overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:#fff;box-shadow:var(--shadow-sm);font-size:14px;font-weight:600;color:#33445E}
+/* Desktop: full-width banner with staff photo behind a navy gradient */
+.hero{padding:150px 0 110px;min-height:min(100vh,820px);display:flex;flex-direction:column;justify-content:center;background:var(--navy);color:#fff;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 40%;animation:heroZoom 18s ease-out both}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(6,26,61,.97) 0%,rgba(6,26,61,.9) 34%,rgba(11,42,92,.55) 62%,rgba(11,42,92,.25) 100%),
+  radial-gradient(700px 420px at 12% 100%,rgba(110,58,168,.45),transparent 70%),
+  linear-gradient(0deg,rgba(6,26,61,.75),transparent 35%)}
+.hero-grid{display:block}
+.hero-copy{max-width:640px}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);font-size:14px;font-weight:600;color:#DCE7F7}
 .chip b{background:var(--grad);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;letter-spacing:.06em}
-.hero h1{font-size:clamp(34px,4.3vw,56px);line-height:1.12;font-weight:800;letter-spacing:-.03em;margin:22px 0 20px;text-wrap:balance}
-.hero p.lead{max-width:540px;font-size:18px}
+.hero h1{font-size:clamp(34px,4.4vw,60px);line-height:1.1;font-weight:800;letter-spacing:-.03em;margin:22px 0 20px;text-wrap:balance}
+.hero h1 .grad-text{background:linear-gradient(120deg,#7CC4FF 0%,#C7A6F2 55%,#FF9A85 100%);-webkit-background-clip:text;background-clip:text}
+.hero p.lead{max-width:540px;font-size:18px;color:#C3D2E8}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 36px}
+.hero .btn-ghost{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.16);color:#fff;box-shadow:inset 0 0 0 1.5px #fff}
 .hero-mini{display:flex;flex-wrap:wrap;gap:14px}
-.hero-mini div{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:16px;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--line)}
+.hero-mini div{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:16px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
 .hero-mini strong{font-size:22px;font-weight:800;line-height:1}
-.hero-mini span{font-size:13px;color:var(--muted);line-height:1.3}
+.hero-mini span{font-size:13px;color:#A9BBD6;line-height:1.3}
 .hero-mini i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;background:var(--grad-cool)}
 .hero-mini i .icon{width:20px;height:20px}
-.hero-visual{position:relative;justify-self:center;max-width:470px;width:100%}
-.hero-visual img{width:100%;filter:drop-shadow(0 30px 50px rgba(6,26,61,.22));animation:float 7s ease-in-out infinite}
+.hero-gallery{display:none}
 .asterisk{position:absolute;pointer-events:none;opacity:.9}
 .hero .asterisk{width:420px;right:-140px;bottom:-160px;opacity:.12;animation:spin 60s linear infinite}
+@keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -231,7 +243,7 @@ h1,h3,h4,.lead{text-wrap:pretty}
 
 /* Awards */
 .awards{background:var(--soft)}
-.awards-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+.awards-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .award-photo{border-radius:28px;background:#fff;padding:12px;box-shadow:var(--shadow)}
 .award-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .award{background:#fff;border-radius:18px;padding:22px;display:flex;gap:16px;align-items:flex-start;transition:.3s;box-shadow:0 1px 0 var(--line)}
@@ -241,12 +253,89 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .award b{display:block;color:var(--coral);font-weight:800;font-size:15px}
 .award span{font-weight:600;font-size:15px;line-height:1.45;display:block}
 
-/* Clients */
-.client-board{display:grid;grid-template-columns:370fr 370fr 401fr;gap:28px;align-items:start;background:#F2F2F2;border-radius:24px;padding:28px;box-shadow:var(--shadow)}
-.cl-col{display:flex;flex-direction:column;gap:22px;min-width:0}
-.cl-block figcaption{font-weight:700;font-size:15px;line-height:1.35;margin-bottom:10px;color:var(--ink)}
-.cl-block img{width:100%;height:auto;border-radius:6px;background:#fff}
-.client-tabs{display:none}
+/* Clients marquee */
+.clients{overflow:hidden}
+.clients .section-head{margin-bottom:40px}
+.marquees{display:grid;gap:18px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee{overflow:hidden;padding:6px 0}
+.marquee-track{display:flex;gap:18px;width:max-content;animation:marquee 60s linear infinite}
+.marquee.reverse .marquee-track{animation-direction:reverse;animation-duration:66s}
+.marquees:hover .marquee-track{animation-play-state:paused}
+.marquee-track li{flex:none;width:200px;height:96px;border-radius:18px;background:#fff;display:grid;place-items:center;padding:18px 26px;box-shadow:inset 0 0 0 1px var(--line),0 6px 18px -12px rgba(6,26,61,.25);transition:transform .3s,box-shadow .3s}
+.marquee-track li:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px #C9D8EC,0 14px 30px -14px rgba(6,26,61,.35)}
+.marquee-track img{max-width:100%;max-height:52px;width:auto;height:auto;object-fit:contain}
+@keyframes marquee{to{transform:translateX(calc(-50% - 9px))}}
+
+/* Member companies */
+.members{background:var(--soft)}
+.member-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,420px));justify-content:center;gap:24px}
+.member{display:flex;flex-direction:column;background:#fff;border-radius:22px;padding:30px;box-shadow:inset 0 0 0 1px var(--line);transition:transform .3s,box-shadow .3s}
+.member:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1.5px var(--blue),var(--shadow)}
+.member-logo{height:56px;display:flex;align-items:center;margin-bottom:20px}
+.member-logo img{max-height:46px;width:auto}
+.member h3{font-size:19px;font-weight:800;margin-bottom:8px}
+.member p{color:var(--muted);font-size:15px;flex:1}
+.member-link{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--blue)}
+.member-link .icon{width:18px;height:18px;transition:transform .25s}
+.member:hover .member-link .icon{transform:translateX(4px)}
+
+/* About view (Về chúng tôi) */
+.about-view[hidden],#home-view[hidden]{display:none}
+.page-banner{position:relative;isolation:isolate;overflow:hidden;color:#fff;background:var(--navy);padding:150px 0 70px}
+.page-banner::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,26,61,.96),rgba(6,26,61,.82) 45%,rgba(11,42,92,.5)),radial-gradient(600px 300px at 10% 100%,rgba(110,58,168,.45),transparent 70%)}
+.page-banner .hero-bg img{object-position:50% 40%;animation:none}
+.page-banner h1{font-size:clamp(34px,4.5vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:12px 0 10px}
+.page-banner p{color:#C3D2E8;font-size:18px;max-width:560px}
+.page-banner .eyebrow{color:var(--sky)}
+.back-home{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:#C3D2E8;margin-bottom:22px}
+.back-home .icon{width:18px;height:18px;transform:rotate(180deg)}
+.back-home:hover{color:#fff}
+.about-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.about-tabs a{padding:10px 18px;border-radius:999px;font-weight:600;font-size:14.5px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);transition:.2s}
+.about-tabs a:hover{background:#fff;color:var(--navy)}
+.cta-box{border-radius:28px;padding:48px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.cta-box h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.25;max-width:640px}
+.about-media{grid-template-columns:1fr 1fr}
+.about-media .ph-main{grid-column:1 / -1}
+.about-media .ph-half{aspect-ratio:16/10}
+
+/* Solution cards → open contact */
+.sol-card{cursor:pointer;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,background .35s}
+.sol-card p{flex:1}
+.sol-card h3,.sol-card p,.sol-card .sol-num{transition:color .3s}
+.sol-more{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;color:var(--blue);transition:color .3s}
+.sol-more .icon{width:18px;height:18px;transition:transform .25s}
+.sol-card:hover .sol-more .icon{transform:translateX(4px)}
+.sol-card:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.sol-card.selected{background:linear-gradient(150deg,#0B2A5C 0%,#0052B8 55%,#6E3AA8 100%);transform:translateY(-6px);box-shadow:var(--shadow)}
+.sol-card.selected h3,.sol-card.selected p,.sol-card.selected .sol-more{color:#fff}
+.sol-card.selected .sol-num{color:rgba(255,255,255,.14)}
+.sol-card.selected .sol-ic{background:rgba(255,255,255,.18)}
+
+.nav-mobile-only{display:none}
+
+/* Intro splash */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#0B2A5C 0%,#061A3D 55%,#030E24 100%);overflow:hidden;transition:opacity .8s ease,visibility .8s}
+.intro.done{opacity:0;visibility:hidden}
+.intro-stage{position:relative;display:grid;justify-items:center;gap:26px;padding:0 24px}
+.intro-glow{position:absolute;left:50%;top:40%;width:720px;height:720px;max-width:160vw;max-height:160vw;transform:translate(-50%,-50%) scale(.2);border-radius:50%;background:radial-gradient(circle,rgba(92,184,255,.55) 0%,rgba(110,58,168,.35) 30%,rgba(232,96,76,.12) 50%,transparent 68%);filter:blur(10px);opacity:0;animation:introGlow 4.6s ease-out .3s forwards}
+.intro-rays{position:absolute;left:50%;top:40%;width:900px;height:900px;max-width:200vw;max-height:200vw;transform:translate(-50%,-50%);background:repeating-conic-gradient(from 0deg,rgba(159,211,255,.10) 0 4deg,transparent 4deg 18deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 60%);mask:radial-gradient(circle,#000 0,transparent 60%);opacity:0;animation:introRays 5s ease-out .6s forwards}
+.intro-logo{position:relative;width:min(420px,72vw);opacity:0;transform:scale(.82);filter:blur(12px);animation:introLogo 1.6s cubic-bezier(.2,.7,.2,1) .2s forwards,introPulse 2.4s ease-in-out 1.8s infinite}
+.intro-logo img{width:100%;height:auto}
+.intro-logo::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.95) 50%,transparent 65%);background-size:250% 100%;background-position:150% 0;animation:introShine 1.4s ease-in-out 1.7s forwards;-webkit-mask:url(assets/logo-white.png) center/contain no-repeat;mask:url(assets/logo-white.png) center/contain no-repeat}
+.intro-tag{position:relative;color:#C3D2E8;font-size:clamp(14px,1.6vw,18px);font-weight:600;letter-spacing:.06em;text-align:center;opacity:0;transform:translateY(10px);animation:introUp .9s ease-out 1.6s forwards}
+.intro-bar{position:relative;width:180px;height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden;opacity:0;animation:introUp .6s ease-out 1.9s forwards}
+.intro-bar::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#5CB8FF,#C7A6F2,#FF9A85);transform-origin:left;transform:scaleX(0);animation:introBar 3.1s linear 1.9s forwards}
+.intro-skip{position:absolute;right:20px;bottom:20px;font:inherit;font-size:13px;font-weight:600;color:#A9BBD6;background:rgba(255,255,255,.06);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.intro-skip:hover{color:#fff}
+body.intro-on{overflow:hidden}
+@keyframes introLogo{to{opacity:1;transform:scale(1);filter:blur(0)}}
+@keyframes introPulse{0%,100%{filter:drop-shadow(0 0 10px rgba(92,184,255,.45)) drop-shadow(0 0 30px rgba(110,58,168,.35))}50%{filter:drop-shadow(0 0 22px rgba(159,211,255,.95)) drop-shadow(0 0 60px rgba(110,58,168,.6))}}
+@keyframes introGlow{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}40%{opacity:1}100%{opacity:.85;transform:translate(-50%,-50%) scale(1)}}
+@keyframes introRays{0%{opacity:0;transform:translate(-50%,-50%) rotate(0)}30%{opacity:1}100%{opacity:.7;transform:translate(-50%,-50%) rotate(40deg)}}
+@keyframes introShine{to{background-position:-50% 0}}
+@keyframes introUp{to{opacity:1;transform:none}}
+@keyframes introBar{to{transform:scaleX(1)}}
 
 /* Why */
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
@@ -267,6 +356,13 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .contact-aside small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:700}
 .contact-aside h2{font-size:clamp(24px,2.4vw,30px);line-height:1.2;font-weight:800;letter-spacing:-.02em;margin:8px 0 10px}
 .contact-aside p{opacity:.9;position:relative;font-size:15px}
+.contact-info{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px;position:relative}
+.contact-info li{display:flex;gap:12px;align-items:center}
+.contact-info .icon{width:38px;height:38px;padding:9px;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;flex-shrink:0}
+.contact-info span{display:flex;flex-direction:column;line-height:1.3}
+.contact-info small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7;font-weight:700}
+.contact-info a{color:#fff;font-weight:700;font-size:16px;word-break:break-all}
+.contact-info a:hover{text-decoration:underline}
 .contact-note{margin-top:auto;padding-top:24px;display:flex;gap:8px;align-items:flex-start;font-size:13px !important}
 .contact-note .icon{width:18px;height:18px;color:#9FD3FF;margin-top:1px}
 .contact-body{padding:26px 30px}
@@ -341,7 +437,10 @@ h1,h3,h4,.lead{text-wrap:pretty}
   .nav-links a{padding:14px 16px}
   .burger{display:flex}
   .nav-cta{display:none}
-  .hero{padding-top:130px}
+  .hero{padding-top:120px}
+  .header:not(.scrolled) .nav-links a{color:#33445E}
+  .nav-mobile-only{display:block}
+  .header:not(.scrolled) .nav-links a:hover,.header:not(.scrolled) .nav-links a.active{color:var(--blue);background:rgba(0,82,184,.07)}
   .hero-grid,.about-grid,.global-grid,.awards-grid,.bento,.contact-card{grid-template-columns:1fr}
   .contact-aside{padding:36px 32px}
   .contact-note{padding-top:20px}
@@ -350,7 +449,7 @@ h1,h3,h4,.lead{text-wrap:pretty}
   .hero{min-height:0}
   .about-media{margin-inline:auto}
   .bento-hero{min-height:0}
-  .hero-visual{max-width:420px}
+  .hero-visual{max-width:460px}
   .sol-grid,.tech-grid{grid-template-columns:1fr 1fr}
   .stats-inner{grid-template-columns:1fr 1fr}
   .stat:nth-child(3)::before{display:none}
@@ -363,17 +462,23 @@ h1,h3,h4,.lead{text-wrap:pretty}
   .timeline::before{display:block;left:15px;right:auto;top:8px;bottom:8px;width:3px;height:auto;background:linear-gradient(180deg,var(--blue),var(--purple),var(--coral))}
   .tl-item{flex-direction:row;align-items:flex-start;gap:16px}
   .tl-dot{margin-top:22px}
-}
-@media (max-width:760px){
-  .client-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px 14px;padding:4px 20px;scroll-snap-type:x proximity}
-  .client-tabs::-webkit-scrollbar{display:none}
-  .client-tabs button{flex:none;scroll-snap-align:start;font:inherit;font-size:14px;font-weight:600;color:#33445E;background:#fff;border:0;border-radius:999px;padding:9px 16px;box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;transition:.2s}
-  .client-tabs button[aria-selected="true"]{color:#fff;background:var(--grad);box-shadow:0 8px 18px -10px rgba(110,58,168,.7)}
-  .client-board{display:block;padding:14px;border-radius:18px}
-  .cl-col{display:contents}
-  .cl-block{display:none}
-  .cl-block.active{display:block}
-  .cl-block figcaption{font-size:14px;margin-bottom:8px}
+  /* Mobile hero: gradient + swipeable staff photo gallery */
+  .hero{padding:112px 0 28px;min-height:0}
+  .hero-bg{display:none}
+  .hero::before{background:radial-gradient(500px 320px at 100% 0%,rgba(47,134,209,.45),transparent 70%),radial-gradient(420px 300px at 0% 100%,rgba(110,58,168,.45),transparent 70%)}
+  .hero-actions{margin:24px 0 26px}
+  .hero-gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:28px 20px 6px;margin:0;scroll-padding:0 20px}
+  .hero-gallery::-webkit-scrollbar{display:none}
+  .hero-gallery figure{flex:0 0 84%;scroll-snap-align:start;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+  .hero-gallery img{width:100%;height:100%;object-fit:cover}
+  .hero-gallery figcaption{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700;color:#fff;background:rgba(6,26,61,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .marquee-track li{width:150px;height:76px;padding:14px 18px;border-radius:14px}
+  .marquee-track img{max-height:40px}
+  .marquee-track{gap:12px;animation-duration:45s}
+  .marquees{gap:12px}
+  @keyframes marquee{to{transform:translateX(calc(-50% - 6px))}}
+  .page-banner{padding:112px 0 44px}
+  .cta-box{padding:32px 24px}
 }
 @media (max-width:640px){
   .section{padding:64px 0}
@@ -388,6 +493,9 @@ h1,h3,h4,.lead{text-wrap:pretty}
   .contact-note,.contact-aside .asterisk,.contact-aside small,.contact-aside p{display:none}
   .contact-aside{padding:16px 20px}
   .contact-aside h2{margin:0;font-size:22px}
+  .contact-info{margin-top:12px;grid-template-columns:1fr 1fr;gap:10px}
+  .contact-info .icon{width:32px;height:32px;padding:7px;border-radius:10px}
+  .contact-info a{font-size:14px}
   .contact-card{border-radius:20px}
   .form-foot{flex-direction:column;align-items:stretch;gap:12px}
   .form-foot .btn{width:100%;justify-content:center}
@@ -403,17 +511,37 @@ h1,h3,h4,.lead{text-wrap:pretty}
   .ph-sm{border-radius:12px}
   .stat{padding:40px 16px}
   .footer-grid{grid-template-columns:1fr}
-  .hero-mini div{flex:1 1 140px}
+  .hero-actions{flex-wrap:nowrap;gap:10px}
+  .hero-actions .btn{flex:1;justify-content:center;padding:13px 8px;font-size:13.5px;white-space:nowrap}
+  .hero-actions .btn .icon{display:none}
+  .hero-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .hero-mini div{flex-direction:column;align-items:flex-start;gap:6px;padding:12px}
+  .hero-mini i{display:none}
+  .hero-mini span{font-size:12px}
   .mv-card,.values{padding:30px 24px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
   .reveal{opacity:1;transform:none}
   html{scroll-behavior:auto}
+  .intro-logo,.intro-tag,.intro-bar{opacity:1 !important;transform:none !important;filter:none !important}
+  .intro-glow{opacity:.8 !important;transform:translate(-50%,-50%) !important}
+  .marquee{overflow-x:auto}
 }
 </style>
 </head>
-<body>
+<body class="intro-on">
+<!-- Intro: logo Miraway toả sáng ~5 giây rồi vào trang chính -->
+<div class="intro" id="intro" role="presentation">
+  <div class="intro-rays"></div>
+  <div class="intro-glow"></div>
+  <div class="intro-stage">
+    <div class="intro-logo"><img src="assets/logo-white.png" alt="Miraway – Creative Technology" width="822" height="207"></div>
+    <p class="intro-tag">Sáng tạo công nghệ – Kiến tạo đất nước</p>
+    <div class="intro-bar"></div>
+  </div>
+  <button type="button" class="intro-skip" id="introSkip">Bỏ qua</button>
+</div>
 
 <!-- Icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -459,14 +587,15 @@ h1,h3,h4,.lead{text-wrap:pretty}
 <!-- Header -->
 <header class="header" id="header">
   <div class="container nav">
-    <a href="#top" class="logo" aria-label="Miraway Group – Trang chủ"><img src="assets/logo.png" alt="Miraway – Creative Technology" width="150" height="38"></a>
+    <a href="#top" class="logo" aria-label="Miraway Group – Trang chủ"><img class="logo-dark" src="assets/logo.png" alt="Miraway – Creative Technology" width="150" height="38"><img class="logo-light" src="assets/logo-white.png" alt="Miraway – Creative Technology" width="150" height="38"></a>
     <nav class="nav-links" id="navLinks" aria-label="Điều hướng chính">
-      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#top">Trang chủ</a>
+      <a href="#ve-chung-toi">Về chúng tôi</a>
       <a href="#giai-phap">Giải pháp</a>
       <a href="#cong-nghe">Công nghệ</a>
-      <a href="#nang-luc">Năng lực</a>
-      <a href="#hanh-trinh">Hành trình</a>
       <a href="#khach-hang">Khách hàng</a>
+      <a href="#thanh-vien">Hệ sinh thái</a>
+      <a href="#lien-he" class="nav-mobile-only">Liên hệ</a>
     </nav>
     <a href="#lien-he" class="btn btn-primary nav-cta">Liên hệ tư vấn</a>
     <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -474,12 +603,16 @@ h1,h3,h4,.lead{text-wrap:pretty}
 </header>
 
 <main id="top">
+<div id="home-view">
 
-<!-- Hero -->
+<!-- Hero banner -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/photos/team-office.webp" alt="" width="1284" height="744" fetchpriority="high">
+  </div>
   <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
       <span class="chip reveal"><b>MIRAWAY GROUP</b> Creative Technology</span>
       <h1 class="reveal d1">Giải pháp tiên phong <span class="grad-text">ứng dụng AI</span> &amp; chuyển đổi số toàn diện</h1>
       <p class="lead reveal d2">Đối tác lựa chọn trên hành trình trở thành tổ chức dẫn dắt bởi AI &amp; dữ liệu.</p>
@@ -493,9 +626,11 @@ h1,h3,h4,.lead{text-wrap:pretty}
         <div><i><svg class="icon"><use href="#i-globe"/></svg></i><p><strong>10+</strong><br><span>Quốc gia triển khai</span></p></div>
       </div>
     </div>
-    <div class="hero-visual reveal d2">
-      <img src="assets/hero-collage.png" alt="Hoạt động của đội ngũ Miraway Group: sự kiện, lễ vinh danh và phát triển sản phẩm" width="555" height="594" fetchpriority="high">
-    </div>
+  </div>
+  <div class="hero-gallery" aria-label="Hình ảnh đội ngũ Miraway Group">
+    <figure><img src="assets/photos/team-office.webp" alt="Đội ngũ nhân viên Miraway Group tại văn phòng" width="1284" height="744" loading="lazy" decoding="async"><figcaption>Đội ngũ Miraway</figcaption></figure>
+    <figure><img src="assets/photos/team-workshop.webp" alt="Buổi đào tạo nội bộ tại phòng họp chung" width="1056" height="620" loading="lazy" decoding="async"><figcaption>Đào tạo &amp; chia sẻ</figcaption></figure>
+    <figure><img src="assets/photos/team-building.webp" alt="Nhân viên Miraway trong chương trình team building" width="1312" height="744" loading="lazy" decoding="async"><figcaption>Team building</figcaption></figure>
   </div>
 </section>
 
@@ -510,53 +645,6 @@ h1,h3,h4,.lead{text-wrap:pretty}
   </div>
 </section>
 
-<!-- About -->
-<section class="section" id="gioi-thieu">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-media reveal">
-        <figure class="ph ph-main"><img src="assets/team-office.jpg" alt="Đội ngũ Miraway Group tại văn phòng" width="642" height="372" loading="lazy" decoding="async"></figure>
-        <figure class="ph ph-sm"><img src="assets/team-workshop.jpg" alt="Buổi đào tạo, hội thảo tại Miraway" width="528" height="310" loading="lazy" decoding="async"></figure>
-        <figure class="ph ph-sm"><img src="assets/team-meeting.jpg" alt="Làm việc cùng khách hàng" width="528" height="304" loading="lazy" decoding="async"></figure>
-        <figure class="ph ph-sm"><img src="assets/team-building.jpg" alt="Team building Miraway" width="328" height="186" loading="lazy" decoding="async"></figure>
-      </div>
-      <div>
-        <span class="eyebrow reveal">Về Miraway Group</span>
-        <h2 class="title reveal d1">Hãng công nghệ hàng đầu cung cấp <span class="grad-text">giải pháp chuyển đổi số</span></h2>
-        <p class="lead reveal d2">Với mạng lưới đối tác toàn cầu và các dự án triển khai thành công trong và ngoài nước, Miraway tự chủ năng lực tư vấn, cung cấp và triển khai giải pháp CNTT tại Việt Nam và các nước trong khu vực.</p>
-        <a href="#hanh-trinh" class="btn btn-ghost reveal d3" style="margin-top:28px">Xem lịch sử phát triển <svg class="icon"><use href="#i-arrow"/></svg></a>
-      </div>
-    </div>
-
-    <div class="mv-grid">
-      <article class="mv-card mission reveal">
-        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
-        <div class="ic"><svg class="icon"><use href="#i-target"/></svg></div>
-        <small>Sứ mệnh</small>
-        <h3>Sáng tạo công nghệ – Kiến tạo đất nước</h3>
-        <p>Tiên phong thúc đẩy chuyển đổi số trong nước và khu vực, mang lại giá trị thực tiễn cho cộng đồng bằng các giải pháp, sản phẩm công nghệ hữu ích và thông minh.</p>
-      </article>
-      <article class="mv-card vision reveal d1">
-        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
-        <div class="ic"><svg class="icon"><use href="#i-eye"/></svg></div>
-        <small>Tầm nhìn</small>
-        <h3>Vươn tầm phát triển</h3>
-        <p>Trở thành công ty công nghệ tiên phong hàng đầu Việt Nam và khu vực, kiến tạo vị thế số bằng những giải pháp đột phá nâng tầm quốc gia.</p>
-      </article>
-    </div>
-    <div class="values reveal">
-      <h3>Năm giá trị cốt lõi</h3>
-      <ul>
-        <li><em>01</em><b>Khát vọng</b><span>Vì lợi ích cộng đồng và quốc gia</span></li>
-        <li><em>02</em><b>Sáng tạo</b><span>Luôn đổi mới công nghệ</span></li>
-        <li><em>03</em><b>Tận tâm</b><span>Đặt khách hàng lên hàng đầu</span></li>
-        <li><em>04</em><b>Chuyên nghiệp</b><span>Nghiêm túc, có trách nhiệm</span></li>
-        <li><em>05</em><b>Bứt phá</b><span>Sẵn sàng vượt giới hạn</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- Solutions ecosystem -->
 <section class="section solutions" id="giai-phap">
   <div class="container">
@@ -564,12 +652,12 @@ h1,h3,h4,.lead{text-wrap:pretty}
       <h2 class="title reveal">Hệ sinh thái <span class="grad-text">giải pháp</span></h2>
     </div>
     <div class="sol-grid">
-      <article class="sol-card reveal"><span class="sol-num">01</span><div class="sol-ic c1"><svg class="icon"><use href="#i-token"/></svg></div><h3>Token hóa tài sản (RWA)</h3><p>Token hóa bất động sản, trái phiếu, hàng hóa; thanh khoản 24/7, sở hữu phân đoạn.</p></article>
-      <article class="sol-card reveal d1"><span class="sol-num">02</span><div class="sol-ic c2"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Giải pháp bảo hiểm số</h3><p>Sự kết hợp đột phá giữa công nghệ và dịch vụ tài chính – bảo hiểm, giúp tối ưu hóa quy trình quản lý, tự động hóa giao dịch và nâng cao trải nghiệm người dùng.</p></article>
-      <article class="sol-card reveal d2"><span class="sol-num">03</span><div class="sol-ic c3"><svg class="icon"><use href="#i-qr"/></svg></div><h3>Truy xuất nguồn gốc</h3><p>Theo dõi từ sản xuất đến người tiêu dùng: nông sản, dược phẩm, hàng xuất khẩu.</p></article>
-      <article class="sol-card reveal"><span class="sol-num">04</span><div class="sol-ic c4"><svg class="icon"><use href="#i-health"/></svg></div><h3>Ứng dụng AI trong y tế</h3><p>Kết hợp AI và Robotics, tạo ra các sản phẩm công nghệ đột phá để bảo vệ sức khoẻ con người.</p></article>
-      <article class="sol-card reveal d1"><span class="sol-num">05</span><div class="sol-ic c5"><svg class="icon"><use href="#i-wallet"/></svg></div><h3>Fintech &amp; tài sản số</h3><p>Hạ tầng giao dịch tuân thủ: stablecoin, cho vay, chứng khoán token hóa.</p></article>
-      <article class="sol-card reveal d2"><span class="sol-num">06</span><div class="sol-ic c6"><svg class="icon"><use href="#i-leaf"/></svg></div><h3>ESG &amp; tín chỉ carbon</h3><p>Phát hành tín chỉ carbon, báo cáo ESG minh bạch trên chuỗi, sẵn sàng Net Zero 2050.</p></article>
+      <article tabindex="0" role="button" class="sol-card reveal"><span class="sol-num">01</span><div class="sol-ic c1"><svg class="icon"><use href="#i-token"/></svg></div><h3>Token hóa tài sản (RWA)</h3><p>Token hóa bất động sản, trái phiếu, hàng hóa; thanh khoản 24/7, sở hữu phân đoạn.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
+      <article tabindex="0" role="button" class="sol-card reveal d1"><span class="sol-num">02</span><div class="sol-ic c2"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Giải pháp bảo hiểm số</h3><p>Sự kết hợp đột phá giữa công nghệ và dịch vụ tài chính – bảo hiểm, giúp tối ưu hóa quy trình quản lý, tự động hóa giao dịch và nâng cao trải nghiệm người dùng.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
+      <article tabindex="0" role="button" class="sol-card reveal d2"><span class="sol-num">03</span><div class="sol-ic c3"><svg class="icon"><use href="#i-qr"/></svg></div><h3>Truy xuất nguồn gốc</h3><p>Theo dõi từ sản xuất đến người tiêu dùng: nông sản, dược phẩm, hàng xuất khẩu.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
+      <article tabindex="0" role="button" class="sol-card reveal"><span class="sol-num">04</span><div class="sol-ic c4"><svg class="icon"><use href="#i-health"/></svg></div><h3>Ứng dụng AI trong y tế</h3><p>Kết hợp AI và Robotics, tạo ra các sản phẩm công nghệ đột phá để bảo vệ sức khoẻ con người.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
+      <article tabindex="0" role="button" class="sol-card reveal d1"><span class="sol-num">05</span><div class="sol-ic c5"><svg class="icon"><use href="#i-wallet"/></svg></div><h3>Fintech &amp; tài sản số</h3><p>Hạ tầng giao dịch tuân thủ: stablecoin, cho vay, chứng khoán token hóa.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
+      <article tabindex="0" role="button" class="sol-card reveal d2"><span class="sol-num">06</span><div class="sol-ic c6"><svg class="icon"><use href="#i-leaf"/></svg></div><h3>ESG &amp; tín chỉ carbon</h3><p>Phát hành tín chỉ carbon, báo cáo ESG minh bạch trên chuỗi, sẵn sàng Net Zero 2050.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
     </div>
     <div class="industries reveal">
       <span class="label">Ngành ứng dụng:</span>
@@ -622,6 +710,207 @@ h1,h3,h4,.lead{text-wrap:pretty}
     </div>
     <div class="tech-tags reveal">
       <span>Multi-chain</span><span>EVM Compatible</span><span>Hyperledger Fabric</span><span>Zero-Knowledge Proofs</span><span>IPFS Storage</span><span>Oracle Integration</span>
+    </div>
+  </div>
+</section>
+
+<!-- Clients -->
+<section class="section clients" id="khach-hang">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal">Khách hàng <span class="grad-text">tiêu biểu</span></h2>
+      <p class="lead reveal d1">Hơn 1.000 tổ chức tài chính, doanh nghiệp, cơ quan nhà nước và đối tác quốc tế tin dùng giải pháp của Miraway.</p>
+    </div>
+  </div>
+  <div class="marquees reveal" aria-label="Logo khách hàng">
+      <div class="marquee"><ul class="marquee-track"><li><img src="assets/logos/vietcombank.webp" alt="Vietcombank" loading="lazy" decoding="async"></li><li><img src="assets/logos/vpbank.webp" alt="VPBank" loading="lazy" decoding="async"></li><li><img src="assets/logos/viettel.webp" alt="Viettel" loading="lazy" decoding="async"></li><li><img src="assets/logos/bidv.webp" alt="BIDV" loading="lazy" decoding="async"></li><li><img src="assets/logos/techcombank.webp" alt="Techcombank" loading="lazy" decoding="async"></li><li><img src="assets/logos/agribank.webp" alt="Agribank" loading="lazy" decoding="async"></li><li><img src="assets/logos/mb.webp" alt="MB Bank" loading="lazy" decoding="async"></li><li><img src="assets/logos/vietinbank.webp" alt="VietinBank" loading="lazy" decoding="async"></li><li><img src="assets/logos/tpbank.webp" alt="TPBank" loading="lazy" decoding="async"></li><li><img src="assets/logos/sacombank.webp" alt="Sacombank" loading="lazy" decoding="async"></li><li><img src="assets/logos/acb.webp" alt="ACB" loading="lazy" decoding="async"></li><li><img src="assets/logos/shb.webp" alt="SHB" loading="lazy" decoding="async"></li><li><img src="assets/logos/vib.webp" alt="VIB" loading="lazy" decoding="async"></li><li><img src="assets/logos/hdbank.webp" alt="HDBank" loading="lazy" decoding="async"></li><li><img src="assets/logos/lpbank.webp" alt="LPBank" loading="lazy" decoding="async"></li><li><img src="assets/logos/msb.webp" alt="MSB" loading="lazy" decoding="async"></li><li><img src="assets/logos/wooribank.webp" alt="Woori Bank" loading="lazy" decoding="async"></li><li><img src="assets/logos/banviet.webp" alt="Ngân hàng Bản Việt" loading="lazy" decoding="async"></li><li><img src="assets/logos/vnpt.webp" alt="VNPT" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/vietcombank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/vpbank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/viettel.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/bidv.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/techcombank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/agribank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/mb.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/vietinbank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/tpbank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/sacombank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/acb.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/shb.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/vib.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/hdbank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/lpbank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/msb.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/wooribank.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/banviet.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/vnpt.webp" alt="" loading="lazy" decoding="async"></li></ul></div>
+      <div class="marquee reverse"><ul class="marquee-track"><li><img src="assets/logos/grab.webp" alt="Grab" loading="lazy" decoding="async"></li><li><img src="assets/logos/amway.webp" alt="Amway" loading="lazy" decoding="async"></li><li><img src="assets/logos/baemin.webp" alt="Baemin" loading="lazy" decoding="async"></li><li><img src="assets/logos/winmart.webp" alt="WinMart" loading="lazy" decoding="async"></li><li><img src="assets/logos/masan.webp" alt="Masan Group" loading="lazy" decoding="async"></li><li><img src="assets/logos/mazda.webp" alt="Mazda" loading="lazy" decoding="async"></li><li><img src="assets/logos/phuclong.webp" alt="Phúc Long" loading="lazy" decoding="async"></li><li><img src="assets/logos/zara.webp" alt="Zara" loading="lazy" decoding="async"></li><li><img src="assets/logos/cmctelecom.webp" alt="CMC Telecom" loading="lazy" decoding="async"></li><li><img src="assets/logos/telemor.webp" alt="Telemor" loading="lazy" decoding="async"></li><li><img src="assets/logos/bitel.webp" alt="Bitel" loading="lazy" decoding="async"></li><li><img src="assets/logos/vietnampost.webp" alt="Vietnam Post" loading="lazy" decoding="async"></li><li><img src="assets/logos/boyte.webp" alt="Bộ Y tế" loading="lazy" decoding="async"></li><li><img src="assets/logos/benhvienk.webp" alt="Bệnh viện K" loading="lazy" decoding="async"></li><li><img src="assets/logos/hongngoc-dongvan.webp" alt="Bệnh viện Hà Nội – Đồng Văn" loading="lazy" decoding="async"></li><li><img src="assets/logos/bostonpharma.webp" alt="Boston Pharma" loading="lazy" decoding="async"></li><li><img src="assets/logos/congan.webp" alt="Bộ Công an" loading="lazy" decoding="async"></li><li><img src="assets/logos/botnmt.webp" alt="Bộ Tài nguyên và Môi trường" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/grab.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/amway.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/baemin.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/winmart.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/masan.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/mazda.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/phuclong.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/zara.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/cmctelecom.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/telemor.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/bitel.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/vietnampost.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/boyte.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/benhvienk.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/hongngoc-dongvan.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/bostonpharma.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/congan.webp" alt="" loading="lazy" decoding="async"></li><li aria-hidden="true"><img src="assets/logos/botnmt.webp" alt="" loading="lazy" decoding="async"></li></ul></div>
+  </div>
+</section>
+
+<!-- Member companies -->
+<section class="section members" id="thanh-vien">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow reveal">Hệ sinh thái Miraway</span>
+      <h2 class="title reveal d1">Các đơn vị <span class="grad-text">thành viên</span></h2>
+    </div>
+    <div class="member-grid">
+      <a class="member reveal" href="https://miraway.vn" target="_blank" rel="noopener">
+        <span class="member-logo"><img src="assets/logo.png" alt="Miraway" width="1062" height="268" loading="lazy"></span>
+        <h3>Miraway Giải pháp công nghệ</h3>
+        <p>Nền tảng trải nghiệm khách hàng: xếp hàng tự động, kiosk tự phục vụ, digital signage, CDP, khảo sát phản hồi.</p>
+        <span class="member-link">miraway.vn <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="member reveal d1" href="https://qrx.com.vn" target="_blank" rel="noopener">
+        <span class="member-logo"><img src="assets/qrx-logo.png" alt="QRX" width="244" height="81" loading="lazy"></span>
+        <h3>QRX</h3>
+        <p>Quản trị trải nghiệm bán hàng đa kênh dựa trên QR Code: marketing, chống giả, bảo hành, Zalo mini app.</p>
+        <span class="member-link">qrx.com.vn <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Why -->
+<section class="section bg-soft" id="vi-sao">
+  <div class="container">
+    <div class="section-head center">
+      <h2 class="title reveal">Vì sao chọn <span class="grad-text">Miraway Group</span></h2>
+    </div>
+    <div class="why-grid">
+      <article class="why reveal"><div class="sol-ic c1"><svg class="icon"><use href="#i-users"/></svg></div><h3>Đội ngũ nhân sự giỏi</h3><p>Đội ngũ dày dặn kinh nghiệm, nhiệt huyết và hoài bão, là nền tảng cho sự phát triển bền vững trên thị trường CNTT Việt Nam.</p></article>
+      <article class="why reveal d1"><div class="sol-ic c2"><svg class="icon"><use href="#i-globe"/></svg></div><h3>Mạng lưới phủ rộng</h3><p>Mạng lưới đối tác toàn cầu và phủ rộng khắp cả nước, mang giải pháp tới Đông Nam Á, Châu Á và Châu Mỹ.</p></article>
+      <article class="why reveal d2"><div class="sol-ic c4"><svg class="icon"><use href="#i-star"/></svg></div><h3>Chất lượng và dịch vụ</h3><p>Đáp ứng mọi nhu cầu của khách hàng, giúp tổ chức, doanh nghiệp nâng cao hiệu quả hoạt động và thúc đẩy tăng trưởng doanh thu.</p></article>
+      <article class="why reveal d3"><div class="sol-ic c3"><svg class="icon"><use href="#i-rocket"/></svg></div><h3>Giải pháp công nghệ tiên phong</h3><p>Giải pháp thiết kế chuyên sâu theo ngành, luôn cập nhật công nghệ mới nhất và hỗ trợ liên tục sau triển khai.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Contact form -->
+<section class="section" id="lien-he">
+  <div class="container">
+    <div class="contact-card reveal">
+      <aside class="contact-aside">
+        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+        <small>Liên hệ</small>
+        <h2>Liên hệ tư vấn</h2>
+        <p>Để lại thông tin, đội ngũ Miraway Group sẽ liên hệ lại với bạn.</p>
+        <ul class="contact-info">
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>Hotline</small><a href="tel:0812134343">0812 134 343</a></span></li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span><small>Email</small><a href="mailto:hien@miratech.vn">hien@miratech.vn</a></span></li>
+        </ul>
+        <p class="contact-note"><svg class="icon"><use href="#i-shield"/></svg>Thông tin của bạn chỉ được dùng để liên hệ tư vấn.</p>
+      </aside>
+
+      <div class="contact-body">
+        <form class="contact-form" id="contactForm" novalidate data-endpoint="/api/contact">
+          <div class="form-grid">
+            <div class="field">
+              <label for="cf-name">Họ và tên <span class="req" aria-hidden="true">*</span></label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="cf-name-err">
+              <p class="err" id="cf-name-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-company">Công ty / Tổ chức</label>
+              <input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="150">
+            </div>
+            <div class="field">
+              <label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="150" required aria-describedby="cf-email-err">
+              <p class="err" id="cf-email-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-phone">Số điện thoại <span class="req" aria-hidden="true">*</span></label>
+              <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required aria-describedby="cf-phone-err">
+              <p class="err" id="cf-phone-err" aria-live="polite"></p>
+            </div>
+            <div class="field full">
+              <label for="cf-topic">Giải pháp quan tâm</label>
+              <select id="cf-topic" name="topic">
+                <option value="">— Chọn giải pháp —</option>
+                <option>Token hóa tài sản (RWA)</option>
+                <option>Giải pháp bảo hiểm số</option>
+                <option>Truy xuất nguồn gốc</option>
+                <option>Ứng dụng AI trong y tế</option>
+                <option>Fintech &amp; tài sản số</option>
+                <option>ESG &amp; tín chỉ carbon</option>
+                <option>Chiến lược ứng dụng AI + Dữ liệu lớn</option>
+                <option>Quản lý, phân tích dữ liệu &amp; nền tảng dữ liệu khách hàng</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="cf-message">Nội dung <span class="req" aria-hidden="true">*</span></label>
+              <div class="msg-wrap">
+                <textarea id="cf-message" name="message" rows="3" maxlength="1000" required aria-describedby="cf-message-err cf-count"></textarea>
+                <span class="count" id="cf-count">0/1000</span>
+              </div>
+              <p class="err" id="cf-message-err" aria-live="polite"></p>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="cf-website">Website</label>
+              <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-foot">
+            <label class="consent"><input type="checkbox" id="cf-consent" name="consent" required aria-describedby="cf-consent-err"><span>Tôi đồng ý để Miraway Group sử dụng thông tin trên để liên hệ tư vấn. <span class="req" aria-hidden="true">*</span></span></label>
+            <button type="submit" class="btn btn-primary" id="cf-submit"><span class="btn-label">Gửi thông tin</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+          </div>
+          <p class="err" id="cf-consent-err" aria-live="polite"></p>
+          <div class="form-status" id="cf-status" role="alert" hidden></div>
+        </form>
+
+        <div class="contact-success" id="cf-success" hidden tabindex="-1">
+          <div class="ok-ic"><svg class="icon"><use href="#i-check"/></svg></div>
+          <h3>Gửi thông tin thành công</h3>
+          <p>Cảm ơn bạn đã quan tâm. Miraway Group sẽ liên hệ lại với bạn trong thời gian sớm nhất.</p>
+          <button type="button" class="btn btn-ghost" id="cf-again">Gửi yêu cầu khác</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /home-view -->
+
+<!-- ===== Về chúng tôi (chỉ hiện khi bấm menu) ===== -->
+<div id="ve-chung-toi" class="about-view" hidden>
+<section class="page-banner">
+  <div class="hero-bg" aria-hidden="true"><img src="assets/photos/team-workshop.webp" alt="" width="1056" height="620" loading="lazy"></div>
+  <div class="container">
+    <a href="#top" class="back-home"><svg class="icon"><use href="#i-arrow"/></svg>Trang chủ</a>
+    <span class="eyebrow">Về chúng tôi</span>
+    <h1>Miraway Group</h1>
+    <p>Hơn 19 năm sáng tạo công nghệ – kiến tạo đất nước.</p>
+    <nav class="about-tabs" aria-label="Mục trong Về chúng tôi">
+      <a href="#gioi-thieu">Giới thiệu</a><a href="#nang-luc">Năng lực</a><a href="#hanh-trinh">Lịch sử hình thành</a><a href="#giai-thuong">Giải thưởng</a>
+    </nav>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="gioi-thieu">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <figure class="ph ph-main"><img src="assets/photos/team-office.webp" alt="Đội ngũ nhân viên Miraway Group tại văn phòng" width="1284" height="744" loading="lazy" decoding="async"></figure>
+        <figure class="ph ph-half"><img src="assets/photos/team-workshop.webp" alt="Buổi đào tạo nội bộ tại phòng họp chung" width="1056" height="620" loading="lazy" decoding="async"></figure>
+        <figure class="ph ph-half"><img src="assets/photos/team-building.webp" alt="Nhân viên Miraway trong chương trình team building" width="1312" height="744" loading="lazy" decoding="async"></figure>
+      </div>
+      <div>
+        <span class="eyebrow reveal">Về Miraway Group</span>
+        <h2 class="title reveal d1">Hãng công nghệ hàng đầu cung cấp <span class="grad-text">giải pháp chuyển đổi số</span></h2>
+        <p class="lead reveal d2">Với mạng lưới đối tác toàn cầu và các dự án triển khai thành công trong và ngoài nước, Miraway tự chủ năng lực tư vấn, cung cấp và triển khai giải pháp CNTT tại Việt Nam và các nước trong khu vực.</p>
+        <a href="#hanh-trinh" class="btn btn-ghost reveal d3" style="margin-top:28px">Xem lịch sử phát triển <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="mv-grid">
+      <article class="mv-card mission reveal">
+        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+        <div class="ic"><svg class="icon"><use href="#i-target"/></svg></div>
+        <small>Sứ mệnh</small>
+        <h3>Sáng tạo công nghệ – Kiến tạo đất nước</h3>
+        <p>Tiên phong thúc đẩy chuyển đổi số trong nước và khu vực, mang lại giá trị thực tiễn cho cộng đồng bằng các giải pháp, sản phẩm công nghệ hữu ích và thông minh.</p>
+      </article>
+      <article class="mv-card vision reveal d1">
+        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
+        <div class="ic"><svg class="icon"><use href="#i-eye"/></svg></div>
+        <small>Tầm nhìn</small>
+        <h3>Vươn tầm phát triển</h3>
+        <p>Trở thành công ty công nghệ tiên phong hàng đầu Việt Nam và khu vực, kiến tạo vị thế số bằng những giải pháp đột phá nâng tầm quốc gia.</p>
+      </article>
+    </div>
+    <div class="values reveal">
+      <h3>Năm giá trị cốt lõi</h3>
+      <ul>
+        <li><em>01</em><b>Khát vọng</b><span>Vì lợi ích cộng đồng và quốc gia</span></li>
+        <li><em>02</em><b>Sáng tạo</b><span>Luôn đổi mới công nghệ</span></li>
+        <li><em>03</em><b>Tận tâm</b><span>Đặt khách hàng lên hàng đầu</span></li>
+        <li><em>04</em><b>Chuyên nghiệp</b><span>Nghiêm túc, có trách nhiệm</span></li>
+        <li><em>05</em><b>Bứt phá</b><span>Sẵn sàng vượt giới hạn</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -697,134 +986,15 @@ h1,h3,h4,.lead{text-wrap:pretty}
   </div>
 </section>
 
-<!-- Clients -->
-<section class="section" id="khach-hang">
+<section class="section about-cta">
   <div class="container">
-    <div class="section-head center">
-      <h2 class="title reveal">Khách hàng <span class="grad-text">tiêu biểu</span></h2>
-    </div>
-    <div class="client-tabs" role="tablist" aria-label="Nhóm khách hàng">
-      <button type="button" role="tab" aria-selected="true" data-cat="finance">Ngân hàng</button>
-      <button type="button" role="tab" aria-selected="false" data-cat="enterprise">Doanh nghiệp lớn</button>
-      <button type="button" role="tab" aria-selected="false" data-cat="gov">Chính phủ</button>
-      <button type="button" role="tab" aria-selected="false" data-cat="telecom">Viễn thông</button>
-      <button type="button" role="tab" aria-selected="false" data-cat="health">Y tế</button>
-      <button type="button" role="tab" aria-selected="false" data-cat="intl">Quốc tế</button>
-      <button type="button" role="tab" aria-selected="false" data-cat="other">Khác</button>
-    </div>
-    <div class="client-board reveal">
-      <div class="cl-col">
-        <figure class="cl-block active" data-cat="finance"><figcaption>Khách hàng khối tài chính ngân hàng</figcaption><img src="assets/clients/finance.jpg" alt="Logo khách hàng tài chính ngân hàng: MSB, Techcombank, VietinBank, VPBank, LienVietPostBank, MB, Vietcombank, Ngân hàng Bản Việt, BIDV, TPBank, Agribank, Sacombank" width="370" height="438" loading="lazy" decoding="async"></figure>
-        <figure class="cl-block" data-cat="gov"><figcaption>Khách hàng khối chính phủ</figcaption><img src="assets/clients/gov.jpg" alt="Logo khách hàng khối chính phủ: HCC Lào Cai, Thanh Hóa, Hà Nam, Cao Bằng, Bắc Ninh, Bắc Giang, Nghệ An, Vụ Bản, Đống Đa, Sơn Tây, Hà Tĩnh, Vietnam Post và các đơn vị khác" width="367" height="543" loading="lazy" decoding="async"></figure>
-      </div>
-      <div class="cl-col">
-        <figure class="cl-block" data-cat="enterprise"><figcaption>Khách hàng khối doanh nghiệp lớn</figcaption><img src="assets/clients/enterprise.jpg" alt="Logo khách hàng doanh nghiệp lớn: Amway, WinMart, WIN, Grab, Baemin, Masan, FPT Software, Mazda, VNPAY, Hyundai, Phúc Long, Zara" width="368" height="435" loading="lazy" decoding="async"></figure>
-        <figure class="cl-block" data-cat="telecom"><figcaption>Khách hàng khối doanh nghiệp viễn thông</figcaption><img src="assets/clients/telecom.jpg" alt="Logo khách hàng viễn thông: Viettel, VNPT, Wintel" width="371" height="107" loading="lazy" decoding="async"></figure>
-        <figure class="cl-block" data-cat="health"><figcaption>Khách hàng khối y tế</figcaption><img src="assets/clients/health.jpg" alt="Logo khách hàng khối y tế: Bộ Y tế và các bệnh viện" width="369" height="216" loading="lazy" decoding="async"></figure>
-        <figure class="cl-block" data-cat="intl"><figcaption>Khách hàng thị trường quốc tế</figcaption><img src="assets/clients/intl.jpg" alt="Logo khách hàng quốc tế: Telemor, Bitel, SmartScore" width="371" height="107" loading="lazy" decoding="async"></figure>
-      </div>
-      <div class="cl-col">
-        <figure class="cl-block" data-cat="other"><figcaption>Khách hàng tiêu biểu khác</figcaption><img src="assets/clients/other.jpg" alt="Logo các khách hàng tiêu biểu khác của Miraway Group" width="401" height="1015" loading="lazy" decoding="async"></figure>
-      </div>
+    <div class="cta-box">
+      <h2>Cùng Miraway kiến tạo giải pháp cho doanh nghiệp của bạn</h2>
+      <a href="#lien-he" class="btn btn-light">Liên hệ tư vấn <svg class="icon"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
-
-<!-- Why -->
-<section class="section bg-soft" id="vi-sao">
-  <div class="container">
-    <div class="section-head center">
-      <h2 class="title reveal">Vì sao chọn <span class="grad-text">Miraway Group</span></h2>
-    </div>
-    <div class="why-grid">
-      <article class="why reveal"><div class="sol-ic c1"><svg class="icon"><use href="#i-users"/></svg></div><h3>Đội ngũ nhân sự giỏi</h3><p>Đội ngũ dày dặn kinh nghiệm, nhiệt huyết và hoài bão, là nền tảng cho sự phát triển bền vững trên thị trường CNTT Việt Nam.</p></article>
-      <article class="why reveal d1"><div class="sol-ic c2"><svg class="icon"><use href="#i-globe"/></svg></div><h3>Mạng lưới phủ rộng</h3><p>Mạng lưới đối tác toàn cầu và phủ rộng khắp cả nước, mang giải pháp tới Đông Nam Á, Châu Á và Châu Mỹ.</p></article>
-      <article class="why reveal d2"><div class="sol-ic c4"><svg class="icon"><use href="#i-star"/></svg></div><h3>Chất lượng và dịch vụ</h3><p>Đáp ứng mọi nhu cầu của khách hàng, giúp tổ chức, doanh nghiệp nâng cao hiệu quả hoạt động và thúc đẩy tăng trưởng doanh thu.</p></article>
-      <article class="why reveal d3"><div class="sol-ic c3"><svg class="icon"><use href="#i-rocket"/></svg></div><h3>Giải pháp công nghệ tiên phong</h3><p>Giải pháp thiết kế chuyên sâu theo ngành, luôn cập nhật công nghệ mới nhất và hỗ trợ liên tục sau triển khai.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- Contact form -->
-<section class="section" id="lien-he">
-  <div class="container">
-    <div class="contact-card reveal">
-      <aside class="contact-aside">
-        <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
-        <small>Liên hệ</small>
-        <h2>Liên hệ tư vấn</h2>
-        <p>Để lại thông tin, đội ngũ Miraway Group sẽ liên hệ lại với bạn.</p>
-        <p class="contact-note"><svg class="icon"><use href="#i-shield"/></svg>Thông tin của bạn chỉ được dùng để liên hệ tư vấn.</p>
-      </aside>
-
-      <div class="contact-body">
-        <form class="contact-form" id="contactForm" novalidate data-endpoint="">
-          <div class="form-grid">
-            <div class="field">
-              <label for="cf-name">Họ và tên <span class="req" aria-hidden="true">*</span></label>
-              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="cf-name-err">
-              <p class="err" id="cf-name-err" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="cf-company">Công ty / Tổ chức</label>
-              <input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="150">
-            </div>
-            <div class="field">
-              <label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label>
-              <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="150" required aria-describedby="cf-email-err">
-              <p class="err" id="cf-email-err" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="cf-phone">Số điện thoại <span class="req" aria-hidden="true">*</span></label>
-              <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required aria-describedby="cf-phone-err">
-              <p class="err" id="cf-phone-err" aria-live="polite"></p>
-            </div>
-            <div class="field full">
-              <label for="cf-topic">Giải pháp quan tâm</label>
-              <select id="cf-topic" name="topic">
-                <option value="">— Chọn giải pháp —</option>
-                <option>Token hóa tài sản (RWA)</option>
-                <option>Giải pháp bảo hiểm số</option>
-                <option>Truy xuất nguồn gốc</option>
-                <option>Ứng dụng AI trong y tế</option>
-                <option>Fintech &amp; tài sản số</option>
-                <option>ESG &amp; tín chỉ carbon</option>
-                <option>Chiến lược ứng dụng AI + Dữ liệu lớn</option>
-                <option>Quản lý, phân tích dữ liệu &amp; nền tảng dữ liệu khách hàng</option>
-                <option>Khác</option>
-              </select>
-            </div>
-            <div class="field full">
-              <label for="cf-message">Nội dung <span class="req" aria-hidden="true">*</span></label>
-              <div class="msg-wrap">
-                <textarea id="cf-message" name="message" rows="3" maxlength="1000" required aria-describedby="cf-message-err cf-count"></textarea>
-                <span class="count" id="cf-count">0/1000</span>
-              </div>
-              <p class="err" id="cf-message-err" aria-live="polite"></p>
-            </div>
-            <div class="hp" aria-hidden="true">
-              <label for="cf-website">Website</label>
-              <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
-            </div>
-          </div>
-          <div class="form-foot">
-            <label class="consent"><input type="checkbox" id="cf-consent" name="consent" required aria-describedby="cf-consent-err"><span>Tôi đồng ý để Miraway Group sử dụng thông tin trên để liên hệ tư vấn. <span class="req" aria-hidden="true">*</span></span></label>
-            <button type="submit" class="btn btn-primary" id="cf-submit"><span class="btn-label">Gửi thông tin</span><svg class="icon"><use href="#i-arrow"/></svg></button>
-          </div>
-          <p class="err" id="cf-consent-err" aria-live="polite"></p>
-          <div class="form-status" id="cf-status" role="alert" hidden></div>
-        </form>
-
-        <div class="contact-success" id="cf-success" hidden tabindex="-1">
-          <div class="ok-ic"><svg class="icon"><use href="#i-check"/></svg></div>
-          <h3>Gửi thông tin thành công</h3>
-          <p>Cảm ơn bạn đã quan tâm. Miraway Group sẽ liên hệ lại với bạn trong thời gian sớm nhất.</p>
-          <button type="button" class="btn btn-ghost" id="cf-again">Gửi yêu cầu khác</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</div><!-- /ve-chung-toi -->
 
 </main>
 
@@ -839,7 +1009,7 @@ h1,h3,h4,.lead{text-wrap:pretty}
       </div>
       <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng Hà Nội</b>Tòa C18, Ngõ 655 Lạc Long Quân, Tây Hồ, Hà Nội</span></div>
       <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng TP. Hồ Chí Minh</b>Tòa Terra Royal, 278 Nam Kỳ Khởi Nghĩa, Quận 3</span></div>
-      <div class="addr"><svg class="icon"><use href="#i-web"/></svg><span><b>Website</b><a href="https://mirawaygroup.vn" target="_blank" rel="noopener">mirawaygroup.vn</a></span></div>
+      <div class="addr"><svg class="icon"><use href="#i-web"/></svg><span><b>Liên hệ</b><a href="tel:0812134343">0812 134 343</a><br><a href="mailto:hien@miratech.vn">hien@miratech.vn</a><br><a href="https://mirawaygroup.vn" target="_blank" rel="noopener">mirawaygroup.vn</a></span></div>
     </div>
     <div class="footer-bottom">
       <span>© <span id="year">2026</span> Miraway Group. All rights reserved.</span>
@@ -922,15 +1092,77 @@ h1,h3,h4,.lead{text-wrap:pretty}
     sections.forEach(s => sio.observe(s));
   }
 
-  // Client category tabs (mobile)
-  const tabs = document.querySelectorAll('.client-tabs [data-cat]');
-  const blocks = document.querySelectorAll('.cl-block');
-  tabs.forEach(tab => tab.addEventListener('click', () => {
-    tabs.forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
-    blocks.forEach(b => b.classList.toggle('active', b.dataset.cat === tab.dataset.cat));
-    const bar = tab.parentElement;
-    bar.scrollTo({ left: tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
-  }));
+
+  // ===== Intro splash (5s) =====
+  const intro = document.getElementById('intro');
+  const endIntro = () => {
+    if (!intro || intro.classList.contains('done')) return;
+    intro.classList.add('done');
+    document.body.classList.remove('intro-on');
+    setTimeout(() => intro.remove(), 900);
+  };
+  if (intro) {
+    setTimeout(endIntro, reduce ? 1200 : 5000);
+    document.getElementById('introSkip').addEventListener('click', endIntro);
+    intro.addEventListener('click', e => { if (e.target === intro) endIntro(); });
+  }
+
+  // ===== Views: Trang chủ / Về chúng tôi =====
+  const homeView = document.getElementById('home-view');
+  const aboutView = document.getElementById('ve-chung-toi');
+  const showView = (hash, smooth) => {
+    const id = (hash || '').slice(1);
+    const target = id ? document.getElementById(id) : null;
+    const inAbout = !!target && (target === aboutView || aboutView.contains(target));
+    const switched = homeView.hidden !== inAbout;
+    homeView.hidden = inAbout;
+    aboutView.hidden = !inAbout;
+    if (switched) aboutView.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    links.forEach(a => a.classList.toggle('active', inAbout ? a.getAttribute('href') === '#ve-chung-toi' : false));
+    const behavior = smooth && !switched && !reduce ? 'smooth' : 'auto';
+    if (!target || target === aboutView || id === 'top') window.scrollTo({ top: 0, behavior });
+    else target.scrollIntoView({ behavior });
+  };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const hash = a.getAttribute('href');
+    if (hash.length < 2) return;
+    e.preventDefault();
+    history.pushState(null, '', hash === '#top' ? location.pathname : hash);
+    showView(hash, true);
+  });
+  window.addEventListener('popstate', () => showView(location.hash, false));
+  if (location.hash) showView(location.hash, false);
+
+  // ===== Solution cards → open contact with topic selected =====
+  const topic = document.getElementById('cf-topic');
+  document.querySelectorAll('.sol-card').forEach(card => {
+    const go = () => {
+      document.querySelectorAll('.sol-card').forEach(c => c.classList.toggle('selected', c === card));
+      const name = card.querySelector('h3').textContent.trim();
+      if (topic) [...topic.options].forEach(o => { if (o.text.trim() === name) topic.value = o.value || o.text; });
+      setTimeout(() => {
+        history.pushState(null, '', '#lien-he');
+        showView('#lien-he', true);
+        setTimeout(() => document.getElementById('cf-name')?.focus({ preventScroll: true }), reduce ? 0 : 700);
+      }, reduce ? 0 : 350);
+    };
+    card.addEventListener('click', go);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+
+  // ===== Mobile hero gallery autoplay =====
+  const gal = document.querySelector('.hero-gallery');
+  if (gal && !reduce) {
+    let i = 0, paused = false;
+    ['touchstart', 'pointerdown'].forEach(ev => gal.addEventListener(ev, () => { paused = true; }, { passive: true }));
+    setInterval(() => {
+      if (paused || gal.scrollWidth <= gal.clientWidth || document.hidden) return;
+      const items = gal.children; i = (i + 1) % items.length;
+      gal.scrollTo({ left: items[i].offsetLeft - 20, behavior: 'smooth' });
+    }, 3500);
+  }
 
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
@@ -1006,7 +1238,7 @@ h1,h3,h4,.lead{text-wrap:pretty}
     const endpoint = (form.dataset.endpoint || '').trim();
     if (!endpoint) {
       console.warn('[Contact form] Chưa cấu hình data-endpoint cho #contactForm — dữ liệu chưa được gửi đi.');
-      showError('Hệ thống nhận thông tin đang được cập nhật. Vui lòng liên hệ Miraway Group qua website mirawaygroup.vn.');
+      showError('Hệ thống nhận thông tin đang được cập nhật. Vui lòng gọi hotline 0812 134 343 hoặc email hien@miratech.vn.');
       return;
     }
 
@@ -1033,11 +1265,12 @@ h1,h3,h4,.lead{text-wrap:pretty}
         body: JSON.stringify(payload),
         signal: ctrl.signal
       });
+      if (res.status === 429) { showError('Bạn đã gửi quá nhiều yêu cầu. Vui lòng thử lại sau ít phút hoặc gọi hotline 0812 134 343.'); return; }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       showSuccess();
     } catch (err) {
       console.error('[Contact form]', err);
-      showError('Gửi thông tin chưa thành công. Vui lòng kiểm tra kết nối mạng và thử lại.');
+      showError('Gửi thông tin chưa thành công. Vui lòng thử lại hoặc liên hệ hotline 0812 134 343 / email hien@miratech.vn.');
     } finally {
       clearTimeout(timer);
       setLoading(false);

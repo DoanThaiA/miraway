@@ -8,8 +8,7 @@ DEPLOY_USER="${1:-deploy}"
 DOMAIN="${2:-example.com}"
 DEPLOY_PATH="/var/www/miraway"
 
-apt-get update
-apt-get install -y nginx rsync
+apt-get update  apt-get install -y nginx rsync
 
 id "$DEPLOY_USER" >/dev/null 2>&1 || adduser --disabled-password --gecos "" "$DEPLOY_USER"
 mkdir -p "/home/$DEPLOY_USER/.ssh"
@@ -33,6 +32,9 @@ sed -e "s/example.com www.example.com/$DOMAIN www.$DOMAIN/" \
 ln -sfn /etc/nginx/sites-available/miraway /etc/nginx/sites-enabled/miraway
 rm -f /etc/nginx/sites-enabled/default
 nginx -t && systemctl reload nginx
+
+# API gửi mail form liên hệ
+bash "$SCRIPT_DIR/setup-contact-api.sh" "$DEPLOY_USER"
 
 echo
 echo "Xong. Dán public key của GitHub Actions vào: /home/$DEPLOY_USER/.ssh/authorized_keys"
