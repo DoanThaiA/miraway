@@ -7,7 +7,7 @@
  *   RESEND_API_KEY  (bắt buộc)  API key của Resend
  *   MAIL_TO         email nhận, mặc định hien@miratech.vn
  *   MAIL_FROM       người gửi, phải thuộc domain đã verify trên Resend
- *                   mặc định "Miraway Website <onboarding@resend.dev>"
+ *                   mặc định "Miraway Group Website <onboarding@resend.dev>"
  *   PORT            mặc định 3001 (chỉ nghe trên 127.0.0.1, nginx proxy vào)
  *
  * Chạy thử:  RESEND_API_KEY=re_xxx node server/contact.js
@@ -29,7 +29,7 @@ for (const f of [process.env.ENV_FILE, path.join(__dirname, '.env')]) {
 
 const API_KEY = process.env.RESEND_API_KEY || '';
 const MAIL_TO = (process.env.MAIL_TO || 'hien@miratech.vn').split(',').map(s => s.trim()).filter(Boolean);
-const MAIL_FROM = process.env.MAIL_FROM || 'Miraway Website <onboarding@resend.dev>';
+const MAIL_FROM = process.env.MAIL_FROM || 'Miraway Group Website <onboarding@resend.dev>';
 const PORT = Number(process.env.PORT || 3001);
 const HOST = process.env.HOST || '127.0.0.1';
 

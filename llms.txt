@@ -5,7 +5,6 @@
 - Website chính thức: https://mirawaygroup.vn/
 - Logo: https://mirawaygroup.vn/assets/logo.png
 - Hotline: 0812 134 343
-- Email: hien@miratech.vn
 - Văn phòng Hà Nội: Tòa C18, Ngõ 655 Lạc Long Quân, Tây Hồ, Hà Nội
 - Văn phòng TP. Hồ Chí Minh: Tòa Terra Royal, 278 Nam Kỳ Khởi Nghĩa, Quận 3
 
@@ -26,8 +25,9 @@
 
 ## Đơn vị thành viên
 
-- Miraway Giải pháp công nghệ: https://miraway.vn/ — xếp hàng tự động, kiosk tự phục vụ, digital signage, CDP.
-- QRX: https://qrx.com.vn/ — quản trị trải nghiệm bán hàng đa kênh bằng QR Code.
+- Miracorp
+- Datanomics
+- Neovior
 
 ## Khách hàng tiêu biểu
 
