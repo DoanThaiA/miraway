@@ -179,7 +179,7 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .hero-copy{max-width:600px}
 .chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);font-size:14px;font-weight:600;color:#DCE7F7}
 .chip b{background:var(--grad);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;letter-spacing:.06em}
-.hero h1{font-size:clamp(34px,3.9vw,56px);line-height:1.1;font-weight:800;letter-spacing:-.03em;margin:22px 0 20px;text-wrap:balance}
+.hero h1{font-size:clamp(34px,3.9vw,56px);line-height:1.18;font-weight:800;letter-spacing:-.03em;margin:22px 0 20px;text-wrap:balance}
 .hero h1 .grad-text{background:linear-gradient(120deg,#7CC4FF 0%,#C7A6F2 55%,#FF9A85 100%);-webkit-background-clip:text;background-clip:text}
 .hero p.lead{max-width:520px;font-size:18px;color:#C3D2E8}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0 38px}
@@ -497,6 +497,7 @@ body.intro-on{overflow:hidden}
 .footer-logo{background:#fff;border-radius:14px;padding:12px 16px;display:inline-block;margin-bottom:18px}
 .footer-logo img{height:30px}
 .footer-company{color:#fff;font-size:15px;font-weight:700;margin:14px 0 10px;line-height:1.45}
+.nowrap{white-space:nowrap}
 .footer-thanks{color:#fff;font-size:22px;font-weight:800}
 .footer a:hover{color:#fff}
 .footer .addr{display:flex;gap:12px;align-items:flex-start;line-height:1.55}
@@ -646,8 +647,8 @@ body.intro-on{overflow:hidden}
   /* Hero */
   .hero{padding:100px 0 24px}
   .chip{font-size:13px}
-  .hero h1{font-size:31px;margin:16px 0 12px}
-  .hero p.lead{font-size:15.5px}
+  .hero h1{font-size:30px;line-height:1.28;margin:18px 0 20px}
+  .hero p.lead{font-size:15.5px;line-height:1.6}
   .hero-actions{margin:20px 0 18px}
   .hero-mini div{padding:10px 10px;border-radius:14px}
   .hero-mini strong{font-size:19px}
@@ -1274,7 +1275,7 @@ body.intro-on{overflow:hidden}
     <div class="footer-grid">
       <div>
         <a href="#top" class="footer-logo"><img src="assets/logo.png" alt="Miraway – Creative Technology" width="118" height="30"></a>
-        <p class="footer-company">Công ty Cổ phần Tập đoàn Miraway – Miraway Group</p>
+        <p class="footer-company">CÔNG TY CỔ PHẦN TẬP ĐOÀN MIRAWAY <span class="nowrap">(MIRAWAY GROUP)</span></p>
         <h3 class="footer-thanks">Trân trọng cảm ơn</h3>
         <p class="footer-quote">“Sáng tạo công nghệ – Kiến tạo đất nước”</p>
       </div>
@@ -1283,7 +1284,7 @@ body.intro-on{overflow:hidden}
       <div class="addr"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><b>Liên hệ</b><a href="tel:0812134343">0812 134 343</a></span></div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year">2026</span> Công ty Cổ phần Tập đoàn Miraway – Miraway Group. All rights reserved.</span>
+      <span>© <span id="year">2026</span> CÔNG TY CỔ PHẦN TẬP ĐOÀN MIRAWAY <span class="nowrap">(MIRAWAY GROUP)</span>. All rights reserved.</span>
     </div>
   </div>
 </footer>
