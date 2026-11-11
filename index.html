@@ -493,7 +493,8 @@ body.intro-on{overflow:hidden}
 
 /* Footer */
 .footer{background:var(--navy);color:#A9BBD6;padding:64px 0 28px;font-size:15px}
-.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr .8fr;gap:36px;align-items:start}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr .8fr;gap:40px;align-items:start}
+.footer-brand{max-width:340px}
 .footer-logo{background:#fff;border-radius:14px;padding:12px 16px;display:inline-block;margin-bottom:18px}
 .footer-logo img{height:30px}
 .footer-company{color:#fff;font-size:15px;font-weight:700;margin:14px 0 10px;line-height:1.45}
@@ -560,6 +561,7 @@ body.intro-on{overflow:hidden}
   .contact-aside{padding:36px 32px}
   .contact-note{padding-top:20px}
   .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1 / -1;max-width:none}
   .global-grid{margin-top:56px}
   .hero{min-height:0}
   .about-media{margin-inline:auto}
@@ -733,8 +735,8 @@ body.intro-on{overflow:hidden}
 
   /* Footer */
   .footer{padding:36px 0 20px;font-size:14px}
-  .footer-grid{gap:18px}
-  .footer-thanks{font-size:18px}
+  .footer-grid{gap:20px}
+  .footer-brand{padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)}
   .footer-logo{margin-bottom:12px;padding:10px 12px}
   .footer-bottom{margin-top:24px;padding-top:16px;font-size:13px}
 
@@ -1273,10 +1275,9 @@ body.intro-on{overflow:hidden}
 <footer class="footer" id="footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a href="#top" class="footer-logo"><img src="assets/logo.png" alt="Miraway – Creative Technology" width="118" height="30"></a>
         <p class="footer-company">CÔNG TY CỔ PHẦN TẬP ĐOÀN MIRAWAY <span class="nowrap">(MIRAWAY GROUP)</span></p>
-        <h3 class="footer-thanks">Trân trọng cảm ơn</h3>
         <p class="footer-quote">“Sáng tạo công nghệ – Kiến tạo đất nước”</p>
       </div>
       <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng Hà Nội</b>Tòa C18, Ngõ 655 Lạc Long Quân, Tây Hồ, Hà Nội</span></div>
