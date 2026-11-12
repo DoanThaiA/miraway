@@ -73,7 +73,7 @@
       },
       "subOrganization": [
         { "@type": "Organization", "name": "Miracorp" },
-        { "@type": "Organization", "name": "Datanomics" },
+        { "@type": "Organization", "name": "Pione RWA" },
         { "@type": "Organization", "name": "Neovior" }
       ],
       "sameAs": [
@@ -578,7 +578,6 @@ body.intro-on{overflow:hidden}
   .hero-gallery::-webkit-scrollbar{display:none}
   .hero-gallery figure{flex:0 0 84%;scroll-snap-align:start;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
   .hero-gallery img{width:100%;height:100%;object-fit:cover}
-  .hero-gallery figcaption{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700;color:#fff;background:rgba(6,26,61,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
   .marquee-track li{width:150px;height:76px;padding:14px 18px;border-radius:14px}
   .marquee-track img{max-height:40px}
   .marquee-track{gap:12px;animation-duration:calc(var(--n,12) * 2.6s)}
@@ -782,11 +781,8 @@ body.intro-on{overflow:hidden}
 }
 .swipe-hint{display:none}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none !important;transition:none !important}
-  .reveal{opacity:1;transform:none}
+  .asterisk{animation:none !important}
   html{scroll-behavior:auto}
-  .intro-word,.intro-tag{opacity:1 !important;transform:none !important;filter:none !important}
-  .marquee{overflow-x:auto}
 }
 </style>
 </head>
@@ -888,9 +884,9 @@ body.intro-on{overflow:hidden}
     </div>
   </div>
   <div class="hero-gallery" aria-label="Hình ảnh đội ngũ Miraway Group">
-    <figure><img src="assets/photos/team-office.webp" alt="Đội ngũ nhân viên Miraway Group tại văn phòng" width="1284" height="744" loading="lazy" decoding="async"><figcaption>Đội ngũ Miraway Group</figcaption></figure>
-    <figure><img src="assets/photos/team-workshop.webp" alt="Buổi đào tạo nội bộ tại phòng họp chung" width="1056" height="620" loading="lazy" decoding="async"><figcaption>Đào tạo &amp; chia sẻ</figcaption></figure>
-    <figure><img src="assets/photos/team-building.webp" alt="Nhân viên Miraway Group trong chương trình team building" width="1312" height="744" loading="lazy" decoding="async"><figcaption>Team building</figcaption></figure>
+    <figure><img src="assets/photos/team-office.webp" alt="Đội ngũ nhân viên Miraway Group tại văn phòng" width="1284" height="744" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/photos/team-workshop.webp" alt="Buổi đào tạo nội bộ tại phòng họp chung" width="1056" height="620" loading="lazy" decoding="async"></figure>
+    <figure><img src="assets/photos/team-building.webp" alt="Nhân viên Miraway Group trong chương trình team building" width="1312" height="744" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
@@ -1002,7 +998,7 @@ body.intro-on{overflow:hidden}
         <p>Đơn vị thành viên thuộc hệ sinh thái Miraway Group.</p>
       </div>
       <div class="member reveal d1">
-        <h3 class="member-mark">Datanomics</h3>
+        <h3 class="member-mark">Pione RWA</h3>
         <p>Đơn vị thành viên thuộc hệ sinh thái Miraway Group.</p>
       </div>
       <div class="member reveal d2">
@@ -1324,8 +1320,7 @@ body.intro-on{overflow:hidden}
   const counters = document.querySelectorAll('[data-count]');
   const runCount = el => {
     const target = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-    if (reduce) { el.textContent = pre + fmt(target) + suf; return; }
-    const dur = 1600, t0 = performance.now();
+        const dur = 1600, t0 = performance.now();
     const tick = t => {
       const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
       el.textContent = pre + fmt(Math.round(target * eased)) + suf;
@@ -1363,7 +1358,7 @@ body.intro-on{overflow:hidden}
     setTimeout(() => intro.remove(), 900);
   };
   if (intro) {
-    setTimeout(endIntro, reduce ? 1200 : 5000);
+    setTimeout(endIntro, 5000);
     document.getElementById('introSkip').addEventListener('click', endIntro);
     intro.addEventListener('click', e => { if (e.target === intro) endIntro(); });
   }
@@ -1415,7 +1410,7 @@ body.intro-on{overflow:hidden}
 
   // ===== Mobile hero gallery autoplay =====
   const gal = document.querySelector('.hero-gallery');
-  if (gal && !reduce) {
+  if (gal) {
     let i = 0, paused = false;
     ['touchstart', 'pointerdown'].forEach(ev => gal.addEventListener(ev, () => { paused = true; }, { passive: true }));
     setInterval(() => {
