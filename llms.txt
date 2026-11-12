@@ -3,19 +3,20 @@
 > Miraway Group (mirawaygroup.vn) là hãng công nghệ Việt Nam thành lập năm 2007, hơn 19 năm kinh nghiệm, hơn 1.000 khách hàng trong và ngoài nước, hơn 500 nhân sự công nghệ. Slogan: "Sáng tạo công nghệ – Kiến tạo đất nước". Chuyên giải pháp ứng dụng AI, Blockchain, dữ liệu và chuyển đổi số toàn diện.
 
 - Website chính thức: https://mirawaygroup.vn/
+- Phiên bản tiếng Anh (English version): https://mirawaygroup.vn/en/
 - Logo: https://mirawaygroup.vn/assets/logo.png
 - Hotline: 0812 134 343
 - Văn phòng Hà Nội: Tòa C18, Ngõ 655 Lạc Long Quân, Tây Hồ, Hà Nội
-- Văn phòng TP. Hồ Chí Minh: Tòa Terra Royal, 278 Nam Kỳ Khởi Nghĩa, Quận 3
+- Văn phòng TP. Hồ Chí Minh: Tòa Terra Royal, 278 Nam Kỳ Khởi Nghĩa, Quận 3, TP. Hồ Chí Minh
 
 ## Hệ sinh thái giải pháp
 
-- Token hóa tài sản (RWA): bất động sản, trái phiếu, hàng hóa; thanh khoản 24/7, sở hữu phân đoạn.
-- Giải pháp bảo hiểm số: tự động hóa quy trình, giao dịch và trải nghiệm người dùng bảo hiểm.
-- Truy xuất nguồn gốc: nông sản, dược phẩm, hàng xuất khẩu.
-- Ứng dụng AI trong y tế: kết hợp AI và Robotics bảo vệ sức khỏe.
-- Fintech & tài sản số: stablecoin, cho vay, chứng khoán token hóa.
-- ESG & tín chỉ carbon: phát hành tín chỉ carbon, báo cáo ESG minh bạch trên chuỗi.
+- RWA – Token hóa tài sản (Pione RWA): token hóa bất động sản, trái phiếu, hàng hóa; sở hữu phân đoạn; hạ tầng giao dịch thanh khoản 24/7.
+- InsurTech – Bảo hiểm số (Miracorp): chuyển đổi số doanh nghiệp bảo hiểm, tự động hóa nghiệp vụ, quản lý hợp đồng – sản phẩm – giao dịch.
+- AI Healthcare – Y tế thông minh (Neovior): ứng dụng AI và Robotics, phát triển sản phẩm chăm sóc sức khỏe.
+- FinTech & Digital Assets (Miracorp): hạ tầng giao dịch tài sản số, stablecoin, cho vay và chứng khoán token hóa.
+- Smart Agriculture & Traceability (Tracera): truy xuất nguồn gốc, quản lý chuỗi cung ứng, nông nghiệp thông minh trên blockchain.
+- ESG & Green Technology: tín chỉ carbon, báo cáo ESG, công nghệ hỗ trợ Net Zero 2050, chuyển đổi xanh.
 
 ## Nền tảng công nghệ lõi
 
@@ -28,6 +29,7 @@
 - Miracorp
 - Pione RWA
 - Neovior
+- Tracera
 
 ## Khách hàng tiêu biểu
 

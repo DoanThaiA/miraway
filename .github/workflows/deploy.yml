@@ -27,6 +27,11 @@ jobs:
           for f in $(grep -oE '(src|href)="assets/[^"]+"' index.html | sed -E 's/^(src|href)="//; s/"$//' | sort -u); do
             if [ ! -f "$f" ]; then echo "Không tìm thấy: $f"; missing=1; fi
           done
+          if [ -f en/index.html ]; then
+            for f in $(grep -oE '(src|href)="\.\./assets/[^"]+"' en/index.html | sed -E 's/^(src|href)="\.\.\///; s/"$//' | sort -u); do
+              if [ ! -f "$f" ]; then echo "Không tìm thấy (en): $f"; missing=1; fi
+            done
+          fi
           exit $missing
 
   deploy:

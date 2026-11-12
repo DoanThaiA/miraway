@@ -10,6 +10,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://mirawaygroup.vn/">
 <link rel="alternate" hreflang="vi" href="https://mirawaygroup.vn/">
+<link rel="alternate" hreflang="en" href="https://mirawaygroup.vn/en/">
+<link rel="alternate" hreflang="x-default" href="https://mirawaygroup.vn/">
 
 <!-- Favicon & app icons (hiển thị cạnh kết quả tìm kiếm Google) -->
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -74,7 +76,8 @@
       "subOrganization": [
         { "@type": "Organization", "name": "Miracorp" },
         { "@type": "Organization", "name": "Pione RWA" },
-        { "@type": "Organization", "name": "Neovior" }
+        { "@type": "Organization", "name": "Neovior" },
+        { "@type": "Organization", "name": "Tracera", "url": "https://tracera.vn" }
       ],
       "sameAs": [
         "https://miraway.vn/",
@@ -160,6 +163,12 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .nav-links a{padding:10px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#33445E;transition:color .2s,background .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--blue);background:rgba(0,82,184,.07)}
 .nav-cta{padding:11px 20px;font-size:14px}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.lang-switch{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 13px;border-radius:999px;font-size:13.5px;font-weight:700;letter-spacing:.04em;color:#33445E;box-shadow:inset 0 0 0 1.5px var(--line);transition:color .2s,box-shadow .2s,background .2s}
+.lang-switch .icon{width:17px;height:17px}
+.lang-switch:hover{color:var(--blue);box-shadow:inset 0 0 0 1.5px var(--blue)}
+.header:not(.scrolled) .lang-switch{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.header:not(.scrolled) .lang-switch:hover{background:rgba(255,255,255,.12)}
 .burger{display:none;width:44px;height:44px;border-radius:12px;border:0;background:#fff;box-shadow:var(--shadow-sm);cursor:pointer;align-items:center;justify-content:center}
 .burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.3s}
 .burger span::before,.burger span::after{content:"";position:absolute;left:0}
@@ -241,24 +250,71 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .values li span{font-size:13.5px;color:var(--muted);line-height:1.45;display:block}
 .values li em{font-style:normal;font-size:12px;font-weight:800;color:var(--coral);letter-spacing:.08em}
 
-/* Solutions */
-.solutions{background:var(--soft)}
-.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.sol-card{background:#fff;border-radius:var(--radius);padding:34px 30px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s;box-shadow:0 1px 0 var(--line)}
-.sol-card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s}
-.sol-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.sol-card:hover::after{opacity:1}
-.sol-ic{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#fff;margin-bottom:22px}
-.sol-ic .icon{width:28px;height:28px}
-.c1{background:linear-gradient(135deg,#0052B8,#2F86D1)}
-.c2{background:linear-gradient(135deg,#6E3AA8,#9B6BD6)}
-.c3{background:linear-gradient(135deg,#0B8A5F,#3CC48F)}
-.c4{background:linear-gradient(135deg,#E8604C,#F2A93B)}
-.c5{background:linear-gradient(135deg,#1D6FB8,#6E3AA8)}
-.c6{background:linear-gradient(135deg,#0B8A5F,#2F86D1)}
-.sol-card h3{font-size:20px;font-weight:700;margin-bottom:10px}
-.sol-card p{color:var(--muted);font-size:15.5px}
-.sol-num{position:absolute;right:26px;top:22px;font-size:46px;font-weight:800;color:#EDF2F9;line-height:1}
+/* Solutions: 6 tabs + detail panel */
+.solutions{background:var(--soft);overflow:hidden}
+.sol-tabs{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:22px}
+.sol-tab{--pc:var(--blue);--pc2:var(--blue-2);position:relative;overflow:hidden;font:inherit;color:var(--ink);text-align:left;cursor:pointer;border:0;background:#fff;border-radius:18px;padding:16px 16px 15px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;box-shadow:inset 0 0 0 1px var(--line);transition:transform .25s,box-shadow .25s}
+.sol-tab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--pc),var(--pc2));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.sol-tab:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px var(--line),var(--shadow-sm)}
+.sol-tab[aria-selected="true"]{box-shadow:inset 0 0 0 1.5px var(--pc),0 16px 30px -18px var(--pc)}
+.sol-tab[aria-selected="true"]::after{transform:none}
+.sol-tab:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.sol-tab-ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;color:var(--pc);background:color-mix(in srgb,var(--pc) 11%,#fff);transition:background .25s,color .25s}
+.sol-tab-ic .icon{width:22px;height:22px}
+.sol-tab[aria-selected="true"] .sol-tab-ic{color:#fff;background:linear-gradient(135deg,var(--pc),var(--pc2))}
+.sol-tab b{display:block;font-size:15px;font-weight:800;line-height:1.25}
+.sol-tab small{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:3px}
+.sol-tab-num{position:absolute;right:14px;top:12px;font-size:13px;font-weight:800;color:#C5D2E3;transition:color .25s}
+.sol-tab[aria-selected="true"] .sol-tab-num{color:var(--pc)}
+.sol-panel{--pc:var(--blue);--pc2:var(--blue-2);display:grid;grid-template-columns:.92fr 1.08fr;background:#fff;border-radius:28px;overflow:hidden;box-shadow:var(--shadow),inset 0 0 0 1px var(--line);outline:none}
+.sol-panel[hidden]{display:none}
+.sol-panel.anim{animation:spIn .55s cubic-bezier(.2,.7,.2,1)}
+.sol-panel.anim .sp-feats li{animation:spIn .55s cubic-bezier(.2,.7,.2,1) backwards}
+.sol-panel.anim .sp-feats li:nth-child(2){animation-delay:.06s}.sol-panel.anim .sp-feats li:nth-child(3){animation-delay:.12s}.sol-panel.anim .sp-feats li:nth-child(4){animation-delay:.18s}
+@keyframes spIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sp-visual{position:relative;isolation:isolate;overflow:hidden;min-height:460px;display:grid;place-items:center;background:radial-gradient(420px 300px at 85% 0%,rgba(255,255,255,.24),transparent 70%),radial-gradient(360px 260px at 0% 100%,rgba(6,26,61,.28),transparent 70%),linear-gradient(150deg,var(--pc),var(--pc2))}
+.sp-visual::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:32px 32px;-webkit-mask:radial-gradient(ellipse 75% 70% at 50% 45%,#000,transparent 80%);mask:radial-gradient(ellipse 75% 70% at 50% 45%,#000,transparent 80%)}
+.ill{width:100%;max-width:500px;height:auto;padding:58px 22px 62px;overflow:visible}
+.ill .s{fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.ill .f0{fill:rgba(255,255,255,.07)}
+.ill .f{fill:rgba(255,255,255,.14)}
+.ill .f2{fill:rgba(255,255,255,.24)}
+.ill .w{fill:#fff}
+.ill .g{fill:#FFD36E}
+.ill .pc-f{fill:var(--pc)}
+.ill .pc-s{stroke:var(--pc)}
+.ill .nv-s{fill:none;stroke:#0B2A5C;stroke-opacity:.45;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ill text{font-family:inherit;font-weight:800}
+.ill .nv-t{fill:#0B2A5C}.ill .pc-t{fill:var(--pc)}.ill .w-t{fill:#fff}
+.ill .w3{stroke-width:3}.ill .w4{stroke-width:4}
+.ill .o3{opacity:.3}.ill .o5{opacity:.5}.ill .o6{opacity:.6}.ill .o7{opacity:.7}.ill .o8{opacity:.8}.ill .o9{opacity:.9}
+.ill .dash{stroke-dasharray:1 9;stroke-width:3.2}
+.ill .fl{animation:float 6s ease-in-out infinite}
+.ill .fl2{animation:float 7s ease-in-out -2.5s infinite}
+.ill .spin{animation:spin 9s linear infinite}
+.ill .spin-r{animation:spin 6s linear infinite reverse}
+.ill .spin-slow{animation:spin 14s linear infinite}
+.sp-chip{position:absolute;left:22px;top:22px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;color:#fff;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.32);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sp-chip .dot{width:8px;height:8px;border-radius:50%;background:#FFD36E;box-shadow:0 0 0 4px rgba(255,211,110,.25)}
+.sp-badge{position:absolute;left:22px;bottom:22px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:12px;background:#fff;color:var(--navy);font-size:13.5px;font-weight:800;box-shadow:0 10px 24px -12px rgba(6,26,61,.5)}
+.sp-badge .icon{width:18px;height:18px;color:var(--pc)}
+.sp-body{padding:42px 42px 38px;display:flex;flex-direction:column;min-width:0}
+.sp-kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pc)}
+.sp-kicker::before{content:"";width:24px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--pc),var(--pc2))}
+.sp-body h3{font-size:clamp(24px,2.3vw,31px);font-weight:800;line-height:1.2;letter-spacing:-.02em;margin:10px 0 12px}
+.sp-lead{color:var(--muted);font-size:16.5px;margin-bottom:24px}
+.sp-feats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sp-feats li{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:16px;background:var(--soft);transition:background .25s,box-shadow .25s,transform .25s}
+.sp-feats li:hover{background:#fff;transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--pc) 35%,#fff),var(--shadow-sm)}
+.sp-feats li:last-child:nth-child(odd){grid-column:1/-1}
+.sp-feats i{width:42px;height:42px;border-radius:13px;flex-shrink:0;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--pc),var(--pc2));box-shadow:0 8px 18px -10px var(--pc)}
+.sp-feats i .icon{width:21px;height:21px}
+.sp-feats h4{font-size:15.5px;font-weight:700;line-height:1.35;margin-bottom:4px}
+.sp-feats p{font-size:14px;color:var(--muted);line-height:1.55}
+.sp-foot{margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap}
+.btn.sp-cta{background:linear-gradient(120deg,var(--pc),var(--pc2));box-shadow:0 12px 26px -12px var(--pc);padding:13px 22px}
+.sp-unit{font-size:14px;color:var(--muted)}
+.sp-unit b{color:var(--ink)}
 .industries{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:center}
 .industries span.label{font-weight:700;margin-right:8px;color:var(--ink)}
 .pill{padding:10px 18px;border-radius:999px;background:#fff;font-size:14.5px;font-weight:600;color:#33445E;box-shadow:inset 0 0 0 1px var(--line);transition:.25s}
@@ -367,6 +423,8 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .member .member-mark{margin-bottom:12px;font-size:30px;font-weight:800;letter-spacing:-.01em;line-height:1;background:linear-gradient(90deg,var(--blue),#6E3AA8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .member h3{font-size:19px;font-weight:800;margin-bottom:8px}
 .member p{color:var(--muted);font-size:15px;flex:1}
+.member-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.member-tags span{font-size:12.5px;font-weight:700;color:var(--blue);background:rgba(0,82,184,.07);padding:5px 11px;border-radius:999px;line-height:1.3}
 .member-link{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--blue)}
 .member-link .icon{width:18px;height:18px;transition:transform .25s}
 .member:hover .member-link .icon{transform:translateX(4px)}
@@ -389,19 +447,6 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .about-media{grid-template-columns:1fr 1fr}
 .about-media .ph-main{grid-column:1 / -1}
 .about-media .ph-half{aspect-ratio:16/10}
-
-/* Solution cards → open contact */
-.sol-card{cursor:pointer;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,background .35s}
-.sol-card p{flex:1}
-.sol-card h3,.sol-card p,.sol-card .sol-num{transition:color .3s}
-.sol-more{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;color:var(--blue);transition:color .3s}
-.sol-more .icon{width:18px;height:18px;transition:transform .25s}
-.sol-card:hover .sol-more .icon{transform:translateX(4px)}
-.sol-card:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
-.sol-card.selected{background:linear-gradient(150deg,#0B2A5C 0%,#0052B8 55%,#6E3AA8 100%);transform:translateY(-6px);box-shadow:var(--shadow)}
-.sol-card.selected h3,.sol-card.selected p,.sol-card.selected .sol-more{color:#fff}
-.sol-card.selected .sol-num{color:rgba(255,255,255,.14)}
-.sol-card.selected .sol-ic{background:rgba(255,255,255,.18)}
 
 .nav-mobile-only{display:none}
 
@@ -511,11 +556,6 @@ body.intro-on{overflow:hidden}
 /* ===== Compact layout (desktop) ===== */
 .section{padding:80px 0}
 .section-head{margin-bottom:40px}
-.sol-grid{gap:20px}
-.sol-card{padding:28px 26px}
-.sol-card .sol-ic{margin-bottom:18px}
-.sol-card h3{font-size:19px}
-.sol-card p{font-size:15px}
 .tech-card{padding:28px}
 .tech-card .sol-ic{margin-bottom:18px}
 .tech-card h3{margin-bottom:12px}
@@ -557,7 +597,11 @@ body.intro-on{overflow:hidden}
   .about-media{margin-inline:auto}
   .bento-hero{min-height:0}
   .hero-visual{max-width:460px}
-  .sol-grid,.tech-grid{grid-template-columns:1fr 1fr}
+  .tech-grid{grid-template-columns:1fr 1fr}
+  .sol-tabs{grid-template-columns:repeat(3,1fr)}
+  .sol-panel{grid-template-columns:1fr}
+  .sp-visual{min-height:0}
+  .ill{max-width:460px;padding:56px 22px 60px}
   .tech-grid .tech-card:last-child:nth-child(odd){grid-column:1/-1}
   .stats-inner{grid-template-columns:1fr 1fr}
   .stat:nth-child(3)::before{display:none}
@@ -606,7 +650,7 @@ body.intro-on{overflow:hidden}
   .form-foot{flex-direction:column;align-items:stretch;gap:12px}
   .form-foot .btn{width:100%;justify-content:center}
   .field input,.field select,.field textarea{font-size:16px}
-  .sol-grid,.tech-grid,.why-grid,.award-list,.steps{grid-template-columns:1fr}
+  .tech-grid,.why-grid,.award-list,.steps{grid-template-columns:1fr}
   .values ul{grid-template-columns:1fr 1fr}
   .values li:last-child{grid-column:span 2}
   .tech-tiles{grid-template-columns:1fr 1fr}
@@ -655,17 +699,35 @@ body.intro-on{overflow:hidden}
   .stats-inner{row-gap:0}
   .stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.08)}
 
-  /* Solutions: compact list rows */
-  .sol-grid{gap:10px}
-  .sol-card{display:grid;grid-template-columns:46px 1fr;column-gap:14px;align-items:start;padding:16px 16px 14px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line)}
-  .sol-card>*{grid-column:2}
-  .sol-card .sol-ic{grid-column:1;grid-row:1 / span 3;width:46px;height:46px;border-radius:14px;margin:0}
-  .sol-card .sol-ic .icon{width:22px;height:22px}
-  .sol-num{display:none}
-  .sol-card h3{font-size:16px;margin:1px 0 3px;line-height:1.35}
-  .sol-card p{font-size:13.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .sol-more{margin-top:6px;font-size:13px}
-  .sol-card:hover,.sol-card.selected{transform:none}
+  /* Solutions: swipeable tab row + stacked panel */
+  .sol-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -16px 14px;padding:4px 16px 10px;scroll-padding:0 16px}
+  .sol-tabs::-webkit-scrollbar{display:none}
+  .sol-tab{flex:none;flex-direction:row;align-items:center;gap:10px;padding:9px 14px 9px 9px;border-radius:14px}
+  .sol-tab:hover{transform:none}
+  .sol-tab-ic{width:36px;height:36px;border-radius:11px}
+  .sol-tab-ic .icon{width:19px;height:19px}
+  .sol-tab b{font-size:13.5px;white-space:nowrap}
+  .sol-tab small{font-size:11.5px;white-space:nowrap;margin-top:1px}
+  .sol-tab-num{display:none}
+  .sol-panel{border-radius:20px}
+  .ill{max-width:380px;padding:50px 10px 52px}
+  .sp-chip{left:14px;top:14px;font-size:12px;padding:6px 11px}
+  .sp-badge{left:14px;bottom:14px;font-size:12.5px;padding:6px 11px 6px 8px;border-radius:10px}
+  .sp-badge .icon{width:16px;height:16px}
+  .sp-body{padding:22px 18px 20px}
+  .sp-kicker{font-size:11.5px}
+  .sp-body h3{font-size:21px;margin:6px 0 8px}
+  .sp-lead{font-size:14.5px;margin-bottom:16px}
+  .sp-feats{grid-template-columns:1fr;gap:8px}
+  .sp-feats li{padding:12px;gap:12px;border-radius:14px}
+  .sp-feats li:hover{transform:none}
+  .sp-feats i{width:36px;height:36px;border-radius:11px}
+  .sp-feats i .icon{width:18px;height:18px}
+  .sp-feats h4{font-size:14.5px;margin-bottom:2px}
+  .sp-feats p{font-size:13px;line-height:1.5}
+  .sp-foot{padding-top:18px;flex-direction:column;align-items:stretch;gap:10px}
+  .btn.sp-cta{justify-content:center}
+  .sp-unit{text-align:center;font-size:13px}
   .industries{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:20px -16px 0;padding:2px 16px;gap:8px}
   .industries::-webkit-scrollbar{display:none}
   .industries span.label{flex:none;font-size:13.5px;margin-right:2px}
@@ -824,6 +886,20 @@ body.intro-on{overflow:hidden}
     <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></symbol>
     <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5"/></symbol>
     <!-- Brand asterisk (from the Miraway logo) -->
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M3.5 21h17M6 21V5.5A1.5 1.5 0 0 1 7.5 4h6A1.5 1.5 0 0 1 15 5.5V21M15 10h3.5a1.5 1.5 0 0 1 1.5 1.5V21"/><path d="M9 8h3M9 12h3M9 16h3"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M11 4a8.5 8.5 0 1 0 9 9h-9z"/><path d="M14 2.5a7.5 7.5 0 0 1 7.5 7.5H14z"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h15l-4-4M20 16H5l4 4"/></symbol>
+    <symbol id="i-transform" viewBox="0 0 24 24"><path d="M19.5 11A7.6 7.6 0 0 0 6 6.6L4 8.5"/><path d="M4 4v4.5h4.5"/><path d="M4.5 13A7.6 7.6 0 0 0 18 17.4l2-1.9"/><path d="M20 20v-4.5h-4.5"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></symbol>
+    <symbol id="i-robot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 5v3M9.5 12.5v1M14.5 12.5v1M9.5 16.2h5M2.5 12v3.5M21.5 12v3.5"/><circle cx="12" cy="3.8" r="1.2"/></symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.3c-.5-.9-1.6-1.5-2.8-1.5-1.6 0-2.8.8-2.8 2.1 0 2.9 5.6 1.4 5.6 4.3 0 1.3-1.2 2.1-2.8 2.1-1.3 0-2.4-.6-2.9-1.5M12 6v1.8M12 16.3V18"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6h11v10.5h-11zM13.5 9.5h4l3 3.5v3.5h-7"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12c0-4-2.5-6.5-7-6.5 0 4.5 2.5 6.5 7 6.5z"/><path d="M12 14.5c0-3.5 2.2-6 6.5-6 0 4-2.2 6-6.5 6z"/><path d="M7 21h10"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 9.6a4.5 4.5 0 0 1-.5 8.9z"/><path d="M12 10.5v5M9.8 13.5l2.2 2.2 2.2-2.2"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 17v-3M12 17V9M16 17v-5"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8h10.5A2.5 2.5 0 1 0 11 5.5M3 12h15.5a2.5 2.5 0 1 1-2.5 2.5M3 16h7"/></symbol>
     <symbol id="asterisk" viewBox="-100 -100 200 200">
       <g fill="none" stroke-width="11">
         <rect x="-13" y="-92" width="26" height="62" rx="13" stroke="#6E3AA8"/>
@@ -850,8 +926,11 @@ body.intro-on{overflow:hidden}
       <a href="#thanh-vien">Hệ sinh thái</a>
       <a href="#lien-he" class="nav-mobile-only">Liên hệ</a>
     </nav>
-    <a href="#lien-he" class="btn btn-primary nav-cta">Liên hệ tư vấn</a>
-    <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    <div class="nav-actions">
+      <a href="en/" class="lang-switch" hreflang="en" lang="en" aria-label="English version"><svg class="icon"><use href="#i-globe"/></svg>EN</a>
+      <a href="#lien-he" class="btn btn-primary nav-cta">Liên hệ tư vấn</a>
+      <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -872,7 +951,7 @@ body.intro-on{overflow:hidden}
         <a href="#lien-he" class="btn btn-ghost">Liên hệ tư vấn</a>
       </div>
       <div class="hero-mini reveal d4">
-        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>5</strong><br><span>Đơn vị thành viên</span></p></div>
+        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>4</strong><br><span>Đơn vị thành viên</span></p></div>
         <div><i><svg class="icon"><use href="#i-cpu"/></svg></i><p><strong>3</strong><br><span>Trung tâm R&amp;D</span></p></div>
         <div><i><svg class="icon"><use href="#i-globe"/></svg></i><p><strong>10+</strong><br><span>Quốc gia triển khai</span></p></div>
       </div>
@@ -901,19 +980,297 @@ body.intro-on{overflow:hidden}
   </div>
 </section>
 
-<!-- Solutions ecosystem -->
+<!-- Solutions ecosystem: 6 strategic solution groups -->
 <section class="section solutions" id="giai-phap">
   <div class="container">
     <div class="section-head center">
-      <h2 class="title reveal">Hệ sinh thái <span class="grad-text">giải pháp</span></h2>
+      <span class="eyebrow reveal">Sáu nhóm giải pháp chiến lược</span>
+      <h2 class="title reveal d1">Hệ sinh thái <span class="grad-text">giải pháp</span></h2>
+      <p class="lead reveal d2">Ứng dụng AI, Blockchain và dữ liệu để chuyển đổi số toàn diện cho tổ chức, doanh nghiệp.</p>
     </div>
-    <div class="sol-grid">
-      <article tabindex="0" role="button" class="sol-card reveal"><span class="sol-num">01</span><div class="sol-ic c1"><svg class="icon"><use href="#i-token"/></svg></div><h3>Token hóa tài sản (RWA)</h3><p>Token hóa bất động sản, trái phiếu, hàng hóa; thanh khoản 24/7, sở hữu phân đoạn.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
-      <article tabindex="0" role="button" class="sol-card reveal d1"><span class="sol-num">02</span><div class="sol-ic c2"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Giải pháp bảo hiểm số</h3><p>Sự kết hợp đột phá giữa công nghệ và dịch vụ tài chính – bảo hiểm, giúp tối ưu hóa quy trình quản lý, tự động hóa giao dịch và nâng cao trải nghiệm người dùng.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
-      <article tabindex="0" role="button" class="sol-card reveal d2"><span class="sol-num">03</span><div class="sol-ic c3"><svg class="icon"><use href="#i-qr"/></svg></div><h3>Truy xuất nguồn gốc</h3><p>Theo dõi từ sản xuất đến người tiêu dùng: nông sản, dược phẩm, hàng xuất khẩu.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
-      <article tabindex="0" role="button" class="sol-card reveal"><span class="sol-num">04</span><div class="sol-ic c4"><svg class="icon"><use href="#i-health"/></svg></div><h3>Ứng dụng AI trong y tế</h3><p>Kết hợp AI và Robotics, tạo ra các sản phẩm công nghệ đột phá để bảo vệ sức khoẻ con người.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
-      <article tabindex="0" role="button" class="sol-card reveal d1"><span class="sol-num">05</span><div class="sol-ic c5"><svg class="icon"><use href="#i-wallet"/></svg></div><h3>Fintech &amp; tài sản số</h3><p>Hạ tầng giao dịch tuân thủ: stablecoin, cho vay, chứng khoán token hóa.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
-      <article tabindex="0" role="button" class="sol-card reveal d2"><span class="sol-num">06</span><div class="sol-ic c6"><svg class="icon"><use href="#i-leaf"/></svg></div><h3>ESG &amp; tín chỉ carbon</h3><p>Phát hành tín chỉ carbon, báo cáo ESG minh bạch trên chuỗi, sẵn sàng Net Zero 2050.</p><span class="sol-more">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></span></article>
+    <div class="sol-tabs reveal" role="tablist" aria-label="Sáu nhóm giải pháp chiến lược">
+      <button type="button" role="tab" class="sol-tab" id="st-rwa" aria-controls="sp-rwa" aria-selected="true" tabindex="0" style="--pc:#0052B8;--pc2:#2F86D1"><span class="sol-tab-ic"><svg class="icon"><use href="#i-token"/></svg></span><span class="sol-tab-txt"><b>RWA</b><small>Token hóa tài sản</small></span><span class="sol-tab-num" aria-hidden="true">01</span></button>
+      <button type="button" role="tab" class="sol-tab" id="st-insur" aria-controls="sp-insur" aria-selected="false" tabindex="-1" style="--pc:#6E3AA8;--pc2:#9B6BD6"><span class="sol-tab-ic"><svg class="icon"><use href="#i-shield"/></svg></span><span class="sol-tab-txt"><b>InsurTech</b><small>Bảo hiểm số</small></span><span class="sol-tab-num" aria-hidden="true">02</span></button>
+      <button type="button" role="tab" class="sol-tab" id="st-health" aria-controls="sp-health" aria-selected="false" tabindex="-1" style="--pc:#E8604C;--pc2:#F2A93B"><span class="sol-tab-ic"><svg class="icon"><use href="#i-health"/></svg></span><span class="sol-tab-txt"><b>AI Healthcare</b><small>Y tế thông minh</small></span><span class="sol-tab-num" aria-hidden="true">03</span></button>
+      <button type="button" role="tab" class="sol-tab" id="st-fintech" aria-controls="sp-fintech" aria-selected="false" tabindex="-1" style="--pc:#1D5FC0;--pc2:#6E3AA8"><span class="sol-tab-ic"><svg class="icon"><use href="#i-wallet"/></svg></span><span class="sol-tab-txt"><b>FinTech</b><small>Digital Assets</small></span><span class="sol-tab-num" aria-hidden="true">04</span></button>
+      <button type="button" role="tab" class="sol-tab" id="st-agri" aria-controls="sp-agri" aria-selected="false" tabindex="-1" style="--pc:#23874A;--pc2:#7CBF3F"><span class="sol-tab-ic"><svg class="icon"><use href="#i-qr"/></svg></span><span class="sol-tab-txt"><b>Smart Agriculture</b><small>Truy xuất nguồn gốc</small></span><span class="sol-tab-num" aria-hidden="true">05</span></button>
+      <button type="button" role="tab" class="sol-tab" id="st-esg" aria-controls="sp-esg" aria-selected="false" tabindex="-1" style="--pc:#0B7F7A;--pc2:#2F86D1"><span class="sol-tab-ic"><svg class="icon"><use href="#i-leaf"/></svg></span><span class="sol-tab-txt"><b>ESG</b><small>Green Technology</small></span><span class="sol-tab-num" aria-hidden="true">06</span></button>
+    </div>
+    <div class="sol-panels reveal d1">
+      <article class="sol-panel" role="tabpanel" id="sp-rwa" aria-labelledby="st-rwa" tabindex="0" style="--pc:#0052B8;--pc2:#2F86D1">
+        <div class="sp-visual">
+          <span class="sp-chip"><span class="dot"></span>Thanh khoản 24/7</span>
+          <svg class="ill" viewBox="0 0 480 360" aria-hidden="true">
+  <circle cx="300" cy="170" r="150" class="f0"/>
+  <path class="s o5" d="M40 292h400"/>
+  <rect class="s f2" x="78" y="118" width="104" height="174" rx="6"/>
+  <path class="s" d="M130 118V94"/><circle cx="130" cy="89" r="5" class="g"/>
+  <g class="w o9"><rect x="96" y="138" width="16" height="14" rx="2"/><rect x="122" y="138" width="16" height="14" rx="2"/><rect x="148" y="138" width="16" height="14" rx="2"/><rect x="96" y="166" width="16" height="14" rx="2"/><rect x="148" y="166" width="16" height="14" rx="2"/><rect x="96" y="194" width="16" height="14" rx="2"/><rect x="122" y="194" width="16" height="14" rx="2"/><rect x="122" y="222" width="16" height="14" rx="2"/><rect x="148" y="222" width="16" height="14" rx="2"/><rect x="96" y="250" width="16" height="14" rx="2"/><rect x="148" y="250" width="16" height="14" rx="2"/></g>
+  <g class="g"><rect x="122" y="166" width="16" height="14" rx="2"/><rect x="148" y="194" width="16" height="14" rx="2"/><rect x="96" y="222" width="16" height="14" rx="2"/></g>
+  <rect class="s f" x="182" y="178" width="72" height="114" rx="6"/>
+  <g class="w o7"><rect x="198" y="196" width="14" height="12" rx="2"/><rect x="224" y="196" width="14" height="12" rx="2"/><rect x="198" y="224" width="14" height="12" rx="2"/><rect x="224" y="224" width="14" height="12" rx="2"/><rect x="198" y="252" width="14" height="12" rx="2"/><rect x="224" y="252" width="14" height="12" rx="2"/></g>
+  <path class="s dash" d="M258 200C292 200 292 132 322 124"/>
+  <path class="s dash" d="M372 170v34"/>
+  <g class="fl">
+    <path class="g" d="M372 70l41.6 24v48L372 166l-41.6-24V94z"/>
+    <path class="nv-s" d="M372 84l29.4 17v34L372 152l-29.4-17v-34z"/>
+    <text x="372" y="124" text-anchor="middle" class="nv-t" font-size="19">RWA</text>
+  </g>
+  <g class="fl2">
+    <circle cx="376" cy="252" r="44" class="f2"/>
+    <circle cx="376" cy="252" r="28" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="16"/>
+    <circle cx="376" cy="252" r="28" fill="none" stroke="#FFD36E" stroke-width="16" stroke-dasharray="44 132" transform="rotate(-90 376 252)"/>
+    <circle cx="376" cy="252" r="28" fill="none" stroke="#fff" stroke-width="16" stroke-dasharray="0 48 26 132" transform="rotate(-90 376 252)"/>
+  </g>
+  <g><rect class="s f2" x="150" y="306" width="24" height="24" rx="6"/><rect class="s f2" x="206" y="306" width="24" height="24" rx="6"/><rect class="s f2" x="262" y="306" width="24" height="24" rx="6"/><rect class="s g" x="318" y="306" width="24" height="24" rx="6"/><path class="s o7" d="M174 318h32M230 318h32M286 318h32"/></g>
+  <circle cx="300" cy="64" r="9" class="g fl2"/><circle cx="446" cy="176" r="6" class="w o7"/><circle cx="56" cy="80" r="5" class="w o5"/>
+</svg>
+          <span class="sp-badge"><svg class="icon"><use href="#i-network"/></svg>Pione RWA</span>
+        </div>
+        <div class="sp-body">
+          <span class="sp-kicker">Giải pháp 01</span>
+          <h3>RWA – Token hóa tài sản</h3>
+          <p class="sp-lead">Số hóa quyền sở hữu tài sản thực thành token, mở ra kênh đầu tư minh bạch và thanh khoản linh hoạt.</p>
+          <ul class="sp-feats">
+            <li><i><svg class="icon"><use href="#i-building"/></svg></i><div><h4>Token hóa tài sản thực</h4><p>Đưa bất động sản, trái phiếu và hàng hóa lên blockchain với quyền sở hữu minh bạch, có thể truy vết.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-pie"/></svg></i><div><h4>Sở hữu phân đoạn</h4><p>Chia nhỏ tài sản giá trị lớn thành nhiều phần, giúp nhiều nhà đầu tư cùng tham gia với ngưỡng vốn linh hoạt.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-swap"/></svg></i><div><h4>Hạ tầng giao dịch và thanh khoản</h4><p>Nền tảng giao dịch tài sản số vận hành 24/7, hỗ trợ chuyển nhượng dễ dàng và nâng cao thanh khoản.</p></div></li>
+          </ul>
+          <div class="sp-foot">
+            <button type="button" class="btn btn-primary sp-cta" data-topic="RWA – Token hóa tài sản">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <span class="sp-unit">Đơn vị liên quan: <b>Pione RWA</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="sol-panel" role="tabpanel" id="sp-insur" aria-labelledby="st-insur" tabindex="0" style="--pc:#6E3AA8;--pc2:#9B6BD6" hidden>
+        <div class="sp-visual">
+          <span class="sp-chip"><span class="dot"></span>Tự động hóa nghiệp vụ</span>
+          <svg class="ill" viewBox="0 0 480 360" aria-hidden="true">
+  <circle cx="240" cy="176" r="150" class="f0"/>
+  <g transform="rotate(-8 112 170)">
+    <rect class="s f2" x="52" y="92" width="120" height="152" rx="12"/>
+    <path class="s o8" d="M72 122h62M72 142h80M72 162h72M72 182h50"/>
+    <path class="s" d="M74 218c10-12 18 6 26-4s14-8 22 2"/>
+    <circle cx="150" cy="216" r="11" class="g"/>
+  </g>
+  <rect class="s f" x="318" y="82" width="104" height="186" rx="18"/>
+  <rect class="f2" x="330" y="104" width="80" height="142" rx="8"/>
+  <path class="s" d="M356 93h28"/>
+  <g><circle cx="344" cy="126" r="6" class="g"/><path class="s" d="M358 126h40"/><circle cx="344" cy="156" r="6" class="w"/><path class="s" d="M358 156h32"/><circle cx="344" cy="186" r="6" class="w"/><path class="s" d="M358 186h40"/></g>
+  <rect x="340" y="214" width="60" height="20" rx="10" class="g"/>
+  <path class="s dash" d="M300 176h18"/>
+  <g class="fl">
+    <path class="s f2 w3" d="M240 62l80 30v66c0 58-36 92-80 108-44-16-80-50-80-108V92z"/>
+    <path class="w" d="M240 86l58 22v50c0 42-26 67-58 79-32-12-58-37-58-79v-50z"/>
+    <path class="pc-s" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" d="M210 162l20 20 40-44"/>
+  </g>
+  <g class="spin" style="transform-origin:96px 296px"><circle cx="96" cy="296" r="22" fill="none" stroke="#fff" stroke-width="9" stroke-dasharray="5.4 5.4"/><circle cx="96" cy="296" r="17" class="w"/><circle cx="96" cy="296" r="6" class="pc-f"/></g>
+  <g class="spin-r" style="transform-origin:140px 318px"><circle cx="140" cy="318" r="13" fill="none" stroke="#FFD36E" stroke-width="7" stroke-dasharray="4 4"/><circle cx="140" cy="318" r="9.5" class="g"/><circle cx="140" cy="318" r="3.5" class="pc-f"/></g>
+  <path class="s o7" d="M440 70v14M433 77h14M196 312v12M190 318h12"/>
+</svg>
+          <span class="sp-badge"><svg class="icon"><use href="#i-network"/></svg>Miracorp</span>
+        </div>
+        <div class="sp-body">
+          <span class="sp-kicker">Giải pháp 02</span>
+          <h3>InsurTech – Bảo hiểm số</h3>
+          <p class="sp-lead">Kết hợp công nghệ với dịch vụ tài chính – bảo hiểm để tối ưu quy trình và nâng cao trải nghiệm người dùng.</p>
+          <ul class="sp-feats">
+            <li><i><svg class="icon"><use href="#i-transform"/></svg></i><div><h4>Chuyển đổi số doanh nghiệp bảo hiểm</h4><p>Số hóa quy trình vận hành từ tiếp nhận khách hàng đến chăm sóc sau bán trên một nền tảng thống nhất.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-gear"/></svg></i><div><h4>Tự động hóa nghiệp vụ bảo hiểm</h4><p>Tự động hóa các tác vụ lặp lại như xử lý hồ sơ và giao dịch, giảm thời gian xử lý và sai sót thủ công.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-file"/></svg></i><div><h4>Quản lý hợp đồng, sản phẩm, giao dịch</h4><p>Quản lý tập trung hợp đồng, danh mục sản phẩm và giao dịch, thuận tiện cho theo dõi và đối soát.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-link"/></svg></i><div><h4>Tích hợp công nghệ với dịch vụ tài chính</h4><p>Kết nối liền mạch với hệ sinh thái tài chính – bảo hiểm, mang lại trải nghiệm số nhất quán cho người dùng.</p></div></li>
+          </ul>
+          <div class="sp-foot">
+            <button type="button" class="btn btn-primary sp-cta" data-topic="InsurTech – Bảo hiểm số">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <span class="sp-unit">Đơn vị liên quan: <b>Miracorp</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="sol-panel" role="tabpanel" id="sp-health" aria-labelledby="st-health" tabindex="0" style="--pc:#E8604C;--pc2:#F2A93B" hidden>
+        <div class="sp-visual">
+          <span class="sp-chip"><span class="dot"></span>AI + Robotics</span>
+          <svg class="ill" viewBox="0 0 480 360" aria-hidden="true">
+  <circle cx="220" cy="190" r="150" class="f0"/>
+  <path class="g" d="M54 46h14v14h14v14H68v14H54V74H40V60h14z"/>
+  <path class="s f2 w3" d="M180 292C92 232 70 192 70 152c0-36 28-60 58-60 24 0 42 14 52 32 10-18 28-32 52-32 30 0 58 24 58 60 0 40-22 80-110 140z"/>
+  <path class="s w4" d="M40 192h80l16-30 20 66 20-86 18 66 12-16h94"/>
+  <path class="s dash" d="M294 150c22-10 26-26 46-32"/>
+  <g class="fl">
+    <path class="s" d="M358 72V58M380 72V58M402 72V58M358 148v14M380 148v14M402 148v14M342 94h-14M342 126h-14M418 94h14M418 126h14"/>
+    <rect class="s f2" x="342" y="72" width="76" height="76" rx="14"/>
+    <rect class="w" x="358" y="88" width="44" height="44" rx="9"/>
+    <text x="380" y="117" text-anchor="middle" class="pc-t" font-size="19">AI</text>
+  </g>
+  <path d="M366 296a24 18 0 0 1 48 0" class="s f2"/>
+  <rect x="348" y="296" width="84" height="14" rx="7" class="w o9"/>
+  <path d="M390 284L352 224L304 236" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>
+  <circle cx="390" cy="284" r="9" class="g"/><circle cx="352" cy="224" r="9" class="g"/>
+  <path class="s w4" d="M304 236l-14-12M304 236l-12 14"/>
+  <rect x="262" y="224" width="24" height="13" rx="6.5" class="g fl2"/>
+  <circle cx="58" cy="292" r="7" class="w o7"/><circle cx="446" cy="214" r="5" class="w o5"/>
+</svg>
+          <span class="sp-badge"><svg class="icon"><use href="#i-network"/></svg>Neovior</span>
+        </div>
+        <div class="sp-body">
+          <span class="sp-kicker">Giải pháp 03</span>
+          <h3>AI Healthcare – Y tế thông minh</h3>
+          <p class="sp-lead">Kết hợp AI và Robotics tạo ra các sản phẩm công nghệ đột phá để bảo vệ sức khỏe con người.</p>
+          <ul class="sp-feats">
+            <li><i><svg class="icon"><use href="#i-cpu"/></svg></i><div><h4>Ứng dụng AI trong y tế</h4><p>Dùng trí tuệ nhân tạo để phân tích dữ liệu và nâng cao hiệu quả trong các hoạt động chăm sóc sức khỏe.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-robot"/></svg></i><div><h4>Robotics</h4><p>Phát triển giải pháp robot kết hợp AI để hỗ trợ các quy trình trong y tế và chăm sóc sức khỏe.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-health"/></svg></i><div><h4>Phát triển sản phẩm chăm sóc sức khỏe</h4><p>Nghiên cứu và phát triển sản phẩm công nghệ phục vụ chăm sóc, theo dõi và bảo vệ sức khỏe con người.</p></div></li>
+          </ul>
+          <div class="sp-foot">
+            <button type="button" class="btn btn-primary sp-cta" data-topic="AI Healthcare – Y tế thông minh">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <span class="sp-unit">Đơn vị liên quan: <b>Neovior</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="sol-panel" role="tabpanel" id="sp-fintech" aria-labelledby="st-fintech" tabindex="0" style="--pc:#1D5FC0;--pc2:#6E3AA8" hidden>
+        <div class="sp-visual">
+          <span class="sp-chip"><span class="dot"></span>Stablecoin · Token hóa</span>
+          <svg class="ill" viewBox="0 0 480 360" aria-hidden="true">
+  <circle cx="250" cy="176" r="150" class="f0"/>
+  <path class="s o5" d="M44 282h144"/>
+  <path class="s" d="M68 168v74M96 146v76M124 176v60M152 118v84"/>
+  <rect x="60" y="188" width="16" height="38" rx="3" class="w o9"/><rect x="88" y="158" width="16" height="46" rx="3" class="g"/><rect x="116" y="186" width="16" height="32" rx="3" class="w o9"/><rect x="144" y="128" width="16" height="54" rx="3" class="g"/>
+  <path class="s dash" d="M50 266l46-26 28 12 50-44"/>
+  <rect class="s f" x="196" y="58" width="124" height="244" rx="22"/>
+  <rect class="f2" x="208" y="80" width="100" height="204" rx="12"/>
+  <rect x="218" y="94" width="80" height="48" rx="8" class="g"/>
+  <path class="nv-s" stroke-width="3" d="M228 111h30M228 126h50"/>
+  <path class="s w3" d="M220 198l20-16 16 8 20-26 20 8"/>
+  <circle cx="230" cy="238" r="10" class="w o8"/><circle cx="258" cy="238" r="10" class="w o8"/><circle cx="286" cy="238" r="10" class="g"/>
+  <rect x="228" y="264" width="60" height="7" rx="3.5" class="w o5"/>
+  <path class="s dash" d="M324 140c20 0 18-24 18-24"/>
+  <path class="s dash" d="M324 214h58"/>
+  <g class="fl">
+    <circle cx="386" cy="104" r="44" class="g"/>
+    <circle cx="386" cy="104" r="34" class="nv-s" stroke-width="3"/>
+    <text x="386" y="119" text-anchor="middle" class="nv-t" font-size="40">$</text>
+  </g>
+  <g class="fl2">
+    <circle cx="410" cy="214" r="28" class="s f2"/>
+    <path class="s w3" d="M403 208v-6a7 7 0 0 1 14 0v6"/>
+    <rect x="398" y="207" width="24" height="19" rx="4" class="w"/>
+  </g>
+  <rect x="340" y="282" width="46" height="22" rx="11" class="s w3"/><rect x="370" y="282" width="46" height="22" rx="11" class="s w3"/>
+  <circle cx="440" cy="60" r="6" class="w o6"/><circle cx="60" cy="76" r="8" class="g fl2"/>
+</svg>
+          <span class="sp-badge"><svg class="icon"><use href="#i-network"/></svg>Miracorp</span>
+        </div>
+        <div class="sp-body">
+          <span class="sp-kicker">Giải pháp 04</span>
+          <h3>FinTech &amp; Digital Assets</h3>
+          <p class="sp-lead">Hạ tầng giao dịch tuân thủ cho tài sản số, hiện đại hóa dịch vụ tài chính bằng blockchain.</p>
+          <ul class="sp-feats">
+            <li><i><svg class="icon"><use href="#i-chart"/></svg></i><div><h4>Hạ tầng giao dịch tài sản số</h4><p>Nền tảng giao dịch được thiết kế an toàn, tuân thủ quy định và sẵn sàng mở rộng theo quy mô nghiệp vụ.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-coin"/></svg></i><div><h4>Stablecoin</h4><p>Hạ tầng phát hành và vận hành stablecoin cho thanh toán và chuyển giá trị nhanh chóng trên blockchain.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-token"/></svg></i><div><h4>Cho vay và chứng khoán token hóa</h4><p>Số hóa hoạt động cho vay và chứng khoán dưới dạng token, giúp quy trình minh bạch và tự động hơn.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-cube"/></svg></i><div><h4>Ứng dụng Blockchain trong tài chính</h4><p>Tận dụng blockchain, smart contract và định danh số để tăng tính minh bạch, bảo mật và liên thông.</p></div></li>
+          </ul>
+          <div class="sp-foot">
+            <button type="button" class="btn btn-primary sp-cta" data-topic="FinTech &amp; Digital Assets">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <span class="sp-unit">Đơn vị liên quan: <b>Miracorp</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="sol-panel" role="tabpanel" id="sp-agri" aria-labelledby="st-agri" tabindex="0" style="--pc:#23874A;--pc2:#7CBF3F" hidden>
+        <div class="sp-visual">
+          <span class="sp-chip"><span class="dot"></span>Từ sản xuất đến người tiêu dùng</span>
+          <svg class="ill" viewBox="0 0 480 360" aria-hidden="true">
+  <circle cx="240" cy="180" r="150" class="f0"/>
+  <circle cx="78" cy="76" r="32" class="f"/><circle cx="78" cy="76" r="20" class="g"/>
+  <path class="s o5" d="M36 280h408"/>
+  <path class="s o3" d="M50 300h130M66 316h100"/>
+  <g>
+    <path class="s w3" d="M72 280v-46"/><path class="w o9" d="M72 254c-14 0-22-10-22-24 14 0 22 10 22 24z"/><path class="g" d="M72 246c14 0 24-10 24-24-16 0-24 10-24 24z"/>
+    <path class="s w3" d="M118 280v-64"/><path class="g" d="M118 248c-16 0-26-12-26-28 16 0 26 12 26 28z"/><path class="w o9" d="M118 236c16 0 26-12 26-28-18 0-26 12-26 28z"/>
+    <path class="s w3" d="M162 280v-38"/><path class="w o9" d="M162 262c-12 0-20-8-20-20 12 0 20 8 20 20z"/><path class="g" d="M162 256c12 0 20-8 20-20-14 0-20 8-20 20z"/>
+  </g>
+  <path class="s dash" d="M106 196c26-74 112-84 134-14"/>
+  <path class="s dash" d="M300 182c16-56 40-70 58-70"/>
+  <circle cx="170" cy="134" r="7" class="g"/><circle cx="326" cy="122" r="7" class="g"/>
+  <path class="w" opacity=".14" d="M350 160l-46 40v44l46-30z"/>
+  <path class="s f" d="M206 206l20-20h76l-20 20z"/>
+  <path class="s f" d="M282 206l20-20v74l-20 20z"/>
+  <rect class="s f2" x="206" y="206" width="76" height="74"/>
+  <g class="w"><rect x="218" y="218" width="16" height="16" rx="2"/><rect x="254" y="218" width="16" height="16" rx="2"/><rect x="218" y="252" width="16" height="16" rx="2"/><rect x="241" y="241" width="8" height="8" rx="1"/><rect x="256" y="252" width="12" height="12" rx="2"/></g>
+  <g class="fl">
+    <rect class="s f" x="350" y="104" width="86" height="164" rx="16"/>
+    <rect class="f2" x="360" y="124" width="66" height="116" rx="8"/>
+    <path class="s w3" d="M375 162v-12h12M399 150h12v12M411 186v12h-12M387 198h-12v-12"/>
+    <path class="s o7" d="M372 174h42"/>
+    <rect x="368" y="212" width="50" height="18" rx="9" class="g"/>
+    <path class="nv-s" stroke-width="2.6" d="M385 221l4 4 8-8"/>
+  </g>
+  <circle cx="446" cy="70" r="6" class="w o6"/>
+</svg>
+          <span class="sp-badge"><svg class="icon"><use href="#i-network"/></svg>Tracera</span>
+        </div>
+        <div class="sp-body">
+          <span class="sp-kicker">Giải pháp 05</span>
+          <h3>Smart Agriculture &amp; Traceability</h3>
+          <p class="sp-lead">Theo dõi minh bạch từ sản xuất đến người tiêu dùng bằng blockchain và dữ liệu.</p>
+          <ul class="sp-feats">
+            <li><i><svg class="icon"><use href="#i-qr"/></svg></i><div><h4>Truy xuất nguồn gốc</h4><p>Theo dõi hành trình sản phẩm từ sản xuất đến người tiêu dùng: nông sản, dược phẩm, hàng xuất khẩu.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-truck"/></svg></i><div><h4>Quản lý chuỗi cung ứng</h4><p>Kết nối dữ liệu giữa các khâu trong chuỗi để doanh nghiệp giám sát và kiểm soát chất lượng xuyên suốt.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-sprout"/></svg></i><div><h4>Nông nghiệp thông minh</h4><p>Ứng dụng dữ liệu và công nghệ số vào sản xuất nông nghiệp, hỗ trợ ra quyết định và nâng cao năng suất.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-db"/></svg></i><div><h4>Ứng dụng Blockchain và dữ liệu</h4><p>Lưu trữ thông tin bất biến trên blockchain để dữ liệu truy xuất minh bạch, đáng tin cậy.</p></div></li>
+          </ul>
+          <div class="sp-foot">
+            <button type="button" class="btn btn-primary sp-cta" data-topic="Smart Agriculture &amp; Traceability">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <span class="sp-unit">Đơn vị liên quan: <b>Tracera</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="sol-panel" role="tabpanel" id="sp-esg" aria-labelledby="st-esg" tabindex="0" style="--pc:#0B7F7A;--pc2:#2F86D1" hidden>
+        <div class="sp-visual">
+          <span class="sp-chip"><span class="dot"></span>Net Zero 2050</span>
+          <svg class="ill" viewBox="0 0 480 360" aria-hidden="true">
+  <circle cx="230" cy="180" r="150" class="f0"/>
+  <g class="fl">
+    <path class="s f" d="M64 124a22 22 0 0 1 4-43 30 30 0 0 1 56-8 24 24 0 0 1 20 51z"/>
+    <text x="104" y="110" text-anchor="middle" class="w-t" font-size="18">CO₂</text>
+  </g>
+  <path class="s w3" d="M104 140v28M93 158l11 11 11-11"/>
+  <g><rect x="48" y="258" width="18" height="52" rx="3" class="w o9"/><rect x="74" y="272" width="18" height="38" rx="3" class="w o8"/><rect x="100" y="286" width="18" height="24" rx="3" class="w o7"/><rect x="126" y="300" width="18" height="10" rx="3" class="g"/></g>
+  <path class="s o5" d="M40 310h120"/>
+  <circle cx="230" cy="180" r="96" class="s f2 w3"/>
+  <ellipse cx="230" cy="180" rx="42" ry="96" class="s o7"/>
+  <path class="s o7" d="M134 180h192"/>
+  <path class="s o5" d="M147 132h166M147 228h166"/>
+  <path class="w o3" d="M178 118c18-8 40-4 46 10s-8 24-24 22-34-18-22-32zM236 196c20-6 44 2 46 18s-18 30-34 24-26-36-12-42z"/>
+  <path class="g" d="M288 118c0-32 24-52 62-52 0 36-24 54-62 52z"/>
+  <path class="nv-s" stroke-width="2.6" d="M292 114l40-34"/>
+  <path class="w o9" d="M394 312l5-162h4l5 162z"/>
+  <path class="s o5" d="M330 312h120"/>
+  <g class="spin-slow" style="transform-origin:401px 148px">
+    <path class="w" d="M401 148l-7-60c2-12 12-12 14 0z"/>
+    <path class="w" d="M401 148l-7-60c2-12 12-12 14 0z" transform="rotate(120 401 148)"/>
+    <path class="w" d="M401 148l-7-60c2-12 12-12 14 0z" transform="rotate(240 401 148)"/>
+  </g>
+  <circle cx="401" cy="148" r="8" class="g"/>
+  <circle cx="452" cy="66" r="6" class="w o6"/>
+</svg>
+          <span class="sp-badge"><svg class="icon"><use href="#i-network"/></svg>Hệ sinh thái Miraway Group</span>
+        </div>
+        <div class="sp-body">
+          <span class="sp-kicker">Giải pháp 06</span>
+          <h3>ESG &amp; Green Technology</h3>
+          <p class="sp-lead">Phát hành tín chỉ carbon, báo cáo ESG minh bạch, sẵn sàng cho mục tiêu Net Zero 2050.</p>
+          <ul class="sp-feats">
+            <li><i><svg class="icon"><use href="#i-cloud"/></svg></i><div><h4>Tín chỉ carbon</h4><p>Phát hành và quản lý tín chỉ carbon trên chuỗi, với dữ liệu minh bạch và có thể kiểm chứng.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-report"/></svg></i><div><h4>Báo cáo ESG</h4><p>Thu thập, tổng hợp và công bố báo cáo ESG minh bạch, đáp ứng kỳ vọng của nhà đầu tư và đối tác.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-wind"/></svg></i><div><h4>Công nghệ hỗ trợ Net Zero 2050</h4><p>Nền tảng đo lường và theo dõi phát thải để doanh nghiệp sẵn sàng cho lộ trình Net Zero 2050.</p></div></li>
+            <li><i><svg class="icon"><use href="#i-leaf"/></svg></i><div><h4>Giải pháp chuyển đổi xanh</h4><p>Đồng hành cùng tổ chức, doanh nghiệp trong hành trình chuyển đổi xanh và phát triển bền vững.</p></div></li>
+          </ul>
+          <div class="sp-foot">
+            <button type="button" class="btn btn-primary sp-cta" data-topic="ESG &amp; Green Technology">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <span class="sp-unit">Đơn vị liên quan: <b>Hệ sinh thái Miraway Group</b></span>
+          </div>
+        </div>
+      </article>
     </div>
     <div class="industries reveal">
       <span class="label">Ngành ứng dụng:</span>
@@ -996,14 +1353,22 @@ body.intro-on{overflow:hidden}
       <div class="member reveal">
         <h3 class="member-mark">Miracorp</h3>
         <p>Đơn vị thành viên thuộc hệ sinh thái Miraway Group.</p>
+        <div class="member-tags"><span>InsurTech</span><span>FinTech &amp; Digital Assets</span></div>
       </div>
       <div class="member reveal d1">
         <h3 class="member-mark">Pione RWA</h3>
         <p>Đơn vị thành viên thuộc hệ sinh thái Miraway Group.</p>
+        <div class="member-tags"><span>RWA – Token hóa tài sản</span></div>
       </div>
       <div class="member reveal d2">
         <h3 class="member-mark">Neovior</h3>
         <p>Đơn vị thành viên thuộc hệ sinh thái Miraway Group.</p>
+        <div class="member-tags"><span>AI Healthcare</span></div>
+      </div>
+      <div class="member reveal d3">
+        <h3 class="member-mark">Tracera</h3>
+        <p>Đơn vị thành viên thuộc hệ sinh thái Miraway Group.</p>
+        <div class="member-tags"><span>Truy xuất nguồn gốc</span><span>Smart Agriculture</span></div>
       </div>
     </div>
   </div>
@@ -1065,12 +1430,12 @@ body.intro-on{overflow:hidden}
               <label for="cf-topic">Giải pháp quan tâm</label>
               <select id="cf-topic" name="topic">
                 <option value="">— Chọn giải pháp —</option>
-                <option>Token hóa tài sản (RWA)</option>
-                <option>Giải pháp bảo hiểm số</option>
-                <option>Truy xuất nguồn gốc</option>
-                <option>Ứng dụng AI trong y tế</option>
-                <option>Fintech &amp; tài sản số</option>
-                <option>ESG &amp; tín chỉ carbon</option>
+                <option>RWA – Token hóa tài sản</option>
+                <option>InsurTech – Bảo hiểm số</option>
+                <option>AI Healthcare – Y tế thông minh</option>
+                <option>FinTech &amp; Digital Assets</option>
+                <option>Smart Agriculture &amp; Traceability</option>
+                <option>ESG &amp; Green Technology</option>
                 <option>Chiến lược ứng dụng AI + Dữ liệu lớn</option>
                 <option>Quản lý, phân tích dữ liệu &amp; nền tảng dữ liệu khách hàng</option>
                 <option>Khác</option>
@@ -1265,7 +1630,7 @@ body.intro-on{overflow:hidden}
         <p class="footer-quote">“Sáng tạo công nghệ – Kiến tạo đất nước”</p>
       </div>
       <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng Hà Nội</b>Tòa C18, Ngõ 655 Lạc Long Quân, Tây Hồ, Hà Nội</span></div>
-      <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng TP. Hồ Chí Minh</b>Tòa Terra Royal, 278 Nam Kỳ Khởi Nghĩa, Quận 3</span></div>
+      <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Văn phòng TP. Hồ Chí Minh</b>Tòa Terra Royal, 278 Nam Kỳ Khởi Nghĩa, Quận 3, TP. Hồ Chí Minh</span></div>
       <div class="addr"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><b>Liên hệ</b><a href="tel:0812134343">0812 134 343</a></span></div>
     </div>
     <div class="footer-bottom">
@@ -1391,22 +1756,45 @@ body.intro-on{overflow:hidden}
   window.addEventListener('popstate', () => showView(location.hash, false));
   if (location.hash) showView(location.hash, false);
 
-  // ===== Solution cards → open contact with topic selected =====
-  const topic = document.getElementById('cf-topic');
-  document.querySelectorAll('.sol-card').forEach(card => {
-    const go = () => {
-      document.querySelectorAll('.sol-card').forEach(c => c.classList.toggle('selected', c === card));
-      const name = card.querySelector('h3').textContent.trim();
-      if (topic) [...topic.options].forEach(o => { if (o.text.trim() === name) topic.value = o.value || o.text; });
-      setTimeout(() => {
-        history.pushState(null, '', '#lien-he');
-        showView('#lien-he', true);
-        setTimeout(() => document.getElementById('cf-name')?.focus({ preventScroll: true }), reduce ? 0 : 700);
-      }, reduce ? 0 : 350);
-    };
-    card.addEventListener('click', go);
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  // ===== Solutions: tabs =====
+  const solTabs = [...document.querySelectorAll('.sol-tab')];
+  const selectSol = (tab, focus) => {
+    solTabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      const p = document.getElementById(t.getAttribute('aria-controls'));
+      if (!p) return;
+      const wasHidden = p.hidden;
+      p.hidden = !on;
+      if (on && wasHidden) { p.classList.remove('anim'); void p.offsetWidth; p.classList.add('anim'); }
+    });
+    if (focus) tab.focus({ preventScroll: true });
+    const bar = tab.parentElement;
+    if (bar.scrollWidth > bar.clientWidth) {
+      bar.scrollTo({ left: tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+  };
+  solTabs.forEach((t, i) => {
+    t.addEventListener('click', () => selectSol(t));
+    t.addEventListener('keydown', e => {
+      const n = solTabs.length;
+      const j = { ArrowRight: (i + 1) % n, ArrowLeft: (i - 1 + n) % n, Home: 0, End: n - 1 }[e.key];
+      if (j === undefined) return;
+      e.preventDefault();
+      selectSol(solTabs[j], true);
+    });
   });
+
+  // ===== Solution CTA → open contact with topic selected =====
+  const topic = document.getElementById('cf-topic');
+  document.querySelectorAll('.sp-cta').forEach(btn => btn.addEventListener('click', () => {
+    const name = btn.dataset.topic;
+    if (topic) [...topic.options].forEach(o => { if (o.text.trim() === name) topic.value = o.value; });
+    history.pushState(null, '', '#lien-he');
+    showView('#lien-he', true);
+    setTimeout(() => document.getElementById('cf-name')?.focus({ preventScroll: true }), reduce ? 0 : 700);
+  }));
 
   // ===== Mobile hero gallery autoplay =====
   const gal = document.querySelector('.hero-gallery');
