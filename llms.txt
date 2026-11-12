@@ -33,4 +33,4 @@
 
 ## Khách hàng tiêu biểu
 
-Vietcombank, BIDV, VietinBank, Techcombank, Agribank, MB, VPBank, TPBank, Sacombank, ACB, SHB, VIB, HDBank, LPBank, Viettel, VNPT, Grab, Amway, WinMart, Masan, Mazda, Phúc Long, Vietnam Post, Bộ Y tế, Bệnh viện K, Telemor, Bitel.
+Vietcombank, BIDV, VietinBank, Techcombank, Agribank, MB, VPBank, TPBank, Sacombank, ACB, SHB, VIB, HDBank, LPBank, SeABank, VNPAY, EVN, Viettel, VNPT, Grab, Amway, WinMart, Masan, Heineken Vietnam, Pizza Hut, Syngenta, Ogilvy, LILAMA, Bà Nà Hills, AVG, Mazda, Phúc Long, Vietnam Post, Bộ Y tế, Bệnh viện K, Telemor, Bitel.
