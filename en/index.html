@@ -158,13 +158,28 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .logo .logo-light{display:none}
 .header:not(.scrolled) .logo .logo-light{display:block}
 .header:not(.scrolled) .logo .logo-dark{display:none}
-.header:not(.scrolled) .nav-links a{color:#DCE7F7}
-.header:not(.scrolled) .nav-links a:hover,.header:not(.scrolled) .nav-links a.active{color:#fff;background:rgba(255,255,255,.12)}
+.header:not(.scrolled) .nav-links a:not(.nav-sol){color:#DCE7F7}
+.header:not(.scrolled) .nav-links a:not(.nav-sol):hover,.header:not(.scrolled) .nav-links a:not(.nav-sol).active{color:#fff;background:rgba(255,255,255,.12)}
 .nav-links{display:flex;gap:4px;align-items:center}
-.nav-links a{padding:10px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#33445E;transition:color .2s,background .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--blue);background:rgba(0,82,184,.07)}
+.nav-links a:not(.nav-sol){padding:10px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#33445E;transition:color .2s,background .2s}
+.nav-links a:not(.nav-sol):hover,.nav-links a:not(.nav-sol).active{color:var(--blue);background:rgba(0,82,184,.07)}
 .nav-cta{padding:11px 20px;font-size:14px}
 .nav-actions{display:flex;align-items:center;gap:10px}
+/* Solutions dropdown in the main menu */
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:4px}
+.nav-caret{width:15px;height:15px;stroke-width:2.2;transition:transform .25s}
+.nav-item:hover .nav-caret,.nav-item:focus-within .nav-caret{transform:rotate(180deg)}
+.nav-sub{position:absolute;top:100%;left:50%;width:620px;padding-top:14px;transform:translate(-50%,8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s}
+.nav-item:hover .nav-sub,.nav-item:focus-within .nav-sub{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+.nav-item.sub-off .nav-sub{opacity:0;visibility:hidden;pointer-events:none}
+.nav-sub-in{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:12px;background:#fff;border-radius:22px;box-shadow:var(--shadow),inset 0 0 0 1px var(--line)}
+.nav-sol{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:16px;color:var(--ink);transition:background .2s}
+.nav-sol:hover,.nav-sol:focus-visible{background:var(--soft)}
+.nav-sol-ic{width:46px;height:46px;border-radius:14px;flex-shrink:0;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--pc),var(--pc2));box-shadow:0 8px 18px -10px var(--pc)}
+.nav-sol-ic .icon{width:24px;height:24px}
+.nav-sol b{display:block;font-size:15px;font-weight:800;line-height:1.25}
+.nav-sol small{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:2px}
 .lang-switch{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 13px;border-radius:999px;font-size:13.5px;font-weight:700;letter-spacing:.04em;color:#33445E;box-shadow:inset 0 0 0 1.5px var(--line);transition:color .2s,box-shadow .2s,background .2s}
 .lang-switch .icon{width:17px;height:17px}
 .lang-switch:hover{color:var(--blue);box-shadow:inset 0 0 0 1.5px var(--blue)}
@@ -314,8 +329,6 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .sp-feats p{font-size:14px;color:var(--muted);line-height:1.55}
 .sp-foot{margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap}
 .btn.sp-cta{background:linear-gradient(120deg,var(--pc),var(--pc2));box-shadow:0 12px 26px -12px var(--pc);padding:13px 22px}
-.sp-unit{font-size:14px;color:var(--muted)}
-.sp-unit b{color:var(--ink)}
 .industries{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:center}
 .industries span.label{font-weight:700;margin-right:8px;color:var(--ink)}
 .pill{padding:10px 18px;border-radius:999px;background:#fff;font-size:14.5px;font-weight:600;color:#33445E;box-shadow:inset 0 0 0 1px var(--line);transition:.25s}
@@ -579,15 +592,26 @@ body.intro-on{overflow:hidden}
 @media (max-width:960px){
   .nav-links{position:fixed;top:72px;left:16px;right:16px;flex-direction:column;align-items:stretch;background:#fff;border-radius:20px;padding:14px;box-shadow:var(--shadow);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s}
   .nav-open .nav-links{transform:none;opacity:1;pointer-events:auto}
-  .nav-links a{padding:14px 16px}
+  .nav-links a:not(.nav-sol){padding:14px 16px}
+  .nav-links{max-height:calc(100vh - 88px);max-height:calc(100dvh - 88px);overflow-y:auto;overscroll-behavior:contain}
+  .nav-item>a{display:flex}
+  .nav-caret{display:none}
+  .nav-sub,.nav-item:hover .nav-sub,.nav-item:focus-within .nav-sub,.nav-item.sub-off .nav-sub{position:static;width:auto;padding:2px 0 8px;transform:none;opacity:1;visibility:visible;pointer-events:inherit;transition:none}
+  .nav-sub-in{grid-template-columns:repeat(3,1fr);gap:8px;padding:0 4px;background:none;box-shadow:none;border-radius:0}
+  .nav-sol{flex-direction:column;justify-content:flex-start;text-align:center;gap:8px;padding:12px 4px 11px;background:var(--soft);border-radius:14px}
+  .nav-sol>span:last-child{width:100%}
+  .nav-sol-ic{width:44px;height:44px;border-radius:13px}
+  .nav-sol-ic .icon{width:23px;height:23px}
+  .nav-sol b{font-size:13px}
+  .nav-sol small{font-size:11.5px;margin-top:1px}
   .burger{display:flex}
   .nav-cta{display:none}
   .hero{padding-top:120px}
   .hero-copy{max-width:640px}
   .hero-visual{justify-self:center;max-width:560px;margin-top:12px}
-  .header:not(.scrolled) .nav-links a{color:#33445E}
+  .header:not(.scrolled) .nav-links a:not(.nav-sol){color:#33445E}
   .nav-mobile-only{display:block}
-  .header:not(.scrolled) .nav-links a:hover,.header:not(.scrolled) .nav-links a.active{color:var(--blue);background:rgba(0,82,184,.07)}
+  .header:not(.scrolled) .nav-links a:not(.nav-sol):hover,.header:not(.scrolled) .nav-links a:not(.nav-sol).active{color:var(--blue);background:rgba(0,82,184,.07)}
   .hero-grid,.about-grid,.global-grid,.awards-grid,.bento,.contact-card{grid-template-columns:1fr}
   .contact-aside{padding:36px 32px}
   .contact-note{padding-top:20px}
@@ -700,15 +724,15 @@ body.intro-on{overflow:hidden}
   .stats-inner{row-gap:0}
   .stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.08)}
 
-  /* Solutions: swipeable tab row + stacked panel */
-  .sol-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -16px 14px;padding:4px 16px 10px;scroll-padding:0 16px}
-  .sol-tabs::-webkit-scrollbar{display:none}
-  .sol-tab{flex:none;flex-direction:row;align-items:center;gap:10px;padding:9px 14px 9px 9px;border-radius:14px}
+  /* Solutions: all 6 groups visible at once (3x2 grid) + stacked panel */
+  .sol-tabs{grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+  .sol-tab{align-items:center;text-align:center;gap:9px;padding:14px 6px 13px;border-radius:16px}
   .sol-tab:hover{transform:none}
-  .sol-tab-ic{width:36px;height:36px;border-radius:11px}
-  .sol-tab-ic .icon{width:19px;height:19px}
-  .sol-tab b{font-size:13.5px;white-space:nowrap}
-  .sol-tab small{font-size:11.5px;white-space:nowrap;margin-top:1px}
+  .sol-tab-ic{width:48px;height:48px;border-radius:15px}
+  .sol-tab-ic .icon{width:25px;height:25px}
+  .sol-tab-txt{display:block;width:100%}
+  .sol-tab b{font-size:13.5px}
+  .sol-tab small{font-size:11.5px;margin-top:2px}
   .sol-tab-num{display:none}
   .sol-panel{border-radius:20px}
   .ill{max-width:380px;padding:50px 10px 52px}
@@ -728,7 +752,6 @@ body.intro-on{overflow:hidden}
   .sp-feats p{font-size:13px;line-height:1.5}
   .sp-foot{padding-top:18px;flex-direction:column;align-items:stretch;gap:10px}
   .btn.sp-cta{justify-content:center}
-  .sp-unit{text-align:center;font-size:13px}
   .industries{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:20px -16px 0;padding:2px 16px;gap:8px}
   .industries::-webkit-scrollbar{display:none}
   .industries span.label{flex:none;font-size:13.5px;margin-right:2px}
@@ -863,6 +886,7 @@ body.intro-on{overflow:hidden}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
     <symbol id="i-token" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="M15.4 9.6a6 6 0 1 1-5.8 5.8"/><path d="M9 6.5v5M7 9h4"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
@@ -921,7 +945,17 @@ body.intro-on{overflow:hidden}
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="#top">Home</a>
       <a href="#ve-chung-toi">About us</a>
-      <a href="#giai-phap">Solutions</a>
+      <div class="nav-item">
+        <a href="#giai-phap">Solutions<svg class="icon nav-caret" aria-hidden="true"><use href="#i-chev"/></svg></a>
+        <div class="nav-sub"><div class="nav-sub-in">
+          <a href="#sp-rwa" class="nav-sol" style="--pc:#0052B8;--pc2:#2F86D1"><span class="nav-sol-ic"><svg class="icon"><use href="#i-token"/></svg></span><span><b>RWA</b><small>Asset tokenization</small></span></a>
+          <a href="#sp-insur" class="nav-sol" style="--pc:#6E3AA8;--pc2:#9B6BD6"><span class="nav-sol-ic"><svg class="icon"><use href="#i-shield"/></svg></span><span><b>InsurTech</b><small>Digital insurance</small></span></a>
+          <a href="#sp-health" class="nav-sol" style="--pc:#E8604C;--pc2:#F2A93B"><span class="nav-sol-ic"><svg class="icon"><use href="#i-health"/></svg></span><span><b>AI Healthcare</b><small>Smart healthcare</small></span></a>
+          <a href="#sp-fintech" class="nav-sol" style="--pc:#1D5FC0;--pc2:#6E3AA8"><span class="nav-sol-ic"><svg class="icon"><use href="#i-wallet"/></svg></span><span><b>FinTech</b><small>Digital Assets</small></span></a>
+          <a href="#sp-agri" class="nav-sol" style="--pc:#23874A;--pc2:#7CBF3F"><span class="nav-sol-ic"><svg class="icon"><use href="#i-qr"/></svg></span><span><b>Smart Agriculture</b><small>Traceability</small></span></a>
+          <a href="#sp-esg" class="nav-sol" style="--pc:#0B7F7A;--pc2:#2F86D1"><span class="nav-sol-ic"><svg class="icon"><use href="#i-leaf"/></svg></span><span><b>ESG</b><small>Green Technology</small></span></a>
+        </div></div>
+      </div>
       <a href="#cong-nghe">Technology</a>
       <a href="#khach-hang">Clients</a>
       <a href="#thanh-vien">Ecosystem</a>
@@ -952,7 +986,7 @@ body.intro-on{overflow:hidden}
         <a href="#lien-he" class="btn btn-ghost">Contact us</a>
       </div>
       <div class="hero-mini reveal d4">
-        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>4</strong><br><span>Member companies</span></p></div>
+        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>5</strong><br><span>Member companies</span></p></div>
         <div><i><svg class="icon"><use href="#i-cpu"/></svg></i><p><strong>3</strong><br><span>R&amp;D centers</span></p></div>
         <div><i><svg class="icon"><use href="#i-globe"/></svg></i><p><strong>10+</strong><br><span>Countries served</span></p></div>
       </div>
@@ -1039,7 +1073,6 @@ body.intro-on{overflow:hidden}
           </ul>
           <div class="sp-foot">
             <button type="button" class="btn btn-primary sp-cta" data-topic="RWA – Asset Tokenization">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
-            <span class="sp-unit">Related company: <b>Pione RWA</b></span>
           </div>
         </div>
       </article>
@@ -1083,7 +1116,6 @@ body.intro-on{overflow:hidden}
           </ul>
           <div class="sp-foot">
             <button type="button" class="btn btn-primary sp-cta" data-topic="InsurTech – Digital Insurance">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
-            <span class="sp-unit">Related company: <b>Miracorp</b></span>
           </div>
         </div>
       </article>
@@ -1123,7 +1155,6 @@ body.intro-on{overflow:hidden}
           </ul>
           <div class="sp-foot">
             <button type="button" class="btn btn-primary sp-cta" data-topic="AI Healthcare – Smart Healthcare">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
-            <span class="sp-unit">Related company: <b>Neovior</b></span>
           </div>
         </div>
       </article>
@@ -1172,7 +1203,6 @@ body.intro-on{overflow:hidden}
           </ul>
           <div class="sp-foot">
             <button type="button" class="btn btn-primary sp-cta" data-topic="FinTech &amp; Digital Assets">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
-            <span class="sp-unit">Related company: <b>Miracorp</b></span>
           </div>
         </div>
       </article>
@@ -1221,7 +1251,6 @@ body.intro-on{overflow:hidden}
           </ul>
           <div class="sp-foot">
             <button type="button" class="btn btn-primary sp-cta" data-topic="Smart Agriculture &amp; Traceability">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
-            <span class="sp-unit">Related company: <b>Tracera</b></span>
           </div>
         </div>
       </article>
@@ -1268,7 +1297,6 @@ body.intro-on{overflow:hidden}
           </ul>
           <div class="sp-foot">
             <button type="button" class="btn btn-primary sp-cta" data-topic="ESG &amp; Green Technology">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
-            <span class="sp-unit">Related company: <b>Miraway Group ecosystem</b></span>
           </div>
         </div>
       </article>
@@ -1647,7 +1675,7 @@ body.intro-on{overflow:hidden}
   const header = document.getElementById('header');
   const toTop = document.getElementById('toTop');
   const burger = document.getElementById('burger');
-  const links = document.querySelectorAll('.nav-links a');
+  const links = document.querySelectorAll('.nav-links > a, .nav-item > a');
 
   // Header state + back-to-top
   const onScroll = () => {
@@ -1743,6 +1771,14 @@ body.intro-on{overflow:hidden}
     links.forEach(a => a.classList.toggle('active', inAbout ? a.getAttribute('href') === '#ve-chung-toi' : false));
     const behavior = smooth && !switched && !reduce ? 'smooth' : 'auto';
     if (!target || target === aboutView || id === 'top') window.scrollTo({ top: 0, behavior });
+    else if (target.classList.contains('sol-panel')) {
+      // Solution picked from the menu: open its tab, then scroll by layout position
+      // (ignores the reveal/entry transforms that would throw scrollIntoView off)
+      openSol(target.id);
+      let y = 0;
+      for (let el = target; el; el = el.offsetParent) y += el.offsetTop;
+      window.scrollTo({ top: y - 84, behavior }); // same offset as html scroll-padding-top
+    }
     else target.scrollIntoView({ behavior });
   };
   document.addEventListener('click', e => {
@@ -1755,7 +1791,6 @@ body.intro-on{overflow:hidden}
     showView(hash, true);
   });
   window.addEventListener('popstate', () => showView(location.hash, false));
-  if (location.hash) showView(location.hash, false);
 
   // ===== Solutions: tabs =====
   const solTabs = [...document.querySelectorAll('.sol-tab')];
@@ -1776,6 +1811,20 @@ body.intro-on{overflow:hidden}
       bar.scrollTo({ left: tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
     }
   };
+  function openSol(panelId) {
+    const tab = solTabs.find(t => t.getAttribute('aria-controls') === panelId);
+    if (tab) selectSol(tab);
+  }
+  // Menu → solution: close the desktop dropdown after picking an item
+  document.querySelectorAll('.nav-sol').forEach(a => a.addEventListener('click', () => {
+    const item = a.closest('.nav-item');
+    item.classList.add('sub-off');
+    a.blur();
+    item.addEventListener('mouseleave', () => item.classList.remove('sub-off'), { once: true });
+    setTimeout(() => { if (!item.matches(':hover')) item.classList.remove('sub-off'); }, 400);
+    document.body.classList.remove('nav-open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
   solTabs.forEach((t, i) => {
     t.addEventListener('click', () => selectSol(t));
     t.addEventListener('keydown', e => {
@@ -1786,6 +1835,7 @@ body.intro-on{overflow:hidden}
       selectSol(solTabs[j], true);
     });
   });
+  if (location.hash) showView(location.hash, false);
 
   // ===== Solution CTA → open contact with topic selected =====
   const topic = document.getElementById('cf-topic');
