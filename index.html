@@ -57,7 +57,7 @@
       },
       "image": "https://mirawaygroup.vn/assets/og-image.jpg",
       "slogan": "Sáng tạo công nghệ – Kiến tạo cuộc sống",
-      "description": "Giải pháp tiên phong ứng dụng AI & chuyển đổi số toàn diện. Đối tác lựa chọn trên hành trình trở thành tổ chức dẫn dắt bởi AI & dữ liệu. Hơn 19 năm kinh nghiệm, hơn 1.000 khách hàng trong và ngoài nước.",
+      "description": "Miraway Group – Giải pháp tiên phong ứng dụng AI & chuyển đổi số toàn diện. Đối tác lựa chọn trên hành trình trở thành tổ chức dẫn dắt bởi AI & dữ liệu.",
       "foundingDate": "2007",
       "founder": { "@type": "Person", "name": "Nguyễn Quang Hiển" },
       "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 500 },
@@ -117,6 +117,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,input,select,textarea{font-family:inherit}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -262,6 +263,7 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .mv-card .ic .icon{width:28px;height:28px}
 .mv-card small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:700}
 .mv-card h3{font-size:26px;font-weight:800;margin:6px 0 12px;letter-spacing:-.01em}
+@media (min-width:961px){.mv-card.mission h3{white-space:nowrap;font-size:clamp(20px,1.95vw,26px)}}
 .mv-card p{opacity:.88}
 .mv-card .asterisk{width:240px;right:-70px;top:-70px;opacity:.14}
 .values{margin-top:24px;border-radius:var(--radius);background:var(--soft);padding:32px}
@@ -1045,7 +1047,7 @@ body.intro-on{overflow:hidden}
         <a href="#lien-he" class="btn btn-ghost">Liên hệ tư vấn</a>
       </div>
       <div class="hero-mini reveal d4">
-        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>6</strong><br><span>Đơn vị thành viên</span></p></div>
+        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>5</strong><br><span>Đơn vị thành viên</span></p></div>
         <div><i><svg class="icon"><use href="#i-cpu"/></svg></i><p><strong>3</strong><br><span>Trung tâm R&amp;D</span></p></div>
         <div><i><svg class="icon"><use href="#i-globe"/></svg></i><p><strong>10+</strong><br><span>Quốc gia triển khai</span></p></div>
       </div>
@@ -1380,8 +1382,9 @@ body.intro-on{overflow:hidden}
 <section class="section services" id="dich-vu">
   <div class="container">
     <div class="section-head center">
-      <h2 class="title reveal">Dịch vụ chính<br><span class="grad-text">Miraway Group cung cấp</span></h2>
-      <p class="lead reveal d2">Từ tư vấn, phát triển đến vận hành – đồng hành cùng tổ chức, doanh nghiệp trên toàn bộ vòng đời giải pháp công nghệ.</p>
+      <span class="eyebrow reveal">Ba nhóm dịch vụ cốt lõi</span>
+      <h2 class="title reveal d1">Dịch vụ <span class="grad-text">chính</span></h2>
+      <p class="lead reveal d2">Từ tư vấn, phát triển đến vận hành – Miraway Group đồng hành cùng tổ chức, doanh nghiệp trên toàn bộ vòng đời giải pháp công nghệ.</p>
     </div>
     <div class="svc-grid">
       <article class="svc reveal" style="--pc:#0052B8;--pc2:#2F86D1">
@@ -1567,20 +1570,22 @@ body.intro-on{overflow:hidden}
               <p class="err" id="cf-phone-err" aria-live="polite"></p>
             </div>
             <div class="field full">
-              <label for="cf-topic">Giải pháp quan tâm</label>
+              <label for="cf-topic">Giải pháp / dịch vụ quan tâm</label>
               <select id="cf-topic" name="topic">
-                <option value="">— Chọn giải pháp —</option>
-                <option>RWA – Token hóa tài sản</option>
-                <option>InsurTech – Bảo hiểm số</option>
-                <option>AI Healthcare – Y tế thông minh</option>
-                <option>FinTech &amp; Digital Assets</option>
-                <option>Smart Agriculture &amp; Traceability</option>
-                <option>Enterprise AI – AI cho doanh nghiệp</option>
-                <option>Dịch vụ: Outsourcing phần mềm</option>
-                <option>Dịch vụ: Tư vấn và đào tạo CNTT</option>
-                <option>Dịch vụ: Hạ tầng và an toàn bảo mật</option>
-                <option>Chiến lược ứng dụng AI + Dữ liệu lớn</option>
-                <option>Quản lý, phân tích dữ liệu &amp; nền tảng dữ liệu khách hàng</option>
+                <option value="">— Chọn giải pháp / dịch vụ —</option>
+                <optgroup label="Hệ sinh thái giải pháp">
+                  <option>RWA – Token hóa tài sản</option>
+                  <option>InsurTech – Bảo hiểm số</option>
+                  <option>AI Healthcare – Y tế thông minh</option>
+                  <option>FinTech – Digital Assets</option>
+                  <option>Smart Agriculture – Truy xuất nguồn gốc</option>
+                  <option>Enterprise AI – AI cho doanh nghiệp</option>
+                </optgroup>
+                <optgroup label="Dịch vụ chính">
+                  <option>Outsourcing phần mềm</option>
+                  <option>Tư vấn và đào tạo CNTT</option>
+                  <option>Hạ tầng và an toàn bảo mật</option>
+                </optgroup>
                 <option>Khác</option>
               </select>
             </div>

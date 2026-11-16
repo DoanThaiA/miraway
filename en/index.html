@@ -27,14 +27,14 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="vi_VN">
 <meta property="og:url" content="https://mirawaygroup.vn/en/">
-<meta property="og:title" content="Miraway Group – Creative Technology, Building Life">
+<meta property="og:title" content="Miraway Group – Innovation that Transforms Life">
 <meta property="og:description" content="Miraway Group – Pioneering AI solutions &amp; end-to-end digital transformation. Your partner of choice on the journey to becoming an AI- and data-driven organization.">
 <meta property="og:image" content="https://mirawaygroup.vn/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Miraway Group – Pioneering AI Solutions & End-to-End Digital Transformation">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Miraway Group – Creative Technology, Building Life">
+<meta name="twitter:title" content="Miraway Group – Innovation that Transforms Life">
 <meta name="twitter:description" content="Miraway Group – Pioneering AI solutions &amp; end-to-end digital transformation. Your partner of choice on the journey to becoming an AI- and data-driven organization.">
 <meta name="twitter:image" content="https://mirawaygroup.vn/assets/og-image.jpg">
 
@@ -57,8 +57,8 @@
         "height": 512
       },
       "image": "https://mirawaygroup.vn/assets/og-image.jpg",
-      "slogan": "Creative Technology – Building Life",
-      "description": "Pioneering AI solutions & end-to-end digital transformation. Your partner of choice on the journey to becoming an AI- and data-driven organization. Over 19 years of experience and more than 1,000 clients in Vietnam and abroad.",
+      "slogan": "Innovation that Transforms Life",
+      "description": "Miraway Group – Pioneering AI solutions & end-to-end digital transformation. Your partner of choice on the journey to becoming an AI- and data-driven organization.",
       "foundingDate": "2007",
       "founder": { "@type": "Person", "name": "Nguyễn Quang Hiển" },
       "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 500 },
@@ -118,6 +118,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,input,select,textarea{font-family:inherit}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -263,6 +264,7 @@ h1,h3,h4,.lead{text-wrap:pretty}
 .mv-card .ic .icon{width:28px;height:28px}
 .mv-card small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:700}
 .mv-card h3{font-size:26px;font-weight:800;margin:6px 0 12px;letter-spacing:-.01em}
+@media (min-width:961px){.mv-card.mission h3{white-space:nowrap;font-size:clamp(20px,1.95vw,26px)}}
 .mv-card p{opacity:.88}
 .mv-card .asterisk{width:240px;right:-70px;top:-70px;opacity:.14}
 .values{margin-top:24px;border-radius:var(--radius);background:var(--soft);padding:32px}
@@ -934,7 +936,7 @@ body.intro-on{overflow:hidden}
 <div class="intro" id="intro" role="presentation" data-nosnippet>
   <div class="intro-stage">
     <p class="intro-word" data-text="Miraway Group">Miraway Group</p>
-    <p class="intro-tag">Creative Technology – Building Life</p>
+    <p class="intro-tag">Innovation that Transforms Life</p>
   </div>
   <button type="button" class="intro-skip" id="introSkip">Skip</button>
 </div>
@@ -1046,7 +1048,7 @@ body.intro-on{overflow:hidden}
         <a href="#lien-he" class="btn btn-ghost">Contact us</a>
       </div>
       <div class="hero-mini reveal d4">
-        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>6</strong><br><span>Member companies</span></p></div>
+        <div><i><svg class="icon"><use href="#i-network"/></svg></i><p><strong>5</strong><br><span>Member companies</span></p></div>
         <div><i><svg class="icon"><use href="#i-cpu"/></svg></i><p><strong>3</strong><br><span>R&amp;D centers</span></p></div>
         <div><i><svg class="icon"><use href="#i-globe"/></svg></i><p><strong>10+</strong><br><span>Countries served</span></p></div>
       </div>
@@ -1381,8 +1383,9 @@ body.intro-on{overflow:hidden}
 <section class="section services" id="dich-vu">
   <div class="container">
     <div class="section-head center">
-      <h2 class="title reveal">Core services<br><span class="grad-text">provided by Miraway Group</span></h2>
-      <p class="lead reveal d2">From consulting and development to operations – supporting organizations and enterprises across the full lifecycle of their technology solutions.</p>
+      <span class="eyebrow reveal">Three core service groups</span>
+      <h2 class="title reveal d1">Core <span class="grad-text">services</span></h2>
+      <p class="lead reveal d2">From consulting and development to operations – Miraway Group supports organizations and enterprises across the full lifecycle of their technology solutions.</p>
     </div>
     <div class="svc-grid">
       <article class="svc reveal" style="--pc:#0052B8;--pc2:#2F86D1">
@@ -1570,18 +1573,20 @@ body.intro-on{overflow:hidden}
             <div class="field full">
               <label for="cf-topic">Solution of interest</label>
               <select id="cf-topic" name="topic">
-                <option value="">— Select a solution —</option>
-                <option>RWA – Asset Tokenization</option>
-                <option>InsurTech – Digital Insurance</option>
-                <option>AI Healthcare – Smart Healthcare</option>
-                <option>FinTech &amp; Digital Assets</option>
-                <option>Smart Agriculture &amp; Traceability</option>
-                <option>Enterprise AI – AI for business</option>
-                <option>Service: Software outsourcing</option>
-                <option>Service: IT consulting &amp; training</option>
-                <option>Service: Infrastructure &amp; security</option>
-                <option>AI + Big Data strategy</option>
-                <option>Data management, analytics &amp; customer data platform</option>
+                <option value="">— Select a solution / service —</option>
+                <optgroup label="Solution ecosystem">
+                  <option>RWA – Asset Tokenization</option>
+                  <option>InsurTech – Digital Insurance</option>
+                  <option>AI Healthcare – Smart Healthcare</option>
+                  <option>FinTech – Digital Assets</option>
+                  <option>Smart Agriculture – Traceability</option>
+                  <option>Enterprise AI – AI for Business</option>
+                </optgroup>
+                <optgroup label="Core services">
+                  <option>Software Outsourcing</option>
+                  <option>IT Consulting &amp; Training</option>
+                  <option>Infrastructure &amp; Security</option>
+                </optgroup>
                 <option>Other</option>
               </select>
             </div>
@@ -1628,7 +1633,7 @@ body.intro-on{overflow:hidden}
     <a href="#top" class="back-home"><svg class="icon"><use href="#i-arrow"/></svg>Home</a>
     <span class="eyebrow">About us</span>
     <h1>Miraway Group</h1>
-    <p>Over 19 years of creative technology – building life.</p>
+    <p>Over 19 years of innovation that transforms life.</p>
     <nav class="about-tabs" aria-label="About us sections">
       <a href="#gioi-thieu">Overview</a><a href="#nang-luc">Capabilities</a><a href="#hanh-trinh">History</a><a href="#giai-thuong">Awards</a>
     </nav>
@@ -1657,7 +1662,7 @@ body.intro-on{overflow:hidden}
         <svg class="asterisk" aria-hidden="true"><use href="#asterisk"/></svg>
         <div class="ic"><svg class="icon"><use href="#i-target"/></svg></div>
         <small>Mission</small>
-        <h3>Creative Technology – Building Life</h3>
+        <h3>Innovation that Transforms Life</h3>
         <p>Pioneering digital transformation in Vietnam and the region, delivering practical value to the community through useful, intelligent technology solutions and products.</p>
       </article>
       <article class="mv-card vision reveal d1">
@@ -1771,7 +1776,7 @@ body.intro-on{overflow:hidden}
       <div class="footer-brand">
         <a href="#top" class="footer-logo"><img src="../assets/logo.png" alt="Miraway – Creative Technology" width="118" height="30"></a>
         <p class="footer-company">MIRAWAY GROUP JOINT STOCK COMPANY <span class="nowrap">(MIRAWAY GROUP)</span></p>
-        <p class="footer-quote">“Creative Technology – Building Life”</p>
+        <p class="footer-quote">“Innovation that Transforms Life”</p>
       </div>
       <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Hanoi Office</b>C18 Building, Lane 655 Lac Long Quan, Tay Ho, Hanoi</span></div>
       <div class="addr"><svg class="icon"><use href="#i-pin"/></svg><span><b>Ho Chi Minh City Office</b>Terra Royal Building, 278 Nam Ky Khoi Nghia, District 3, Ho Chi Minh City</span></div>
