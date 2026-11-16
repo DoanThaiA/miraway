@@ -597,7 +597,8 @@ body.intro-on{overflow:hidden}
 .footer .addr{display:flex;gap:12px;align-items:flex-start;line-height:1.55}
 .footer .addr b{display:block;color:#fff;font-weight:700;margin-bottom:4px}
 .footer .addr .icon{width:22px;height:22px;color:var(--sky);margin-top:1px}
-.footer-quote{font-style:italic;color:#9FD3FF;font-weight:600;font-size:16px;margin-top:4px}
+.footer-quote{font-style:italic;color:#9FD3FF;font-weight:600;font-size:clamp(14px,1.3vw,16px);margin-top:4px;white-space:nowrap}
+@media (max-width:960px){.footer-quote{font-size:min(16px,calc((100vw - 48px)/22))}}
 .footer-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}
 
 /* Back to top */
