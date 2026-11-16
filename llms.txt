@@ -1,6 +1,6 @@
 # Miraway Group
 
-> Miraway Group (mirawaygroup.vn) là hãng công nghệ Việt Nam thành lập năm 2007, hơn 19 năm kinh nghiệm, hơn 1.000 khách hàng trong và ngoài nước, hơn 500 nhân sự công nghệ. Slogan: "Sáng tạo công nghệ – Kiến tạo đất nước". Chuyên giải pháp ứng dụng AI, Blockchain, dữ liệu và chuyển đổi số toàn diện.
+> Miraway Group (mirawaygroup.vn) – Giải pháp tiên phong ứng dụng AI & chuyển đổi số toàn diện. Đối tác lựa chọn trên hành trình trở thành tổ chức dẫn dắt bởi AI & dữ liệu. Hãng công nghệ Việt Nam thành lập năm 2007, hơn 19 năm kinh nghiệm, hơn 1.000 khách hàng trong và ngoài nước, hơn 500 nhân sự công nghệ. Slogan: "Sáng tạo công nghệ – Kiến tạo đất nước".
 
 - Website chính thức: https://mirawaygroup.vn/
 - Phiên bản tiếng Anh (English version): https://mirawaygroup.vn/en/
@@ -15,8 +15,14 @@
 - InsurTech – Bảo hiểm số (Miracorp): chuyển đổi số doanh nghiệp bảo hiểm, tự động hóa nghiệp vụ, quản lý hợp đồng – sản phẩm – giao dịch.
 - AI Healthcare – Y tế thông minh (Neovior): ứng dụng AI và Robotics, phát triển sản phẩm chăm sóc sức khỏe.
 - FinTech & Digital Assets (Miracorp): hạ tầng giao dịch tài sản số, stablecoin, cho vay và chứng khoán token hóa.
-- Smart Agriculture & Traceability (Tracera): truy xuất nguồn gốc, quản lý chuỗi cung ứng, nông nghiệp thông minh trên blockchain.
-- ESG & Green Technology: tín chỉ carbon, báo cáo ESG, công nghệ hỗ trợ Net Zero 2050, chuyển đổi xanh.
+- Smart Agriculture & Traceability (Tracera – https://tracera.vn): truy xuất nguồn gốc, quản lý chuỗi cung ứng, nông nghiệp thông minh trên blockchain.
+- Enterprise AI – AI cho doanh nghiệp: AI Agent tự động hóa nghiệp vụ, xử lý tài liệu thông minh (OCR + LLM), trợ lý tri thức nội bộ, phát hiện gian lận và chấm điểm rủi ro.
+
+## Dịch vụ chính
+
+- Outsourcing phần mềm: thiết kế, phát triển phần mềm theo yêu cầu; ứng dụng AI, IoT, Blockchain, Big Data; đội ngũ kỹ sư mở rộng theo dự án; bảo hành, bảo trì, vận hành, nâng cấp.
+- Tư vấn và đào tạo CNTT: khảo sát, tư vấn chiến lược và triển khai giải pháp; chiến lược ứng dụng AI và dữ liệu lớn; tích hợp, liên thông hệ thống; đào tạo nhân sự ứng dụng AI & chuyển đổi số.
+- Hạ tầng và an toàn bảo mật: xây dựng, vận hành hạ tầng và nền tảng dữ liệu; an toàn thông tin, bảo mật dữ liệu; định danh số, xác thực eKYC/AML; hỗ trợ kỹ thuật và vận hành hệ thống.
 
 ## Nền tảng công nghệ lõi
 
@@ -29,7 +35,7 @@
 - Miracorp
 - Pione RWA
 - Neovior
-- Tracera
+- Tracera (https://tracera.vn)
 
 ## Khách hàng tiêu biểu
 

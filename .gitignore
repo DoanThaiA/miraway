@@ -1,0 +1,4 @@
+# Chứa API key — không bao giờ đưa lên git
+miraway-secrets.php
+.env
+server/.env

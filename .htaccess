@@ -1,0 +1,10 @@
+# Hostinger (LiteSpeed/Apache)
+# - /api/contact và /api/health → api/contact.php (API gửi form liên hệ)
+# - Chặn truy cập các thư mục/file nội bộ không dành cho khách
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^api/(contact|health)/?$ api/contact.php [L,QSA]
+RewriteRule ^(server|deploy|\.git|\.github|\.claude)(/|$) - [F,L]
+RewriteRule ^(README\.md|miraway-secrets\.php|\.gitignore)$ - [F,L]
+</IfModule>
