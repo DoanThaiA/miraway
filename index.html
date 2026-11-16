@@ -134,7 +134,7 @@ section{position:relative}
 .section-head.center{text-align:center;margin-inline:auto}
 .section-head.center .eyebrow{justify-content:center}
 h2.title{font-size:clamp(30px,4vw,46px);line-height:1.18;font-weight:800;letter-spacing:-.02em;margin:14px 0 16px;text-wrap:balance}
-h1,h3,h4,.lead{text-wrap:pretty}
+h1,h3,h4,.lead,p,li{text-wrap:pretty}
 .lead{font-size:18px;color:var(--muted)}
 .on-dark{color:#E6EEFA}
 .on-dark .lead{color:#A9BBD6}
@@ -475,7 +475,7 @@ a.sp-badge:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(6,
 .member:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1.5px var(--blue),var(--shadow)}
 .member-logo{height:56px;display:flex;align-items:center;margin-bottom:20px}
 .member-logo img{max-height:46px;width:auto}
-.member .member-mark{margin-bottom:12px;font-size:30px;font-weight:800;letter-spacing:-.01em;line-height:1;background:linear-gradient(90deg,var(--blue),#6E3AA8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.member .member-mark{margin-bottom:12px;font-size:30px;font-weight:800;letter-spacing:-.01em;line-height:1.25;background:linear-gradient(90deg,var(--blue),#6E3AA8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .member h3{font-size:19px;font-weight:800;margin-bottom:8px}
 .member p{color:var(--muted);font-size:15px;flex:1}
 .member-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
@@ -752,6 +752,7 @@ body.intro-on{overflow:hidden}
   h2.title{font-size:27px;margin:8px 0 10px}
   .lead{font-size:15.5px}
   .eyebrow{font-size:12px}
+  @media (max-width:360px){.eyebrow{letter-spacing:.08em;gap:8px}.eyebrow::before{width:20px}}
 
   /* Hero */
   .hero{padding:100px 0 24px}
@@ -1264,7 +1265,7 @@ body.intro-on{overflow:hidden}
             <li><i><svg class="icon"><use href="#i-cube"/></svg></i><div><h4>Ứng dụng Blockchain trong tài chính</h4><p>Tận dụng blockchain, smart contract và định danh số để tăng tính minh bạch, bảo mật và liên thông.</p></div></li>
           </ul>
           <div class="sp-foot">
-            <button type="button" class="btn btn-primary sp-cta" data-topic="FinTech &amp; Digital Assets">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <button type="button" class="btn btn-primary sp-cta" data-topic="FinTech – Digital Assets">Tư vấn giải pháp <svg class="icon"><use href="#i-arrow"/></svg></button>
           </div>
         </div>
       </article>

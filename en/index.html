@@ -135,7 +135,7 @@ section{position:relative}
 .section-head.center{text-align:center;margin-inline:auto}
 .section-head.center .eyebrow{justify-content:center}
 h2.title{font-size:clamp(30px,4vw,46px);line-height:1.18;font-weight:800;letter-spacing:-.02em;margin:14px 0 16px;text-wrap:balance}
-h1,h3,h4,.lead{text-wrap:pretty}
+h1,h3,h4,.lead,p,li{text-wrap:pretty}
 .lead{font-size:18px;color:var(--muted)}
 .on-dark{color:#E6EEFA}
 .on-dark .lead{color:#A9BBD6}
@@ -476,7 +476,7 @@ a.sp-badge:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(6,
 .member:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1.5px var(--blue),var(--shadow)}
 .member-logo{height:56px;display:flex;align-items:center;margin-bottom:20px}
 .member-logo img{max-height:46px;width:auto}
-.member .member-mark{margin-bottom:12px;font-size:30px;font-weight:800;letter-spacing:-.01em;line-height:1;background:linear-gradient(90deg,var(--blue),#6E3AA8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.member .member-mark{margin-bottom:12px;font-size:30px;font-weight:800;letter-spacing:-.01em;line-height:1.25;background:linear-gradient(90deg,var(--blue),#6E3AA8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .member h3{font-size:19px;font-weight:800;margin-bottom:8px}
 .member p{color:var(--muted);font-size:15px;flex:1}
 .member-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
@@ -753,6 +753,7 @@ body.intro-on{overflow:hidden}
   h2.title{font-size:27px;margin:8px 0 10px}
   .lead{font-size:15.5px}
   .eyebrow{font-size:12px}
+  @media (max-width:360px){.eyebrow{letter-spacing:.08em;gap:8px}.eyebrow::before{width:20px}}
 
   /* Hero */
   .hero{padding:100px 0 24px}
@@ -1082,11 +1083,11 @@ body.intro-on{overflow:hidden}
 <section class="section solutions" id="giai-phap">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow reveal">Six strategic solution groups</span>
+      <span class="eyebrow reveal">Six strategic solutions</span>
       <h2 class="title reveal d1">Solutions <span class="grad-text">ecosystem</span></h2>
       <p class="lead reveal d2">Applying AI, Blockchain and data to drive end-to-end digital transformation for organizations and enterprises.</p>
     </div>
-    <div class="sol-tabs reveal" role="tablist" aria-label="Six strategic solution groups">
+    <div class="sol-tabs reveal" role="tablist" aria-label="Six strategic solutions">
       <button type="button" role="tab" class="sol-tab" id="st-rwa" aria-controls="sp-rwa" aria-selected="true" tabindex="0" style="--pc:#0052B8;--pc2:#2F86D1"><span class="sol-tab-ic"><svg class="icon"><use href="#i-token"/></svg></span><span class="sol-tab-txt"><b>RWA</b><small>Asset tokenization</small></span><span class="sol-tab-num" aria-hidden="true">01</span></button>
       <button type="button" role="tab" class="sol-tab" id="st-insur" aria-controls="sp-insur" aria-selected="false" tabindex="-1" style="--pc:#6E3AA8;--pc2:#9B6BD6"><span class="sol-tab-ic"><svg class="icon"><use href="#i-shield"/></svg></span><span class="sol-tab-txt"><b>InsurTech</b><small>Digital insurance</small></span><span class="sol-tab-num" aria-hidden="true">02</span></button>
       <button type="button" role="tab" class="sol-tab" id="st-health" aria-controls="sp-health" aria-selected="false" tabindex="-1" style="--pc:#E8604C;--pc2:#F2A93B"><span class="sol-tab-ic"><svg class="icon"><use href="#i-health"/></svg></span><span class="sol-tab-txt"><b>AI Healthcare</b><small>Smart healthcare</small></span><span class="sol-tab-num" aria-hidden="true">03</span></button>
@@ -1265,7 +1266,7 @@ body.intro-on{overflow:hidden}
             <li><i><svg class="icon"><use href="#i-cube"/></svg></i><div><h4>Blockchain in finance</h4><p>Leverage blockchain, smart contracts and digital identity to boost transparency, security and interoperability.</p></div></li>
           </ul>
           <div class="sp-foot">
-            <button type="button" class="btn btn-primary sp-cta" data-topic="FinTech &amp; Digital Assets">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <button type="button" class="btn btn-primary sp-cta" data-topic="FinTech – Digital Assets">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
           </div>
         </div>
       </article>
@@ -1363,7 +1364,7 @@ body.intro-on{overflow:hidden}
           </ul>
           <p class="sp-note"><b>Industries:</b> banking &amp; finance, insurance, telecoms, retail, public sector.</p>
           <div class="sp-foot">
-            <button type="button" class="btn btn-primary sp-cta" data-topic="Enterprise AI – AI for business">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <button type="button" class="btn btn-primary sp-cta" data-topic="Enterprise AI – AI for Business">Get a consultation <svg class="icon"><use href="#i-arrow"/></svg></button>
           </div>
         </div>
       </article>
@@ -1384,7 +1385,7 @@ body.intro-on{overflow:hidden}
 <section class="section services" id="dich-vu">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow reveal">Three core service groups</span>
+      <span class="eyebrow reveal">Three core services</span>
       <h2 class="title reveal d1">Core <span class="grad-text">services</span></h2>
       <p class="lead reveal d2">From consulting and development to operations – Miraway Group supports organizations and enterprises across the full lifecycle of their technology solutions.</p>
     </div>
