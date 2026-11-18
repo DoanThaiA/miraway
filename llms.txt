@@ -12,9 +12,9 @@
 ## Hệ sinh thái giải pháp
 
 - RWA – Token hóa tài sản (Pione RWA – https://pionerwa.com): token hóa bất động sản, trái phiếu, hàng hóa; sở hữu phân đoạn; hạ tầng giao dịch thanh khoản 24/7.
-- InsurTech – Bảo hiểm số (Miracorp): chuyển đổi số doanh nghiệp bảo hiểm, tự động hóa nghiệp vụ, quản lý hợp đồng – sản phẩm – giao dịch.
+- InsurTech – Bảo hiểm số (Pione RWA): chuyển đổi số doanh nghiệp bảo hiểm, tự động hóa nghiệp vụ, quản lý hợp đồng – sản phẩm – giao dịch.
 - AI Healthcare – Y tế thông minh (Neovior): ứng dụng AI và Robotics, phát triển sản phẩm chăm sóc sức khỏe.
-- FinTech & Digital Assets (Miracorp): hạ tầng giao dịch tài sản số, stablecoin, cho vay và chứng khoán token hóa.
+- FinTech & Digital Assets (Pione RWA): hạ tầng giao dịch tài sản số, stablecoin, cho vay và chứng khoán token hóa.
 - Smart Agriculture & Traceability (Tracera – https://tracera.vn): truy xuất nguồn gốc, quản lý chuỗi cung ứng, nông nghiệp thông minh trên blockchain.
 - AI Enterprise – AI cho doanh nghiệp: AI Agent tự động hóa nghiệp vụ, xử lý tài liệu thông minh (OCR + LLM), trợ lý tri thức nội bộ, phát hiện gian lận và chấm điểm rủi ro.
 
