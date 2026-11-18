@@ -16,7 +16,7 @@
 - AI Healthcare – Y tế thông minh (Neovior): ứng dụng AI và Robotics, phát triển sản phẩm chăm sóc sức khỏe.
 - FinTech & Digital Assets (Miracorp): hạ tầng giao dịch tài sản số, stablecoin, cho vay và chứng khoán token hóa.
 - Smart Agriculture & Traceability (Tracera – https://tracera.vn): truy xuất nguồn gốc, quản lý chuỗi cung ứng, nông nghiệp thông minh trên blockchain.
-- Enterprise AI – AI cho doanh nghiệp: AI Agent tự động hóa nghiệp vụ, xử lý tài liệu thông minh (OCR + LLM), trợ lý tri thức nội bộ, phát hiện gian lận và chấm điểm rủi ro.
+- AI Enterprise – AI cho doanh nghiệp: AI Agent tự động hóa nghiệp vụ, xử lý tài liệu thông minh (OCR + LLM), trợ lý tri thức nội bộ, phát hiện gian lận và chấm điểm rủi ro.
 
 ## Dịch vụ chính
 
